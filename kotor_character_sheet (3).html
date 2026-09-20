@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KotOR II Style Character Sheet</title>
+    <style>
+        :root {
+            --bg-metallic: #7f6a4e; 
+            --bg-screen: #000000;
+            --panel-bg: rgba(6, 18, 16, 0.85); 
+            --border-neon: #00ffcc; 
+            --text-neon: #00ffcc;
+            --text-muted: #4ab3a2;
+            --text-bright: #ffffff;
+            --border-dim: #1e5a52;
+            --alignment-glow: rgba(0, 255, 204, 0.1);
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-metallic);
+            background-image: linear-gradient(90deg, #614f37 0%, #8c7659 50%, #614f37 100%);
+            color: var(--text-muted);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .console-frame {
+            background-color: var(--bg-screen);
+            border: 4px solid #3d3121;
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            max-width: 950px;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9), 0 15px 35px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid var(--border-dim);
+            border-radius: 8px;
+            padding: 8px 20px;
+            margin-bottom: 25px;
+            background-color: rgba(3, 10, 9, 0.9);
+        }
+
+        .menu-title {
+            color: var(--text-bright);
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px var(--text-neon);
+        }
+
+        .character-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .char-selector {
+            background: #000;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            padding: 5px;
+            font-family: inherit;
+        }
+
+        .control-btn {
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-muted);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: inherit;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .control-btn:hover {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profile-panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: inset 0 0 15px var(--alignment-glow);
+            transition: box-shadow 0.4s ease;
+            box-sizing: border-box;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 160px;
+            height: 220px;
+            margin: 15px 0;
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--border-dim);
+            background: linear-gradient(180deg, rgba(0,255,204,0.05) 0%, rgba(0,0,0,0.4) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--border-dim);
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .avatar-placeholder::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 255, 204, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .saber-form-container {
+            width: 100%;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .saber-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .saber-icon {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            display: none;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .saber-bonus-box {
+            width: 100%;
+            min-height: 45px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-dim);
+            border-radius: 4px;
+            padding: 8px;
+            box-sizing: border-box;
+            color: var(--text-neon);
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .alignment-container {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .alignment-label {
+            font-size: 0.8rem;
+            color: var(--text-bright);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+
+        .alignment-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 12px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #ff3333 0%, #334444 50%, #00ccff 100%);
+            outline: none;
+            border: 1px solid var(--border-dim);
+        }
+
+        .alignment-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 8px;
+            height: 20px;
+            background: var(--text-bright);
+            border: 1px solid var(--border-neon);
+            cursor: pointer;
+            box-shadow: 0 0 8px var(--border-neon);
+        }
+
+        .stats-panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 440px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .stats-table th {
+            text-align: left;
+            padding: 8px 10px;
+            font-size: 0.75rem;
+            color: var(--text-bright);
+            border-bottom: 2px solid var(--border-dim);
+            text-transform: uppercase;
+        }
+
+        .stats-table td {
+            padding: 9px 10px;
+            border-bottom: 1px solid rgba(30, 90, 82, 0.3);
+            vertical-align: middle;
+        }
+
+        .stat-name {
+            color: var(--text-bright);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .stat-input {
+            background: transparent;
+            border: none;
+            color: var(--text-bright);
+            font-family: inherit;
+            font-size: 1rem;
+            width: 45px;
+            text-align: center;
+            border-bottom: 1px dashed var(--border-dim);
+        }
+
+        .stat-input:focus {
+            outline: none;
+            border-bottom: 1px solid var(--border-neon);
+            color: var(--text-neon);
+        }
+
+        .stat-mod {
+            color: var(--text-neon);
+            font-weight: bold;
+            text-align: right;
+            width: 50px;
+        }
+
+        .compound-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .compound-row input {
+            width: 35px;
+        }
+
+        .console-row {
+            margin-top: 25px;
+        }
+
+        .console-box {
+            width: 100%;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .console-box textarea {
+            width: 100%;
+            height: 120px;
+            background: transparent;
+            border: none;
+            color: var(--text-bright);
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+            outline: none;
+        }
+
+        .character-footer-details {
+            margin-top: 25px;
+            border-top: 2px solid var(--border-dim);
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .footer-field {
+            display: flex;
+            flex-direction: column;
+            min-width: 180px;
+        }
+
+        .footer-field label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+        }
+
+        .footer-field input {
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            border-radius: 4px;
+            color: var(--text-bright);
+            padding: 6px 10px;
+            font-family: inherit;
+        }
+
+        .footer-field input:focus {
+            outline: none;
+            border-color: var(--border-neon);
+            box-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .close-btn {
+            background-color: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-muted);
+            font-family: inherit;
+            text-transform: uppercase;
+            padding: 6px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+            background-color: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
+        }
+
+        .autosave-msg {
+            font-size: 0.75rem;
+            color: var(--text-neon);
+            margin-right: auto;
+            align-self: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .autosave-msg.visible {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="console-frame">
+    <div class="menu-header">
+        <div class="menu-title">Character Menu</div>
+        <div class="character-controls">
+            <select id="charDropdown" class="char-selector"></select>
+            <button class="control-btn" id="newCharBtn">New</button>
+            <button class="control-btn" id="deleteCharBtn" style="color:#ff5555;">Purge</button>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        
+        <div class="profile-panel" id="profilePanel">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-bright); width: 100%;">Biometric Projection</div>
+            
+            <div class="avatar-container">
+                <div class="avatar-placeholder" id="avatarDisplay">
+                    <span id="noSignalTxt">[ NO_SIGNAL ]</span>
+                </div>
+            </div>
+            
+            <button class="control-btn" onclick="document.getElementById('portraitInput').click()" style="margin-bottom: 15px;">Load Datapad Profile</button>
+            <input type="file" id="portraitInput" accept="image/*" style="display: none;">
+
+            <div class="saber-form-container">
+                <div class="saber-header">
+                    <div class="saber-icon" id="saberIcon"></div>
+                    <div style="display:flex; flex-direction:column; flex:1;">
+                        <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted);">Saber Technique</label>
+                        <select id="saberForm" class="char-selector save-field" style="width:100%; margin-top:3px;">
+                            <option value="">None Selected</option>
+                            <option value="01">Form I: Shii-Cho</option>
+                            <option value="02">Form II: Makashi</option>
+                            <option value="03">Form III: Soresu</option>
+                            <option value="04">Form IV: Ataru</option>
+                            <option value="05">Form V: Shien / Djem So</option>
+                            <option value="06">Form VI: Niman</option>
+                            <option value="07">Form VII: Juyo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="saber-bonus-box" id="saberBonus">No active technique modifiers.</div>
+            </div>
+
+            <div class="alignment-container">
+                <div class="alignment-label">
+                    <span style="color: #ff5555; font-weight: bold;">DARK</span>
+                    <span style="color: var(--text-bright)">ALIGNMENT</span>
+                    <span style="color: #55ccff; font-weight: bold;">LIGHT</span>
+                </div>
+                <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field">
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th style="width: 55%;">Core Parameters</th>
+                        <th style="text-align: center; width: 25%;">Value</th>
+                        <th style="text-align: right; width: 20%;">Mod</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stat-name">Strength</td>
+                        <td style="text-align: center;"><input type="number" id="str" class="stat-input save-field core-stat" value="10"></td>
+                        <td class="stat-mod" id="str-mod">+0</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name">Dexterity</td>
+                        <td style="text-align: center;"><input type="number" id="dex" class="stat-input save-field core-stat" value="10"></td>
+                        <td class="stat-mod" id="dex-mod">+0</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name">Constitution</td>
+                        <td style="text-align: center;"><input type="number" id="con" class="stat-input save-field core-stat" value="10"></td>
+                        <td class="stat-mod" id="con-mod">+0</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name">Intelligence</td>
+                        <td style="text-align: center;"><input type="number" id="int" class="stat-input save-field core-stat" value="10"></td>
+                        <td class="stat-mod" id="int-mod">+0</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name">Wisdom</td>
+                        <td style="text-align: center;"><input type="number" id="wis" class="stat-input save-field core-stat" value="10"></td>
+                        <td class="stat-mod" id="wis-mod">+0</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name">Charisma</td>
+                        <td style="text-align: center;"><input type="number" id="cha" class="stat-input save-field core-stat" value="10"></td>
+                        <td class="stat-mod" id="cha-mod">+0</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name" style="color: var(--text-muted);">Vitality</td>
+                        <td style="text-align: center;">
+                            <div class="compound-row">
+                                <input type="number" id="vit-cur" class="stat-input save-field" value="20">
+                                <span>/</span>
+                                <input type="number" id="vit-max" class="stat-input save-field" value="20">
+                            </div>
+                        </td>
+                        <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">VIT</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name" style="color: var(--text-muted);">Force Points</td>
+                        <td style="text-align: center;">
+                            <div class="compound-row">
+                                <input type="number" id="force-cur" class="stat-input save-field" value="0">
+                                <span>/</span>
+                                <input type="number" id="force-max" class="stat-input save-field" value="0">
+                            </div>
+                        </td>
+                        <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">FP</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name" style="color: var(--text-muted);">Defense Rating</td>
+                        <td style="text-align: center;"><input type="number" id="defense" class="stat-input save-field" value="10"></td>
+                        <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">DEF</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="console-row">
+        <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats & Force Powers Console Log</label>
+        <div class="console-box">
+            <textarea id="featsLog" class="save-field" placeholder="[Console Active] Record acquired Feats and Force Powers matrix parameters here..."></textarea>
+        </div>
+    </div>
+
+    <div class="character-footer-details">
+        <div class="footer-field">
+            <label for="char-name">Identity Designation</label>
+            <input type="text" id="char-name" class="save-field" placeholder="Unnamed Retainer">
+        </div>
+        <div class="footer-field">
+            <label for="char-class">Class Orientation</label>
+            <input type="text" id="char-class" class="save-field" placeholder="Jedi Initiate">
+        </div>
+        <div class="footer-field">
+            <label for="char-exp">Experience Accumulation</label>
+            <div class="compound-row" style="margin-top:4px;">
+                <input type="number" id="exp-cur" class="save-field" style="background: transparent; border: 1px solid var(--border-dim); border-radius: 4px; color: var(--text-bright); padding: 6px 10px; width:70px; font-family:inherit;" value="0">
+                <span style="color: var(--border-dim); padding: 0 4px;">/</span>
+                <input type="number" id="exp-need" class="save-field" style="background: transparent; border: 1px solid var(--border-dim); border-radius: 4px; color: var(--text-bright); padding: 6px 10px; width:70px; font-family:inherit;" value="1000">
+            </div>
+        </div>
+    </div>
+
+    <div class="action-row">
+        <div id="save-indicator" class="autosave-msg">DATA_STREAM_SYNCHRONIZED</div>
+        <button class="close-btn" onclick="window.close()">Close</button>
+    </div>
+</div>
+
+<script>
+    const LIST_STORAGE_KEY = 'kotor2_character_list';
+    const ACTIVE_ID_KEY = 'kotor2_active_char_id';
+    
+    const fields = document.querySelectorAll('.save-field');
+    const saveIndicator = document.getElementById('save-indicator');
+    const profilePanel = document.getElementById('profilePanel');
+    const alignmentSlider = document.getElementById('alignment');
+    const saberFormDropdown = document.getElementById('saberForm');
+    const saberBonusBox = document.getElementById('saberBonus');
+    const saberIconDiv = document.getElementById('saberIcon');
+    const portraitInput = document.getElementById('portraitInput');
+    const avatarDisplay = document.getElementById('avatarDisplay');
+    const noSignalTxt = document.getElementById('noSignalTxt');
+    const charDropdown = document.getElementById('charDropdown');
+    
+    let characters = [];
+    let activeCharId = '';
+    let saveTimeout;
+
+    const formDescriptions = {
+        "": "No active technique modifiers.",
+        "01": "Form I: Shii-Cho - Enhanced multi-target battlefield positioning and fallback defense sweeps.",
+        "02": "Form II: Makashi - Maximized single-target precision blade dueling parameters.",
+        "03": "Form III: Soresu - On max ranged defense roll (critical), double reflected damage.",
+        "04": "Form IV: Ataru - Dynamic kinetic strikes and aerial velocity vectors optimized.",
+        "05": "Form V: Shien / Djem So - Balanced dynamic parry returns and heavy baseline kinetic press.",
+        "06": "Form VI: Niman - Synergistic integration of basic Form vectors with telekinetic Force manipulation.",
+        "07": "Form VII: Juyo - Controlled internal aggression metrics mapping unpredictable strike patterns."
+    };
+
+    function calculateModifier(val) {
+        const numericVal = parseInt(val, 10) || 10;
+        const mod = Math.floor((numericVal - 10) / 2);
+        return mod >= 0 ? `+${mod}` : `${mod}`;
+    }
+
+    function updateAllModifiers() {
+        document.querySelectorAll('.core-stat').forEach(statField => {
+            const modId = `${statField.id}-mod`;
+            const modTarget = document.getElementById(modId);
+            if (modTarget) {
+                modTarget.textContent = calculateModifier(statField.value);
+            }
+        });
+    }
+
+    function updateAlignmentGlow() {
+        const value = parseInt(alignmentSlider.value, 10);
+        if (value > 55) {
+            const intensity = (value - 50) / 50; 
+            profilePanel.style.setProperty('--alignment-glow', `rgba(0, 150, 255, ${0.1 + intensity * 0.25})`);
+        } else if (value < 45) {
+            const intensity = (50 - value) / 50;
+            profilePanel.style.setProperty('--alignment-glow', `rgba(255, 50, 50, ${0.1 + intensity * 0.25})`);
+        } else {
+            profilePanel.style.setProperty('--alignment-glow', 'rgba(0, 255, 204, 0.1)');
+        }
+    }
+
+    function updateSaberFormTelemetry() {
+        const selectedForm = saberFormDropdown.value;
+        saberBonusBox.textContent = formDescriptions[selectedForm] || "No active technique modifiers.";
+        
+        if (selectedForm) {
+            saberIconDiv.style.backgroundImage = `url('./PNG/ifrm_saber${selectedForm}.png')`;
+            saberIconDiv.style.display = 'block';
+        } else {
+            saberIconDiv.style.backgroundImage = 'none';
+            saberIconDiv.style.display = 'none';
+        }
+    }
+
+    function initRegistry() {
+        const storedList = localStorage.getItem(LIST_STORAGE_KEY);
+        const storedActiveId = localStorage.getItem(ACTIVE_ID_KEY);
+        
+        if (storedList) {
+            characters = JSON.parse(storedList);
+        }
+        
+        if (characters.length === 0) {
+            createNewCharacter("Hala Diskil");
+        } else {
+            activeCharId = storedActiveId || characters[0].id;
+            // Fallback if ID doesn't exist anymore
+            if (!characters.some(c => c.id === activeCharId)) {
+                activeCharId = characters[0].id;
+            }
+            buildDropdown();
+            loadActiveCharacter();
+        }
+    }
+
+    function createNewCharacter(defaultName = "New Retainer") {
+        const newId = 'char_' + Date.now();
+        const newChar = {
+            id: newId,
+            avatar: "",
+            data: {
+                "char-name": defaultName,
+                "char-class": "Jedi Initiate",
+                "alignment": "50",
+                "saberForm": "",
+                "str": "10", "dex": "10", "con": "10", "int": "10", "wis": "10", "cha": "10",
+                "vit-cur": "20", "vit-max": "20", "force-cur": "0", "force-max": "0", "defense": "10",
+                "exp-cur": "0", "exp-need": "1000", "featsLog": ""
+            }
+        };
+        
+        characters.push(newChar);
+        activeCharId = newId;
+        saveRegistryToStorage();
+        buildDropdown();
+        loadActiveCharacter();
+    }
+
+    function buildDropdown() {
+        charDropdown.innerHTML = '';
+        characters.forEach(char => {
+            const opt = document.createElement('option');
+            opt.value = char.id;
+            opt.textContent = char.data["char-name"] || "Unnamed Retainer";
+            if (char.id === activeCharId) opt.selected = true;
+            charDropdown.appendChild(opt);
+        });
+    }
+
+    function loadActiveCharacter() {
+        const current = characters.find(c => c.id === activeCharId);
+        if (!current) return;
+        
+        fields.forEach(field => {
+            if (current.data[field.id] !== undefined) {
+                field.value = current.data[field.id];
+            }
+        });
+        
+        if (current.avatar) {
+            avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
+            noSignalTxt.style.display = 'none';
+        } else {
+            avatarDisplay.style.backgroundImage = 'none';
+            noSignalTxt.style.display = 'block';
+        }
+        
+        updateAllModifiers();
+        updateAlignmentGlow();
+        updateSaberFormTelemetry();
+    }
+
+    function saveActiveCharacterData() {
+        const current = characters.find(c => c.id === activeCharId);
+        if (!current) return;
+        
+        fields.forEach(field => {
+            current.data[field.id] = field.value;
+        });
+        
+        // Sync name live to dropdown
+        const dropdownOption = charDropdown.querySelector(`option[value="${activeCharId}"]`);
+        if (dropdownOption) {
+            dropdownOption.textContent = current.data["char-name"] || "Unnamed Retainer";
+        }
+        
+        saveRegistryToStorage();
+        
+        updateAllModifiers();
+        updateAlignmentGlow();
+        
+        saveIndicator.classList.add('visible');
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(() => {
+            saveIndicator.classList.remove('visible');
+        }, 1500);
+    }
+
+    function saveRegistryToStorage() {
+        localStorage.setItem(LIST_STORAGE_KEY, JSON.stringify(characters));
+        localStorage.setItem(ACTIVE_ID_KEY, activeCharId);
+    }
+
+    // Event Bindings
+    fields.forEach(field => {
+        field.addEventListener('input', saveActiveCharacterData);
+    });
+    
+    saberFormDropdown.addEventListener('change', updateSaberFormTelemetry);
+    
+    charDropdown.addEventListener('change', (e) => {
+        activeCharId = e.target.value;
+        localStorage.setItem(ACTIVE_ID_KEY, activeCharId);
+        loadActiveCharacter();
+    });
+    
+    document.getElementById('newCharBtn').addEventListener('click', () => {
+        createNewCharacter();
+    });
+    
+    document.getElementById('deleteCharBtn').addEventListener('click', () => {
+        if (characters.length <= 1) {
+            alert("Terminal configuration failure: Registry requires a minimum of one remaining character datapad.");
+            return;
+        }
+        if (confirm("Execute purge sequence? This character data record will be permanently deleted from local memory.")) {
+            characters = characters.filter(c => c.id !== activeCharId);
+            activeCharId = characters[0].id;
+            saveRegistryToStorage();
+            buildDropdown();
+            loadActiveCharacter();
+        }
+    });
+
+    portraitInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const current = characters.find(c => c.id === activeCharId);
+            if (current) {
+                current.avatar = event.target.result;
+                avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
+                noSignalTxt.style.display = 'none';
+                saveRegistryToStorage();
+            }
+        };
+        reader.readAsDataURL(file);
+    });
+
+    window.addEventListener('DOMContentLoaded', initRegistry);
+</script>
+
+</body>
+</html>
