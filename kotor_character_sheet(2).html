@@ -96,7 +96,7 @@
 
         .main-layout {
             display: grid;
-            grid-template-columns: 1.15fr 1.15fr;
+            grid-template-columns: 1.1fr 1.2fr;
             gap: 25px;
         }
 
@@ -114,37 +114,32 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            min-height: 520px;
+            min-height: 480px;
             box-shadow: inset 0 0 15px var(--alignment-glow);
             transition: box-shadow 0.4s ease;
             box-sizing: border-box;
         }
 
-        .biometric-row {
+        .biometric-container {
             display: flex;
-            align-items: stretch;
+            align-items: center;
             justify-content: center;
             gap: 25px;
             width: 100%;
         }
 
-        .alignment-column-stack {
+        .alignment-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 240px;
             justify-content: space-between;
-            width: 70px;
-            flex-shrink: 0;
-            box-sizing: border-box;
         }
 
-        .alignment-slider-trackbox {
+        .alignment-slider-container {
             position: relative;
             width: 24px;
             height: 180px;
-            margin: 10px 0;
-            display: flex;
-            justify-content: center;
         }
 
         .alignment-slider {
@@ -156,11 +151,11 @@
             background: linear-gradient(90deg, #ff3333 0%, #334444 50%, #00ccff 100%);
             outline: none;
             border: 1px solid var(--border-dim);
+            transform: rotate(-90deg);
+            transform-origin: 90px 90px;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-90deg);
-            transform-origin: center;
+            top: 0;
+            left: -78px;
             margin: 0;
             cursor: pointer;
         }
@@ -175,26 +170,23 @@
             box-shadow: 0 0 8px var(--border-neon);
         }
 
-        .alignment-text-label {
-            font-size: 0.75rem;
+        .alignment-label-vert {
+            font-size: 0.8rem;
             font-weight: bold;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-align: center;
             width: 100%;
-            display: block;
         }
 
-        .avatar-column-stack {
+        .avatar-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            flex-grow: 1;
-            max-width: 180px;
+            gap: 12px;
         }
 
         .avatar-placeholder {
-            width: 100%;
+            width: 160px;
             height: 220px;
             border: 2px solid var(--border-dim);
             background: linear-gradient(180deg, rgba(0,255,204,0.05) 0%, rgba(0,0,0,0.4) 100%);
@@ -224,18 +216,14 @@
         }
 
         .file-input-label {
-            font-size: 0.7rem;
-            padding: 5px 10px;
+            font-size: 0.75rem;
+            padding: 5px 12px;
             border: 1px solid var(--border-dim);
             color: var(--text-muted);
             cursor: pointer;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background: rgba(0,0,0,0.3);
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .file-input-label:hover {
@@ -251,21 +239,21 @@
             width: 100%;
         }
 
-        .saber-dropdown-row {
+        .saber-control-row {
             display: flex;
-            align-items: flex-end;
-            gap: 12px;
+            gap: 15px;
+            align-items: center;
             width: 100%;
         }
 
-        .dropdown-field-block {
+        .form-select-container {
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 5px;
-            flex-grow: 1;
         }
 
-        .dropdown-field-block label {
+        .form-select-container label {
             font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--text-bright);
@@ -282,33 +270,36 @@
             border-radius: 4px;
         }
 
-        .saber-icon-frame {
-            width: 55px;
-            height: 55px;
+        .saber-icon-box {
+            width: 48px;
+            height: 48px;
             border: 1px solid var(--border-dim);
-            background-color: rgba(0,0,0,0.4);
-            border-radius: 4px;
+            background: rgba(0,0,0,0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            border-radius: 4px;
             overflow: hidden;
-            box-sizing: border-box;
+            flex-shrink: 0;
+            margin-top: 20px;
         }
 
-        .saber-icon-img {
+        .saber-icon {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
-        .saber-icon-fallback {
-            font-size: 0.55rem;
+        .saber-icon[src=""], .saber-icon:not([src]) {
+            display: none;
+        }
+
+        .saber-fallback-text {
+            font-size: 0.6rem;
             color: var(--border-dim);
             text-align: center;
             padding: 2px;
-            word-break: break-all;
-            line-height: 1rem;
+            line-height: 1.1;
         }
 
         .bonus-box {
@@ -316,11 +307,13 @@
             background: rgba(0,0,0,0.3);
             border-radius: 4px;
             padding: 12px;
-            min-height: 60px;
-            font-size: 0.8rem;
+            min-height: 50px;
+            font-size: 0.85rem;
             color: var(--text-neon);
             box-sizing: border-box;
-            line-height: 1.2rem;
+            display: flex;
+            align-items: center;
+            line-height: 1.4;
         }
 
         .stats-panel {
@@ -329,7 +322,7 @@
             border-radius: 6px;
             padding: 20px;
             box-sizing: border-box;
-            min-height: 520px;
+            min-height: 480px;
         }
 
         .stats-table {
@@ -521,18 +514,18 @@
     </div>
 
     <div class="main-layout">
+        
         <div class="profile-panel" id="profilePanel">
-            
-            <div class="biometric-row">
-                <div class="alignment-column-stack">
-                    <span class="alignment-text-label" style="color: #55ccff;">LIGHT</span>
-                    <div class="alignment-slider-trackbox">
+            <div class="biometric-container">
+                <div class="alignment-wrapper">
+                    <span class="alignment-label-vert" style="color: #55ccff;">LIGHT</span>
+                    <div class="alignment-slider-container">
                         <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field">
                     </div>
-                    <span class="alignment-text-label" style="color: #ff5555;">DARK</span>
+                    <span class="alignment-label-vert" style="color: #ff5555;">DARK</span>
                 </div>
 
-                <div class="avatar-column-stack">
+                <div class="avatar-box">
                     <div class="avatar-placeholder" id="avatarDisplay">
                         <span id="noSignalText" style="font-size: 0.8rem; letter-spacing: 1px;">[ NO_SIGNAL ]</span>
                     </div>
@@ -542,8 +535,8 @@
             </div>
 
             <div class="saber-management-container">
-                <div class="saber-dropdown-row">
-                    <div class="dropdown-field-block">
+                <div class="saber-control-row">
+                    <div class="form-select-container">
                         <label for="saberForm">Active Lightsaber Form</label>
                         <select id="saberForm" class="saber-select save-field">
                             <option value="">None Selected</option>
@@ -556,7 +549,10 @@
                             <option value="07">Form VII: Juyo</option>
                         </select>
                     </div>
-                    <div class="saber-icon-frame" id="saberIconZone"></div>
+                    <div class="saber-icon-box" id="saberIconBox">
+                        <img id="saberIcon" class="saber-icon" alt="">
+                        <div id="saberFallback" class="saber-fallback-text"></div>
+                    </div>
                 </div>
 
                 <div class="bonus-box" id="bonusDisplay">Form benefits offline.</div>
@@ -689,11 +685,12 @@
     const profilePanel = document.getElementById('profilePanel');
     const alignmentSlider = document.getElementById('alignment');
     const saberSelect = document.getElementById('saberForm');
+    const saberIcon = document.getElementById('saberIcon');
+    const saberFallback = document.getElementById('saberFallback');
     const bonusDisplay = document.getElementById('bonusDisplay');
     const charSelector = document.getElementById('charSelector');
     const avatarUpload = document.getElementById('avatarUpload');
     const avatarDisplay = document.getElementById('avatarDisplay');
-    const saberIconZone = document.getElementById('saberIconZone');
 
     function calculateModifier(val) {
         const numericVal = parseInt(val, 10) || 10;
@@ -722,30 +719,20 @@
         }
     }
 
-    function updateSaberFormAssets() {
-        const selection = saberSelect.value;
-        bonusDisplay.textContent = formRules[selection] || formRules[""];
+    function updateSaberFormElements() {
+        const val = saberSelect.value;
+        bonusDisplay.textContent = formRules[val] || formRules[""];
         
-        if (!selection) {
-            saberIconZone.innerHTML = '<div class="saber-icon-fallback">[ OFF ]</div>';
-            return;
+        if (val) {
+            const fileName = `ifrm_saber${val}.png`;
+            saberIcon.src = `./PNG/${fileName}`;
+            saberIcon.style.display = 'block';
+            saberFallback.textContent = fileName;
+        } else {
+            saberIcon.removeAttribute('src');
+            saberIcon.style.display = 'none';
+            saberFallback.textContent = '[ NO_FORM ]';
         }
-        
-        const fileName = `ifrm_saber${selection}.png`;
-        const relativePath = `./PNG/${fileName}`;
-        
-        saberIconZone.innerHTML = '';
-        
-        const img = document.createElement('img');
-        img.className = 'saber-icon-img';
-        img.src = relativePath;
-        img.alt = fileName;
-        
-        img.onerror = function() {
-            saberIconZone.innerHTML = `<div class="saber-icon-fallback">${fileName}</div>`;
-        };
-        
-        saberIconZone.appendChild(img);
     }
 
     function initRegistry() {
@@ -770,7 +757,7 @@
             };
             currentId = defaultId;
         } else {
-            currentId = characters[storedActive] ? storedActive : Object.keys(characters);
+            currentId = characters[storedActive] ? storedActive : Object.keys(characters)[0];
         }
 
         localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
@@ -813,7 +800,7 @@
 
         updateAllModifiers();
         updateAlignmentGlow();
-        updateSaberFormAssets();
+        updateSaberFormElements();
     }
 
     function saveCurrentData() {
@@ -833,7 +820,7 @@
 
         updateAllModifiers();
         updateAlignmentGlow();
-        updateSaberFormAssets();
+        updateSaberFormElements();
 
         saveIndicator.classList.add('visible');
         clearTimeout(saveTimeout);
@@ -873,7 +860,7 @@
         if (confirm("Are you certain you wish to purge this entity projection profile from memory records permanently?")) {
             delete characters[currentId];
             localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
-            currentId = Object.keys(characters);
+            currentId = Object.keys(characters)[0];
             localStorage.setItem(ACTIVE_KEY, currentId);
             renderSelector();
             loadCharacter(currentId);
@@ -908,5 +895,6 @@
 
     window.addEventListener('DOMContentLoaded', initRegistry);
 </script>
+
 </body>
 </html>
