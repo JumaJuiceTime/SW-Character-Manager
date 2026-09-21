@@ -117,11 +117,109 @@
             box-sizing: border-box;
         }
 
+        .identity-heading {
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .identity-heading label,
+        .profile-detail label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .identity-heading input,
+        .profile-detail input {
+            width: 100%;
+            box-sizing: border-box;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            font-family: inherit;
+            padding: 7px 8px;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .profile-detail .compound-row {
+            justify-content: flex-start;
+        }
+
+        .profile-detail .compound-row input {
+            width: 68px;
+        }
+
+        .combat-panel {
+            margin-top: 18px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+
+        .combat-panel[hidden] {
+            display: none;
+        }
+
         .avatar-container {
             position: relative;
             width: 160px;
             height: 220px;
             margin: 15px 0;
+        }
+
+        .profile-visual-row {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 18px;
+            width: 100%;
+        }
+
+        .alignment-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 28px;
+            min-height: 220px;
+        }
+
+        .alignment-vertical .alignment-label {
+            display: block;
+            padding: 0;
+            margin: 0;
+            font-size: 0.65rem;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .alignment-slider-track {
+            position: relative;
+            width: 20px;
+            flex: 1;
+            min-height: 170px;
+            margin: 8px 0;
+        }
+
+        .alignment-slider-track .alignment-slider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 180px;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            transform-origin: center;
         }
 
         .avatar-placeholder {
@@ -203,6 +301,7 @@
 
         .alignment-slider {
             -webkit-appearance: none;
+            appearance: none;
             width: 100%;
             height: 12px;
             border-radius: 3px;
@@ -394,62 +493,436 @@
         .autosave-msg.visible {
             opacity: 0.8;
         }
+
+        .command-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--border-dim);
+            padding: 8px;
+            margin-bottom: 20px;
+            background: rgba(3, 10, 9, 0.9);
+        }
+
+        .command-title {
+            flex: 1;
+            color: var(--text-bright);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .icon-toggle,
+        .admin-trigger {
+            width: 52px;
+            height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-dim);
+            background: #02110e;
+            color: var(--text-neon);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1.45rem;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .icon-toggle:hover,
+        .icon-toggle[aria-pressed="true"],
+        .admin-trigger:hover,
+        .admin-trigger[aria-expanded="true"] {
+            border-color: var(--border-neon);
+            background: rgba(0, 255, 204, 0.14);
+            color: var(--text-bright);
+        }
+
+        .icon-toggle img,
+        .admin-trigger img {
+            width: 31px;
+            height: 31px;
+            object-fit: contain;
+        }
+
+        .admin-wrap {
+            position: relative;
+        }
+
+        .admin-menu {
+            position: absolute;
+            z-index: 20;
+            top: 62px;
+            right: 0;
+            width: 245px;
+            padding: 12px;
+            border: 1px solid var(--border-neon);
+            background: #03100d;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .admin-menu[hidden] {
+            display: none;
+        }
+
+        .admin-menu label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .admin-menu .char-selector {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .admin-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .main-layout {
+            grid-template-columns: minmax(190px, 0.85fr) minmax(285px, 1.25fr) minmax(210px, 0.9fr);
+            gap: 14px;
+            align-items: start;
+        }
+
+        .equipment-panel,
+        .journal-panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+
+        .profile-panel {
+            order: 1;
+        }
+
+        .stats-panel {
+            order: 2;
+        }
+
+        .equipment-panel {
+            order: 3;
+        }
+
+        .panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--text-bright);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .equipment-slot {
+            min-height: 86px;
+            padding: 6px;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.45);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: center;
+        }
+
+        .equipment-slot:hover,
+        .equipment-slot:focus-visible {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+            outline: none;
+        }
+
+        .equipment-slot img {
+            display: block;
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 4px;
+            object-fit: contain;
+        }
+
+        .equipment-slot strong,
+        .equipment-slot small {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .equipment-slot strong {
+            color: var(--text-bright);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        .equipment-slot small {
+            color: var(--text-muted);
+            font-size: 0.58rem;
+        }
+
+        .section-hidden {
+            display: none !important;
+        }
+
+        .journal-panel {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 14px;
+        }
+
+        .journal-notes {
+            border-right: 1px solid var(--border-dim);
+            padding-right: 10px;
+        }
+
+        .note-list {
+            display: grid;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .note-list button {
+            padding: 7px;
+            border: 1px solid var(--border-dim);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .note-list button.active,
+        .note-list button:hover {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+        }
+
+        .journal-editor {
+            display: grid;
+            gap: 8px;
+        }
+
+        .journal-editor input,
+        .journal-editor textarea,
+        .picker-search {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--text-bright);
+            font-family: inherit;
+            padding: 8px;
+        }
+
+        .journal-editor textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 30;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .modal-backdrop[hidden] {
+            display: none;
+        }
+
+        .picker-modal {
+            width: min(520px, 100%);
+            max-height: 80vh;
+            overflow: auto;
+            padding: 18px;
+            border: 2px solid var(--border-neon);
+            background: #03100d;
+        }
+
+        .picker-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .picker-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid var(--border-dim);
+            background: transparent;
+            color: var(--text-bright);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .picker-item:hover {
+            border-color: var(--border-neon);
+        }
+
+        .picker-item img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .modal-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-bright);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: minmax(180px, 0.8fr) minmax(190px, 0.9fr);
+            }
+
+            .stats-panel {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+
+            .console-frame {
+                padding: 12px;
+                border-width: 2px;
+            }
+
+            .command-title {
+                display: none;
+            }
+
+            .icon-toggle,
+            .admin-trigger {
+                width: 44px;
+                height: 44px;
+            }
+
+            .main-layout,
+            .journal-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-panel {
+                grid-column: auto;
+            }
+
+            .journal-notes {
+                border-right: 0;
+                border-bottom: 1px solid var(--border-dim);
+                padding: 0 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="console-frame">
-    <div class="menu-header">
-        <div class="menu-title">Character Menu</div>
-        <div class="character-controls">
-            <select id="charDropdown" class="char-selector"></select>
-            <button class="control-btn" id="newCharBtn">New</button>
-            <button class="control-btn" id="deleteCharBtn" style="color:#ff5555;">Purge</button>
+    <nav class="command-bar" aria-label="Character sections">
+        <div class="command-title">Character Menu</div>
+        <button class="icon-toggle" type="button" data-section="character" aria-pressed="true" title="Toggle character overview" aria-label="Toggle character overview">
+            <img src="./PNG/i_examine.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="equipment" aria-pressed="true" title="Toggle equipment" aria-label="Toggle equipment">
+            <img src="./PNG/i_equip.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="combat" aria-pressed="false" title="Toggle combat" aria-label="Toggle combat">
+            <img src="./PNG/iw_lghtsbr_001.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="journal" aria-pressed="false" title="Toggle journal" aria-label="Toggle journal">
+            <img src="./PNG/ii_datapad_001.png" alt="">
+        </button>
+        <div class="admin-wrap">
+            <button class="admin-trigger" id="adminTrigger" type="button" aria-expanded="false" title="Character administration" aria-label="Character administration">
+                <img src="./PNG/i_gstance01.png" alt="">
+            </button>
+            <div class="admin-menu" id="adminMenu" hidden>
+                <label for="charDropdown">Active character</label>
+                <select id="charDropdown" class="char-selector"></select>
+                <div class="admin-actions">
+                    <button class="control-btn" id="newCharBtn" type="button">New</button>
+                    <button class="control-btn" id="exportCharBtn" type="button">JSON</button>
+                    <button class="control-btn" id="deleteCharBtn" type="button" style="color:#ff5555;">Purge</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </nav>
 
     <div class="main-layout">
         
         <div class="profile-panel" id="profilePanel">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-bright); width: 100%;">Biometric Projection</div>
+            <div class="identity-heading">
+                <label for="char-name">Identity Designation</label>
+                <input type="text" id="char-name" class="save-field" placeholder="Unnamed Retainer">
+            </div>
             
-            <div class="avatar-container">
-                <div class="avatar-placeholder" id="avatarDisplay">
-                    <span id="noSignalTxt">[ NO_SIGNAL ]</span>
+            <div class="profile-visual-row">
+                <div class="alignment-vertical">
+                    <span class="alignment-label" style="color: #55ccff;">LIGHT</span>
+                    <div class="alignment-slider-track">
+                        <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field" aria-label="Dark to light alignment">
+                    </div>
+                    <span class="alignment-label" style="color: #ff5555;">DARK</span>
+                </div>
+
+                <div class="avatar-container">
+                    <div class="avatar-placeholder" id="avatarDisplay">
+                        <span id="noSignalTxt">[ NO_SIGNAL ]</span>
+                    </div>
                 </div>
             </div>
             
             <button class="control-btn" onclick="document.getElementById('portraitInput').click()" style="margin-bottom: 15px;">Load Datapad Profile</button>
             <input type="file" id="portraitInput" accept="image/*" style="display: none;">
 
-            <div class="saber-form-container">
-                <div class="saber-header">
-                    <div class="saber-icon" id="saberIcon"></div>
-                    <div style="display:flex; flex-direction:column; flex:1;">
-                        <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted);">Saber Technique</label>
-                        <select id="saberForm" class="char-selector save-field" style="width:100%; margin-top:3px;">
-                            <option value="">None Selected</option>
-                            <option value="01">Form I: Shii-Cho</option>
-                            <option value="02">Form II: Makashi</option>
-                            <option value="03">Form III: Soresu</option>
-                            <option value="04">Form IV: Ataru</option>
-                            <option value="05">Form V: Shien / Djem So</option>
-                            <option value="06">Form VI: Niman</option>
-                            <option value="07">Form VII: Juyo</option>
-                        </select>
+            <div class="profile-details">
+                <div class="profile-detail">
+                    <label for="char-class">Class Orientation</label>
+                    <input type="text" id="char-class" class="save-field" placeholder="Jedi Initiate">
+                </div>
+                <div class="profile-detail">
+                    <label for="exp-cur">Experience Accumulation</label>
+                    <div class="compound-row">
+                        <input type="number" id="exp-cur" class="save-field" value="0">
+                        <span>/</span>
+                        <input type="number" id="exp-need" class="save-field" value="1000">
                     </div>
                 </div>
-                <div class="saber-bonus-box" id="saberBonus">No active technique modifiers.</div>
             </div>
+        </div>
 
-            <div class="alignment-container">
-                <div class="alignment-label">
-                    <span style="color: #ff5555; font-weight: bold;">DARK</span>
-                    <span style="color: var(--text-bright)">ALIGNMENT</span>
-                    <span style="color: #55ccff; font-weight: bold;">LIGHT</span>
-                </div>
-                <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field">
+        <div class="equipment-panel" id="equipmentPanel">
+            <div class="panel-heading">
+                <span>Equipment</span>
+                <span id="equipmentStatus">Ready</span>
             </div>
+            <div class="equipment-grid" id="equipmentGrid"></div>
         </div>
 
         <div class="stats-panel">
@@ -524,6 +997,44 @@
         </div>
     </div>
 
+    <section class="combat-panel" id="combatPanel" hidden aria-labelledby="combatHeading">
+        <div class="panel-heading" id="combatHeading">
+            <span>Combat Configuration</span>
+            <span>Lightsaber telemetry</span>
+        </div>
+        <div class="saber-form-container">
+            <div class="saber-header">
+                <div class="saber-icon" id="saberIcon"></div>
+                <div style="display:flex; flex-direction:column; flex:1;">
+                    <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted);">Saber Technique</label>
+                    <select id="saberForm" class="char-selector save-field" style="width:100%; margin-top:3px;">
+                        <option value="">None Selected</option>
+                        <option value="01">Form I: Shii-Cho</option>
+                        <option value="02">Form II: Makashi</option>
+                        <option value="03">Form III: Soresu</option>
+                        <option value="04">Form IV: Ataru</option>
+                        <option value="05">Form V: Shien / Djem So</option>
+                        <option value="06">Form VI: Niman</option>
+                        <option value="07">Form VII: Juyo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="saber-bonus-box" id="saberBonus">No active technique modifiers.</div>
+        </div>
+    </section>
+
+    <section class="journal-panel section-hidden" id="journalPanel" aria-labelledby="journalHeading">
+        <div class="journal-notes">
+            <div class="panel-heading" id="journalHeading"><span>Journal</span><button class="control-btn" id="newNoteBtn" type="button">New</button></div>
+            <div class="note-list" id="noteList"></div>
+        </div>
+        <div class="journal-editor">
+            <input id="noteTitle" type="text" placeholder="Note title">
+            <textarea id="noteBody" placeholder="Record a mission, clue, or thought..."></textarea>
+            <button class="control-btn" id="deleteNoteBtn" type="button">Delete note</button>
+        </div>
+    </section>
+
     <div class="console-row">
         <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats & Force Powers Console Log</label>
         <div class="console-box">
@@ -531,28 +1042,20 @@
         </div>
     </div>
 
-    <div class="character-footer-details">
-        <div class="footer-field">
-            <label for="char-name">Identity Designation</label>
-            <input type="text" id="char-name" class="save-field" placeholder="Unnamed Retainer">
-        </div>
-        <div class="footer-field">
-            <label for="char-class">Class Orientation</label>
-            <input type="text" id="char-class" class="save-field" placeholder="Jedi Initiate">
-        </div>
-        <div class="footer-field">
-            <label for="char-exp">Experience Accumulation</label>
-            <div class="compound-row" style="margin-top:4px;">
-                <input type="number" id="exp-cur" class="save-field" style="background: transparent; border: 1px solid var(--border-dim); border-radius: 4px; color: var(--text-bright); padding: 6px 10px; width:70px; font-family:inherit;" value="0">
-                <span style="color: var(--border-dim); padding: 0 4px;">/</span>
-                <input type="number" id="exp-need" class="save-field" style="background: transparent; border: 1px solid var(--border-dim); border-radius: 4px; color: var(--text-bright); padding: 6px 10px; width:70px; font-family:inherit;" value="1000">
-            </div>
-        </div>
-    </div>
-
     <div class="action-row">
         <div id="save-indicator" class="autosave-msg">DATA_STREAM_SYNCHRONIZED</div>
         <button class="close-btn" onclick="window.close()">Close</button>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="itemModal" hidden>
+    <div class="picker-modal" role="dialog" aria-modal="true" aria-labelledby="pickerHeading">
+        <div class="modal-heading">
+            <span id="pickerHeading">Select item</span>
+            <button class="control-btn" id="closeItemModalBtn" type="button">Close</button>
+        </div>
+        <input class="picker-search" id="itemSearch" type="search" placeholder="Search item catalog" aria-label="Search item catalog">
+        <div class="picker-list" id="pickerList"></div>
     </div>
 </div>
 
@@ -571,6 +1074,40 @@
     const avatarDisplay = document.getElementById('avatarDisplay');
     const noSignalTxt = document.getElementById('noSignalTxt');
     const charDropdown = document.getElementById('charDropdown');
+    const equipmentGrid = document.getElementById('equipmentGrid');
+    const equipmentStatus = document.getElementById('equipmentStatus');
+    const journalPanel = document.getElementById('journalPanel');
+    const noteList = document.getElementById('noteList');
+    const noteTitle = document.getElementById('noteTitle');
+    const noteBody = document.getElementById('noteBody');
+    const itemModal = document.getElementById('itemModal');
+    const pickerList = document.getElementById('pickerList');
+    const itemSearch = document.getElementById('itemSearch');
+    const adminMenu = document.getElementById('adminMenu');
+    const adminTrigger = document.getElementById('adminTrigger');
+
+    const equipmentSlots = [
+        { id: 'rightWeapon', label: 'Right hand', types: ['weapon'] },
+        { id: 'leftWeapon', label: 'Left hand', types: ['weapon'] },
+        { id: 'head', label: 'Head', types: ['armor'] },
+        { id: 'chest', label: 'Chest', types: ['armor'] },
+        { id: 'hands', label: 'Hands', types: ['armor'] },
+        { id: 'belt', label: 'Belt', types: ['armor'] },
+        { id: 'implant', label: 'Implant', types: ['implant'] }
+    ];
+
+    const itemCatalog = [
+        { id: 'lghtsbr', name: 'Lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_lghtsbr_001.png' },
+        { id: 'dblsbr', name: 'Double-bladed lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_dblsbr_001.png' },
+        { id: 'shortsbr', name: 'Short lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_shortsbr_001.png' },
+        { id: 'jedirobe', name: 'Jedi robe', slot: 'armor', type: 'armor', image: './PNG/ia_jedirobe_001.png' },
+        { id: 'mstrrobe', name: 'Master robe', slot: 'armor', type: 'armor', image: './PNG/ia_mstrrobe_001.png' },
+        { id: 'belt', name: 'Utility belt', slot: 'armor', type: 'armor', image: './PNG/ii_belt_001.png' },
+        { id: 'implant', name: 'Reflex implant', slot: 'implant', type: 'implant', image: './PNG/ii_implant1_001.png' }
+    ];
+
+    let activeEquipmentSlot = '';
+    let activeNoteId = '';
     
     let characters = [];
     let activeCharId = '';
@@ -629,6 +1166,157 @@
         }
     }
 
+    function ensureCharacterShape(character) {
+        character.equipment = character.equipment || {};
+        character.notes = Array.isArray(character.notes) ? character.notes : [];
+        equipmentSlots.forEach(slot => {
+            if (character.equipment[slot.id] === undefined) character.equipment[slot.id] = null;
+        });
+    }
+
+    function getActiveCharacter() {
+        return characters.find(character => character.id === activeCharId);
+    }
+
+    function renderEquipment() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        equipmentGrid.innerHTML = '';
+        equipmentSlots.forEach(slot => {
+            const item = itemCatalog.find(catalogItem => catalogItem.id === current.equipment[slot.id]);
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'equipment-slot';
+            button.dataset.slot = slot.id;
+            button.title = `Choose ${slot.label}`;
+            button.innerHTML = item
+                ? `<img src="${item.image}" alt=""><strong>${item.name}</strong><small>${slot.label}</small>`
+                : `<img src="./PNG/i_unequip.png" alt=""><strong>Empty</strong><small>${slot.label}</small>`;
+            button.addEventListener('click', () => openItemPicker(slot.id));
+            equipmentGrid.appendChild(button);
+        });
+        const equippedCount = equipmentSlots.filter(slot => current.equipment[slot.id]).length;
+        equipmentStatus.textContent = `${equippedCount}/${equipmentSlots.length} equipped`;
+    }
+
+    function openItemPicker(slotId) {
+        activeEquipmentSlot = slotId;
+        const slot = equipmentSlots.find(candidate => candidate.id === slotId);
+        document.getElementById('pickerHeading').textContent = `Select ${slot.label}`;
+        itemSearch.value = '';
+        renderItemPicker();
+        itemModal.hidden = false;
+        itemSearch.focus();
+    }
+
+    function renderItemPicker() {
+        const slot = equipmentSlots.find(candidate => candidate.id === activeEquipmentSlot);
+        const query = itemSearch.value.trim().toLowerCase();
+        const choices = itemCatalog.filter(item => slot && slot.types.includes(item.type) && item.name.toLowerCase().includes(query));
+        pickerList.innerHTML = '';
+        const clearButton = document.createElement('button');
+        clearButton.type = 'button';
+        clearButton.className = 'picker-item';
+        clearButton.innerHTML = '<img src="./PNG/i_unequip.png" alt=""><span>Clear slot</span>';
+        clearButton.addEventListener('click', () => selectEquipmentItem(null));
+        pickerList.appendChild(clearButton);
+        choices.forEach(item => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'picker-item';
+            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}</span>`;
+            button.addEventListener('click', () => selectEquipmentItem(item.id));
+            pickerList.appendChild(button);
+        });
+    }
+
+    function selectEquipmentItem(itemId) {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        current.equipment[activeEquipmentSlot] = itemId;
+        saveRegistryToStorage();
+        renderEquipment();
+        itemModal.hidden = true;
+    }
+
+    function renderJournal() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        if (!current.notes.some(note => note.id === activeNoteId)) {
+            activeNoteId = current.notes[0]?.id || '';
+        }
+        noteList.innerHTML = '';
+        if (current.notes.length === 0) {
+            noteList.innerHTML = '<span style="font-size:0.7rem;">No entries.</span>';
+            noteTitle.value = '';
+            noteBody.value = '';
+            return;
+        }
+        current.notes.forEach(note => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = note.title || 'Untitled note';
+            button.classList.toggle('active', note.id === activeNoteId);
+            button.addEventListener('click', () => {
+                activeNoteId = note.id;
+                renderJournal();
+            });
+            noteList.appendChild(button);
+        });
+        const activeNote = current.notes.find(note => note.id === activeNoteId);
+        noteTitle.value = activeNote?.title || '';
+        noteBody.value = activeNote?.body || '';
+    }
+
+    function createNote() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        const note = { id: `note_${Date.now()}`, title: 'New entry', body: '' };
+        current.notes.unshift(note);
+        activeNoteId = note.id;
+        saveRegistryToStorage();
+        renderJournal();
+        noteTitle.focus();
+        noteTitle.select();
+    }
+
+    function saveActiveNote() {
+        const current = getActiveCharacter();
+        const note = current?.notes.find(entry => entry.id === activeNoteId);
+        if (!note) return;
+        note.title = noteTitle.value;
+        note.body = noteBody.value;
+        saveRegistryToStorage();
+        const activeButton = [...noteList.querySelectorAll('button')].find(button => button.classList.contains('active'));
+        if (activeButton) activeButton.textContent = note.title || 'Untitled note';
+    }
+
+    function deleteActiveNote() {
+        const current = getActiveCharacter();
+        if (!current || !activeNoteId) return;
+        current.notes = current.notes.filter(note => note.id !== activeNoteId);
+        activeNoteId = current.notes[0]?.id || '';
+        saveRegistryToStorage();
+        renderJournal();
+    }
+
+    function exportActiveCharacter() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        const exportData = JSON.stringify(current, null, 2);
+        const blob = new Blob([exportData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${(current.data['char-name'] || 'character').replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
+    }
+
     function initRegistry() {
         const storedList = localStorage.getItem(LIST_STORAGE_KEY);
         const storedActiveId = localStorage.getItem(ACTIVE_ID_KEY);
@@ -645,6 +1333,7 @@
             if (!characters.some(c => c.id === activeCharId)) {
                 activeCharId = characters[0].id;
             }
+            characters.forEach(ensureCharacterShape);
             buildDropdown();
             loadActiveCharacter();
         }
@@ -655,6 +1344,8 @@
         const newChar = {
             id: newId,
             avatar: "",
+            equipment: {},
+            notes: [],
             data: {
                 "char-name": defaultName,
                 "char-class": "Jedi Initiate",
@@ -667,6 +1358,7 @@
         };
         
         characters.push(newChar);
+        ensureCharacterShape(newChar);
         activeCharId = newId;
         saveRegistryToStorage();
         buildDropdown();
@@ -687,6 +1379,7 @@
     function loadActiveCharacter() {
         const current = characters.find(c => c.id === activeCharId);
         if (!current) return;
+        ensureCharacterShape(current);
         
         fields.forEach(field => {
             if (current.data[field.id] !== undefined) {
@@ -705,11 +1398,14 @@
         updateAllModifiers();
         updateAlignmentGlow();
         updateSaberFormTelemetry();
+        renderEquipment();
+        renderJournal();
     }
 
     function saveActiveCharacterData() {
         const current = characters.find(c => c.id === activeCharId);
         if (!current) return;
+        ensureCharacterShape(current);
         
         fields.forEach(field => {
             current.data[field.id] = field.value;
@@ -751,9 +1447,47 @@
         loadActiveCharacter();
     });
     
-    document.getElementById('newCharBtn').addEventListener('click', () => {
-        createNewCharacter();
+    document.querySelectorAll('.icon-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const section = toggle.dataset.section;
+            const isPressed = toggle.getAttribute('aria-pressed') === 'true';
+            toggle.setAttribute('aria-pressed', String(!isPressed));
+            if (section === 'journal') {
+                journalPanel.classList.toggle('section-hidden', isPressed);
+            } else if (section === 'equipment') {
+                document.getElementById('equipmentPanel').classList.toggle('section-hidden', isPressed);
+            } else if (section === 'combat') {
+                document.getElementById('combatPanel').hidden = isPressed;
+            } else if (section === 'character') {
+                document.getElementById('profilePanel').classList.toggle('section-hidden', isPressed);
+                document.querySelector('.stats-panel').classList.toggle('section-hidden', isPressed);
+            }
+        });
     });
+
+    adminTrigger.addEventListener('click', () => {
+        const isOpen = adminTrigger.getAttribute('aria-expanded') === 'true';
+        adminTrigger.setAttribute('aria-expanded', String(!isOpen));
+        adminMenu.hidden = isOpen;
+    });
+
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.admin-wrap')) {
+            adminTrigger.setAttribute('aria-expanded', 'false');
+            adminMenu.hidden = true;
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            itemModal.hidden = true;
+            adminTrigger.setAttribute('aria-expanded', 'false');
+            adminMenu.hidden = true;
+        }
+    });
+
+    document.getElementById('newCharBtn').addEventListener('click', () => createNewCharacter());
+    document.getElementById('exportCharBtn').addEventListener('click', exportActiveCharacter);
     
     document.getElementById('deleteCharBtn').addEventListener('click', () => {
         if (characters.length <= 1) {
@@ -767,6 +1501,18 @@
             buildDropdown();
             loadActiveCharacter();
         }
+    });
+
+    document.getElementById('newNoteBtn').addEventListener('click', createNote);
+    document.getElementById('deleteNoteBtn').addEventListener('click', deleteActiveNote);
+    noteTitle.addEventListener('input', saveActiveNote);
+    noteBody.addEventListener('input', saveActiveNote);
+    itemSearch.addEventListener('input', renderItemPicker);
+    document.getElementById('closeItemModalBtn').addEventListener('click', () => {
+        itemModal.hidden = true;
+    });
+    itemModal.addEventListener('click', event => {
+        if (event.target === itemModal) itemModal.hidden = true;
     });
 
     portraitInput.addEventListener('change', function(e) {
