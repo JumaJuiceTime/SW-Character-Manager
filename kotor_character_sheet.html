@@ -53,12 +53,6 @@
             background-color: rgba(3, 10, 9, 0.9);
         }
 
-        .menu-title-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
         .menu-title {
             color: var(--text-bright);
             font-weight: bold;
@@ -68,35 +62,39 @@
             text-shadow: 0 0 5px var(--text-neon);
         }
 
-        .char-selector, .btn-action {
-            background: rgba(0,0,0,0.6);
+        .character-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .char-selector {
+            background: #000;
             border: 1px solid var(--border-dim);
-            color: var(--text-neon);
+            color: var(--text-bright);
+            padding: 5px;
             font-family: inherit;
+        }
+
+        .control-btn {
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-muted);
             padding: 5px 10px;
-            border-radius: 4px;
             cursor: pointer;
+            font-family: inherit;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
-        .char-selector:focus, .btn-action:hover {
-            outline: none;
+        .control-btn:hover {
             border-color: var(--border-neon);
-            box-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
-        }
-
-        .btn-action.delete {
-            color: #ff5555;
-            border-color: #aa3333;
-        }
-
-        .btn-action.delete:hover {
-            border-color: #ff5555;
-            box-shadow: 0 0 5px rgba(255, 85, 85, 0.3);
+            color: var(--text-bright);
         }
 
         .main-layout {
             display: grid;
-            grid-template-columns: 1.15fr 1.15fr;
+            grid-template-columns: 1fr 1.3fr;
             gap: 25px;
         }
 
@@ -113,96 +111,126 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            min-height: 520px;
+            align-items: center;
             box-shadow: inset 0 0 15px var(--alignment-glow);
             transition: box-shadow 0.4s ease;
             box-sizing: border-box;
         }
 
-        .biometric-row {
+        .identity-heading {
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .identity-heading label,
+        .profile-detail label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .identity-heading input,
+        .profile-detail input {
+            width: 100%;
+            box-sizing: border-box;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            font-family: inherit;
+            padding: 7px 8px;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .profile-detail .compound-row {
+            justify-content: flex-start;
+        }
+
+        .profile-detail .compound-row input {
+            width: 68px;
+        }
+
+        .combat-panel {
+            margin-top: 18px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+
+        .combat-panel[hidden] {
+            display: none;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 160px;
+            height: 220px;
+            margin: 15px 0;
+        }
+
+        .profile-visual-row {
             display: flex;
             align-items: stretch;
             justify-content: center;
-            gap: 25px;
+            gap: 18px;
             width: 100%;
         }
 
-        .alignment-column-stack {
+        .alignment-vertical {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            width: 70px;
-            flex-shrink: 0;
-            box-sizing: border-box;
+            width: 28px;
+            min-height: 220px;
         }
 
-        .alignment-slider-trackbox {
+        .alignment-vertical .alignment-label {
+            display: block;
+            padding: 0;
+            margin: 0;
+            font-size: 0.65rem;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .alignment-slider-track {
             position: relative;
-            width: 24px;
-            height: 180px;
-            margin: 10px 0;
-            display: flex;
-            justify-content: center;
+            width: 20px;
+            flex: 1;
+            min-height: 170px;
+            margin: 8px 0;
         }
 
-        .alignment-slider {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 180px;
-            height: 12px;
-            border-radius: 3px;
-            background: linear-gradient(90deg, #ff3333 0%, #334444 50%, #00ccff 100%);
-            outline: none;
-            border: 1px solid var(--border-dim);
+        .alignment-slider-track .alignment-slider {
             position: absolute;
             top: 50%;
             left: 50%;
+            width: 180px;
             transform: translate(-50%, -50%) rotate(-90deg);
             transform-origin: center;
-            margin: 0;
-            cursor: pointer;
-        }
-
-        .alignment-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 12px;
-            background: var(--text-bright);
-            border: 1px solid var(--border-neon);
-            box-shadow: 0 0 8px var(--border-neon);
-        }
-
-        .alignment-text-label {
-            font-size: 0.75rem;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            text-align: center;
-            width: 100%;
-            display: block;
-        }
-
-        .avatar-column-stack {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            flex-grow: 1;
-            max-width: 180px;
         }
 
         .avatar-placeholder {
             width: 100%;
-            height: 220px;
+            height: 100%;
             border: 2px solid var(--border-dim);
             background: linear-gradient(180deg, rgba(0,255,204,0.05) 0%, rgba(0,0,0,0.4) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--border-dim);
-            position: relative;
             overflow: hidden;
             background-size: cover;
             background-position: center;
@@ -219,108 +247,78 @@
             pointer-events: none;
         }
 
-        .avatar-placeholder.has-image span {
-            display: none;
-        }
-
-        .file-input-label {
-            font-size: 0.7rem;
-            padding: 5px 10px;
-            border: 1px solid var(--border-dim);
-            color: var(--text-muted);
-            cursor: pointer;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(0,0,0,0.3);
-            text-align: center;
+        .saber-form-container {
             width: 100%;
-            box-sizing: border-box;
-        }
-
-        .file-input-label:hover {
-            border-color: var(--border-neon);
-            color: var(--text-bright);
-            background: rgba(0, 255, 204, 0.05);
-        }
-
-        .saber-management-container {
+            margin-top: 15px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            width: 100%;
+            gap: 8px;
         }
 
-        .saber-dropdown-row {
-            display: flex;
-            align-items: flex-end;
-            gap: 12px;
-            width: 100%;
-        }
-
-        .dropdown-field-block {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            flex-grow: 1;
-        }
-
-        .dropdown-field-block label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-bright);
-            letter-spacing: 1px;
-        }
-
-        .saber-select {
-            width: 100%;
-            background: rgba(0,0,0,0.6);
-            border: 1px solid var(--border-dim);
-            color: var(--text-bright);
-            padding: 8px;
-            font-family: inherit;
-            border-radius: 4px;
-        }
-
-        .saber-icon-frame {
-            width: 55px;
-            height: 55px;
-            border: 1px solid var(--border-dim);
-            background-color: rgba(0,0,0,0.4);
-            border-radius: 4px;
+        .saber-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            overflow: hidden;
-            box-sizing: border-box;
+            gap: 10px;
         }
 
-        .saber-icon-img {
+        .saber-icon {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            display: none;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .saber-bonus-box {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .saber-icon-fallback {
-            font-size: 0.55rem;
-            color: var(--border-dim);
-            text-align: center;
-            padding: 2px;
-            word-break: break-all;
-            line-height: 1rem;
-        }
-
-        .bonus-box {
-            border: 1px dashed var(--border-dim);
-            background: rgba(0,0,0,0.3);
+            min-height: 45px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-dim);
             border-radius: 4px;
-            padding: 12px;
-            min-height: 60px;
-            font-size: 0.8rem;
-            color: var(--text-neon);
+            padding: 8px;
             box-sizing: border-box;
-            line-height: 1.2rem;
+            color: var(--text-neon);
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .alignment-container {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .alignment-label {
+            font-size: 0.8rem;
+            color: var(--text-bright);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+
+        .alignment-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 12px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #ff3333 0%, #334444 50%, #00ccff 100%);
+            outline: none;
+            border: 1px solid var(--border-dim);
+        }
+
+        .alignment-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 8px;
+            height: 20px;
+            background: var(--text-bright);
+            border: 1px solid var(--border-neon);
+            cursor: pointer;
+            box-shadow: 0 0 8px var(--border-neon);
         }
 
         .stats-panel {
@@ -329,7 +327,7 @@
             border-radius: 6px;
             padding: 20px;
             box-sizing: border-box;
-            min-height: 520px;
+            min-height: 440px;
         }
 
         .stats-table {
@@ -395,39 +393,29 @@
             width: 35px;
         }
 
-        .bottom-console-panel {
+        .console-row {
             margin-top: 25px;
+        }
+
+        .console-box {
+            width: 100%;
             background-color: var(--panel-bg);
             border: 1px solid var(--border-dim);
             border-radius: 6px;
-            padding: 20px;
+            padding: 15px;
+            box-sizing: border-box;
         }
 
-        .bottom-console-panel h2 {
-            margin: 0 0 10px 0;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: var(--text-bright);
-            letter-spacing: 2px;
-        }
-
-        .console-textarea {
+        .console-box textarea {
             width: 100%;
             height: 120px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-dim);
-            border-radius: 4px;
+            background: transparent;
+            border: none;
             color: var(--text-bright);
             font-family: inherit;
-            font-size: 0.9rem;
-            padding: 10px;
-            box-sizing: border-box;
+            font-size: 0.95rem;
             resize: vertical;
-        }
-
-        .console-textarea:focus {
             outline: none;
-            border-color: var(--border-neon);
         }
 
         .character-footer-details {
@@ -505,62 +493,436 @@
         .autosave-msg.visible {
             opacity: 0.8;
         }
+
+        .command-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--border-dim);
+            padding: 8px;
+            margin-bottom: 20px;
+            background: rgba(3, 10, 9, 0.9);
+        }
+
+        .command-title {
+            flex: 1;
+            color: var(--text-bright);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .icon-toggle,
+        .admin-trigger {
+            width: 52px;
+            height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-dim);
+            background: #02110e;
+            color: var(--text-neon);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1.45rem;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .icon-toggle:hover,
+        .icon-toggle[aria-pressed="true"],
+        .admin-trigger:hover,
+        .admin-trigger[aria-expanded="true"] {
+            border-color: var(--border-neon);
+            background: rgba(0, 255, 204, 0.14);
+            color: var(--text-bright);
+        }
+
+        .icon-toggle img,
+        .admin-trigger img {
+            width: 31px;
+            height: 31px;
+            object-fit: contain;
+        }
+
+        .admin-wrap {
+            position: relative;
+        }
+
+        .admin-menu {
+            position: absolute;
+            z-index: 20;
+            top: 62px;
+            right: 0;
+            width: 245px;
+            padding: 12px;
+            border: 1px solid var(--border-neon);
+            background: #03100d;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .admin-menu[hidden] {
+            display: none;
+        }
+
+        .admin-menu label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .admin-menu .char-selector {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .admin-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .main-layout {
+            grid-template-columns: minmax(190px, 0.85fr) minmax(285px, 1.25fr) minmax(210px, 0.9fr);
+            gap: 14px;
+            align-items: start;
+        }
+
+        .equipment-panel,
+        .journal-panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+
+        .profile-panel {
+            order: 1;
+        }
+
+        .stats-panel {
+            order: 2;
+        }
+
+        .equipment-panel {
+            order: 3;
+        }
+
+        .panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--text-bright);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .equipment-slot {
+            min-height: 86px;
+            padding: 6px;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.45);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: center;
+        }
+
+        .equipment-slot:hover,
+        .equipment-slot:focus-visible {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+            outline: none;
+        }
+
+        .equipment-slot img {
+            display: block;
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 4px;
+            object-fit: contain;
+        }
+
+        .equipment-slot strong,
+        .equipment-slot small {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .equipment-slot strong {
+            color: var(--text-bright);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        .equipment-slot small {
+            color: var(--text-muted);
+            font-size: 0.58rem;
+        }
+
+        .section-hidden {
+            display: none !important;
+        }
+
+        .journal-panel {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 14px;
+        }
+
+        .journal-notes {
+            border-right: 1px solid var(--border-dim);
+            padding-right: 10px;
+        }
+
+        .note-list {
+            display: grid;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .note-list button {
+            padding: 7px;
+            border: 1px solid var(--border-dim);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .note-list button.active,
+        .note-list button:hover {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+        }
+
+        .journal-editor {
+            display: grid;
+            gap: 8px;
+        }
+
+        .journal-editor input,
+        .journal-editor textarea,
+        .picker-search {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--text-bright);
+            font-family: inherit;
+            padding: 8px;
+        }
+
+        .journal-editor textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 30;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .modal-backdrop[hidden] {
+            display: none;
+        }
+
+        .picker-modal {
+            width: min(520px, 100%);
+            max-height: 80vh;
+            overflow: auto;
+            padding: 18px;
+            border: 2px solid var(--border-neon);
+            background: #03100d;
+        }
+
+        .picker-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .picker-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid var(--border-dim);
+            background: transparent;
+            color: var(--text-bright);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .picker-item:hover {
+            border-color: var(--border-neon);
+        }
+
+        .picker-item img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .modal-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-bright);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: minmax(180px, 0.8fr) minmax(190px, 0.9fr);
+            }
+
+            .stats-panel {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+
+            .console-frame {
+                padding: 12px;
+                border-width: 2px;
+            }
+
+            .command-title {
+                display: none;
+            }
+
+            .icon-toggle,
+            .admin-trigger {
+                width: 44px;
+                height: 44px;
+            }
+
+            .main-layout,
+            .journal-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-panel {
+                grid-column: auto;
+            }
+
+            .journal-notes {
+                border-right: 0;
+                border-bottom: 1px solid var(--border-dim);
+                padding: 0 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="console-frame">
-    <div class="menu-header">
-        <div class="menu-title-container">
-            <div class="menu-title">Character Menu</div>
-            <select id="charSelector" class="char-selector"></select>
-            <button class="btn-action" onclick="createNewCharacter()">+ New</button>
-            <button class="btn-action delete" onclick="deleteCurrentCharacter()">Purge</button>
+    <nav class="command-bar" aria-label="Character sections">
+        <div class="command-title">Character Menu</div>
+        <button class="icon-toggle" type="button" data-section="character" aria-pressed="true" title="Toggle character overview" aria-label="Toggle character overview">
+            <img src="./PNG/i_examine.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="equipment" aria-pressed="true" title="Toggle equipment" aria-label="Toggle equipment">
+            <img src="./PNG/i_equip.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="combat" aria-pressed="false" title="Toggle combat" aria-label="Toggle combat">
+            <img src="./PNG/iw_lghtsbr_001.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="journal" aria-pressed="false" title="Toggle journal" aria-label="Toggle journal">
+            <img src="./PNG/ii_datapad_001.png" alt="">
+        </button>
+        <div class="admin-wrap">
+            <button class="admin-trigger" id="adminTrigger" type="button" aria-expanded="false" title="Character administration" aria-label="Character administration">
+                <img src="./PNG/i_gstance01.png" alt="">
+            </button>
+            <div class="admin-menu" id="adminMenu" hidden>
+                <label for="charDropdown">Active character</label>
+                <select id="charDropdown" class="char-selector"></select>
+                <div class="admin-actions">
+                    <button class="control-btn" id="newCharBtn" type="button">New</button>
+                    <button class="control-btn" id="exportCharBtn" type="button">JSON</button>
+                    <button class="control-btn" id="deleteCharBtn" type="button" style="color:#ff5555;">Purge</button>
+                </div>
+            </div>
         </div>
-        <div style="font-size: 0.8rem; color: var(--border-dim);">SYSTEM_PERSISTENCE_ACTIVE</div>
-    </div>
+    </nav>
 
     <div class="main-layout">
+        
         <div class="profile-panel" id="profilePanel">
+            <div class="identity-heading">
+                <label for="char-name">Identity Designation</label>
+                <input type="text" id="char-name" class="save-field" placeholder="Unnamed Retainer">
+            </div>
             
-            <div class="biometric-row">
-                <div class="alignment-column-stack">
-                    <span class="alignment-text-label" style="color: #55ccff;">LIGHT</span>
-                    <div class="alignment-slider-trackbox">
-                        <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field">
+            <div class="profile-visual-row">
+                <div class="alignment-vertical">
+                    <span class="alignment-label" style="color: #55ccff;">LIGHT</span>
+                    <div class="alignment-slider-track">
+                        <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field" aria-label="Dark to light alignment">
                     </div>
-                    <span class="alignment-text-label" style="color: #ff5555;">DARK</span>
+                    <span class="alignment-label" style="color: #ff5555;">DARK</span>
                 </div>
 
-                <div class="avatar-column-stack">
+                <div class="avatar-container">
                     <div class="avatar-placeholder" id="avatarDisplay">
-                        <span id="noSignalText" style="font-size: 0.8rem; letter-spacing: 1px;">[ NO_SIGNAL ]</span>
+                        <span id="noSignalTxt">[ NO_SIGNAL ]</span>
                     </div>
-                    <label for="avatarUpload" class="file-input-label">Load Profile Image</label>
-                    <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
                 </div>
             </div>
+            
+            <button class="control-btn" onclick="document.getElementById('portraitInput').click()" style="margin-bottom: 15px;">Load Datapad Profile</button>
+            <input type="file" id="portraitInput" accept="image/*" style="display: none;">
 
-            <div class="saber-management-container">
-                <div class="saber-dropdown-row">
-                    <div class="dropdown-field-block">
-                        <label for="saberForm">Active Lightsaber Form</label>
-                        <select id="saberForm" class="saber-select save-field">
-                            <option value="">None Selected</option>
-                            <option value="01">Form I: Shii-Cho</option>
-                            <option value="02">Form II: Makashi</option>
-                            <option value="03">Form III: Soresu</option>
-                            <option value="04">Form IV: Ataru</option>
-                            <option value="05">Form V: Shien / Djem So</option>
-                            <option value="06">Form VI: Niman</option>
-                            <option value="07">Form VII: Juyo</option>
-                        </select>
-                    </div>
-                    <div class="saber-icon-frame" id="saberIconZone"></div>
+            <div class="profile-details">
+                <div class="profile-detail">
+                    <label for="char-class">Class Orientation</label>
+                    <input type="text" id="char-class" class="save-field" placeholder="Jedi Initiate">
                 </div>
-
-                <div class="bonus-box" id="bonusDisplay">Form benefits offline.</div>
+                <div class="profile-detail">
+                    <label for="exp-cur">Experience Accumulation</label>
+                    <div class="compound-row">
+                        <input type="number" id="exp-cur" class="save-field" value="0">
+                        <span>/</span>
+                        <input type="number" id="exp-need" class="save-field" value="1000">
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div class="equipment-panel" id="equipmentPanel">
+            <div class="panel-heading">
+                <span>Equipment</span>
+                <span id="equipmentStatus">Ready</span>
+            </div>
+            <div class="equipment-grid" id="equipmentGrid"></div>
         </div>
 
         <div class="stats-panel">
@@ -607,9 +969,9 @@
                         <td class="stat-name" style="color: var(--text-muted);">Vitality</td>
                         <td style="text-align: center;">
                             <div class="compound-row">
-                                <input type="number" id="vit-cur" class="stat-input save-field" value="30">
+                                <input type="number" id="vit-cur" class="stat-input save-field" value="20">
                                 <span>/</span>
-                                <input type="number" id="vit-max" class="stat-input save-field" value="30">
+                                <input type="number" id="vit-max" class="stat-input save-field" value="20">
                             </div>
                         </td>
                         <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">VIT</td>
@@ -635,27 +997,48 @@
         </div>
     </div>
 
-    <div class="bottom-console-panel">
-        <h2>Feats & Force Powers Terminal</h2>
-        <textarea id="featsPowers" class="console-textarea save-field" placeholder="Enter logs..."></textarea>
-    </div>
-
-    <div class="character-footer-details">
-        <div class="footer-field">
-            <label for="char-name">Identity Designation</label>
-            <input type="text" id="char-name" class="save-field" placeholder="New Character">
+    <section class="combat-panel" id="combatPanel" hidden aria-labelledby="combatHeading">
+        <div class="panel-heading" id="combatHeading">
+            <span>Combat Configuration</span>
+            <span>Lightsaber telemetry</span>
         </div>
-        <div class="footer-field">
-            <label for="char-class">Class Orientation</label>
-            <input type="text" id="char-class" class="save-field" placeholder="Jedi Class">
-        </div>
-        <div class="footer-field">
-            <label for="char-exp">Experience Accumulation</label>
-            <div class="compound-row" style="margin-top:4px;">
-                <input type="number" id="exp-cur" class="save-field" style="background: transparent; border: 1px solid var(--border-dim); border-radius: 4px; color: var(--text-bright); padding: 6px 10px; width:70px; font-family:inherit;" value="0">
-                <span style="color: var(--border-dim); padding: 0 4px;">/</span>
-                <input type="number" id="exp-need" class="save-field" style="background: transparent; border: 1px solid var(--border-dim); border-radius: 4px; color: var(--text-bright); padding: 6px 10px; width:70px; font-family:inherit;" value="1000">
+        <div class="saber-form-container">
+            <div class="saber-header">
+                <div class="saber-icon" id="saberIcon"></div>
+                <div style="display:flex; flex-direction:column; flex:1;">
+                    <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted);">Saber Technique</label>
+                    <select id="saberForm" class="char-selector save-field" style="width:100%; margin-top:3px;">
+                        <option value="">None Selected</option>
+                        <option value="01">Form I: Shii-Cho</option>
+                        <option value="02">Form II: Makashi</option>
+                        <option value="03">Form III: Soresu</option>
+                        <option value="04">Form IV: Ataru</option>
+                        <option value="05">Form V: Shien / Djem So</option>
+                        <option value="06">Form VI: Niman</option>
+                        <option value="07">Form VII: Juyo</option>
+                    </select>
+                </div>
             </div>
+            <div class="saber-bonus-box" id="saberBonus">No active technique modifiers.</div>
+        </div>
+    </section>
+
+    <section class="journal-panel section-hidden" id="journalPanel" aria-labelledby="journalHeading">
+        <div class="journal-notes">
+            <div class="panel-heading" id="journalHeading"><span>Journal</span><button class="control-btn" id="newNoteBtn" type="button">New</button></div>
+            <div class="note-list" id="noteList"></div>
+        </div>
+        <div class="journal-editor">
+            <input id="noteTitle" type="text" placeholder="Note title">
+            <textarea id="noteBody" placeholder="Record a mission, clue, or thought..."></textarea>
+            <button class="control-btn" id="deleteNoteBtn" type="button">Delete note</button>
+        </div>
+    </section>
+
+    <div class="console-row">
+        <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats & Force Powers Console Log</label>
+        <div class="console-box">
+            <textarea id="featsLog" class="save-field" placeholder="[Console Active] Record acquired Feats and Force Powers matrix parameters here..."></textarea>
         </div>
     </div>
 
@@ -665,35 +1048,81 @@
     </div>
 </div>
 
+<div class="modal-backdrop" id="itemModal" hidden>
+    <div class="picker-modal" role="dialog" aria-modal="true" aria-labelledby="pickerHeading">
+        <div class="modal-heading">
+            <span id="pickerHeading">Select item</span>
+            <button class="control-btn" id="closeItemModalBtn" type="button">Close</button>
+        </div>
+        <input class="picker-search" id="itemSearch" type="search" placeholder="Search item catalog" aria-label="Search item catalog">
+        <div class="picker-list" id="pickerList"></div>
+    </div>
+</div>
+
 <script>
-    const MASTER_KEY = 'kotor2_registry_master_list';
-    const ACTIVE_KEY = 'kotor2_registry_active_id';
+    const LIST_STORAGE_KEY = 'kotor2_character_list';
+    const ACTIVE_ID_KEY = 'kotor2_active_char_id';
     
-    const formRules = {
-        "": "Form benefits offline.",
-        "01": "Increased target breakdown thresholds on sweeping visual targets.",
-        "02": "Amplified precise lightsaber-to-lightsaber target parsing parameters.",
-        "03": "On max ranged defense roll (critical), double reflected damage",
-        "04": "High-velocity atmospheric jump evasion tracking vector scaling active.",
-        "05": "Enhanced counterstrike reflection return velocity adjustments.",
-        "06": "Standardized uniform equilibrium metrics distribution operational.",
-        "07": "Vicious structural kinetic damage parameters scaling configuration."
-    };
-
-    let characters = {};
-    let currentId = '';
-    let saveTimeout;
-
     const fields = document.querySelectorAll('.save-field');
     const saveIndicator = document.getElementById('save-indicator');
     const profilePanel = document.getElementById('profilePanel');
     const alignmentSlider = document.getElementById('alignment');
-    const saberSelect = document.getElementById('saberForm');
-    const bonusDisplay = document.getElementById('bonusDisplay');
-    const charSelector = document.getElementById('charSelector');
-    const avatarUpload = document.getElementById('avatarUpload');
+    const saberFormDropdown = document.getElementById('saberForm');
+    const saberBonusBox = document.getElementById('saberBonus');
+    const saberIconDiv = document.getElementById('saberIcon');
+    const portraitInput = document.getElementById('portraitInput');
     const avatarDisplay = document.getElementById('avatarDisplay');
-    const saberIconZone = document.getElementById('saberIconZone');
+    const noSignalTxt = document.getElementById('noSignalTxt');
+    const charDropdown = document.getElementById('charDropdown');
+    const equipmentGrid = document.getElementById('equipmentGrid');
+    const equipmentStatus = document.getElementById('equipmentStatus');
+    const journalPanel = document.getElementById('journalPanel');
+    const noteList = document.getElementById('noteList');
+    const noteTitle = document.getElementById('noteTitle');
+    const noteBody = document.getElementById('noteBody');
+    const itemModal = document.getElementById('itemModal');
+    const pickerList = document.getElementById('pickerList');
+    const itemSearch = document.getElementById('itemSearch');
+    const adminMenu = document.getElementById('adminMenu');
+    const adminTrigger = document.getElementById('adminTrigger');
+
+    const equipmentSlots = [
+        { id: 'rightWeapon', label: 'Right hand', types: ['weapon'] },
+        { id: 'leftWeapon', label: 'Left hand', types: ['weapon'] },
+        { id: 'head', label: 'Head', types: ['armor'] },
+        { id: 'chest', label: 'Chest', types: ['armor'] },
+        { id: 'hands', label: 'Hands', types: ['armor'] },
+        { id: 'belt', label: 'Belt', types: ['armor'] },
+        { id: 'implant', label: 'Implant', types: ['implant'] }
+    ];
+
+    const itemCatalog = [
+        { id: 'lghtsbr', name: 'Lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_lghtsbr_001.png' },
+        { id: 'dblsbr', name: 'Double-bladed lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_dblsbr_001.png' },
+        { id: 'shortsbr', name: 'Short lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_shortsbr_001.png' },
+        { id: 'jedirobe', name: 'Jedi robe', slot: 'armor', type: 'armor', image: './PNG/ia_jedirobe_001.png' },
+        { id: 'mstrrobe', name: 'Master robe', slot: 'armor', type: 'armor', image: './PNG/ia_mstrrobe_001.png' },
+        { id: 'belt', name: 'Utility belt', slot: 'armor', type: 'armor', image: './PNG/ii_belt_001.png' },
+        { id: 'implant', name: 'Reflex implant', slot: 'implant', type: 'implant', image: './PNG/ii_implant1_001.png' }
+    ];
+
+    let activeEquipmentSlot = '';
+    let activeNoteId = '';
+    
+    let characters = [];
+    let activeCharId = '';
+    let saveTimeout;
+
+    const formDescriptions = {
+        "": "No active technique modifiers.",
+        "01": "Form I: Shii-Cho - Enhanced multi-target battlefield positioning and fallback defense sweeps.",
+        "02": "Form II: Makashi - Maximized single-target precision blade dueling parameters.",
+        "03": "Form III: Soresu - On max ranged defense roll (critical), double reflected damage.",
+        "04": "Form IV: Ataru - Dynamic kinetic strikes and aerial velocity vectors optimized.",
+        "05": "Form V: Shien / Djem So - Balanced dynamic parry returns and heavy baseline kinetic press.",
+        "06": "Form VI: Niman - Synergistic integration of basic Form vectors with telekinetic Force manipulation.",
+        "07": "Form VII: Juyo - Controlled internal aggression metrics mapping unpredictable strike patterns."
+    };
 
     function calculateModifier(val) {
         const numericVal = parseInt(val, 10) || 10;
@@ -705,7 +1134,9 @@
         document.querySelectorAll('.core-stat').forEach(statField => {
             const modId = `${statField.id}-mod`;
             const modTarget = document.getElementById(modId);
-            if (modTarget) modTarget.textContent = calculateModifier(statField.value);
+            if (modTarget) {
+                modTarget.textContent = calculateModifier(statField.value);
+            }
         });
     }
 
@@ -722,191 +1153,387 @@
         }
     }
 
-    function updateSaberFormAssets() {
-        const selection = saberSelect.value;
-        bonusDisplay.textContent = formRules[selection] || formRules[""];
+    function updateSaberFormTelemetry() {
+        const selectedForm = saberFormDropdown.value;
+        saberBonusBox.textContent = formDescriptions[selectedForm] || "No active technique modifiers.";
         
-        if (!selection) {
-            saberIconZone.innerHTML = '<div class="saber-icon-fallback">[ OFF ]</div>';
+        if (selectedForm) {
+            saberIconDiv.style.backgroundImage = `url('./PNG/ifrm_saber${selectedForm}.png')`;
+            saberIconDiv.style.display = 'block';
+        } else {
+            saberIconDiv.style.backgroundImage = 'none';
+            saberIconDiv.style.display = 'none';
+        }
+    }
+
+    function ensureCharacterShape(character) {
+        character.equipment = character.equipment || {};
+        character.notes = Array.isArray(character.notes) ? character.notes : [];
+        equipmentSlots.forEach(slot => {
+            if (character.equipment[slot.id] === undefined) character.equipment[slot.id] = null;
+        });
+    }
+
+    function getActiveCharacter() {
+        return characters.find(character => character.id === activeCharId);
+    }
+
+    function renderEquipment() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        equipmentGrid.innerHTML = '';
+        equipmentSlots.forEach(slot => {
+            const item = itemCatalog.find(catalogItem => catalogItem.id === current.equipment[slot.id]);
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'equipment-slot';
+            button.dataset.slot = slot.id;
+            button.title = `Choose ${slot.label}`;
+            button.innerHTML = item
+                ? `<img src="${item.image}" alt=""><strong>${item.name}</strong><small>${slot.label}</small>`
+                : `<img src="./PNG/i_unequip.png" alt=""><strong>Empty</strong><small>${slot.label}</small>`;
+            button.addEventListener('click', () => openItemPicker(slot.id));
+            equipmentGrid.appendChild(button);
+        });
+        const equippedCount = equipmentSlots.filter(slot => current.equipment[slot.id]).length;
+        equipmentStatus.textContent = `${equippedCount}/${equipmentSlots.length} equipped`;
+    }
+
+    function openItemPicker(slotId) {
+        activeEquipmentSlot = slotId;
+        const slot = equipmentSlots.find(candidate => candidate.id === slotId);
+        document.getElementById('pickerHeading').textContent = `Select ${slot.label}`;
+        itemSearch.value = '';
+        renderItemPicker();
+        itemModal.hidden = false;
+        itemSearch.focus();
+    }
+
+    function renderItemPicker() {
+        const slot = equipmentSlots.find(candidate => candidate.id === activeEquipmentSlot);
+        const query = itemSearch.value.trim().toLowerCase();
+        const choices = itemCatalog.filter(item => slot && slot.types.includes(item.type) && item.name.toLowerCase().includes(query));
+        pickerList.innerHTML = '';
+        const clearButton = document.createElement('button');
+        clearButton.type = 'button';
+        clearButton.className = 'picker-item';
+        clearButton.innerHTML = '<img src="./PNG/i_unequip.png" alt=""><span>Clear slot</span>';
+        clearButton.addEventListener('click', () => selectEquipmentItem(null));
+        pickerList.appendChild(clearButton);
+        choices.forEach(item => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'picker-item';
+            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}</span>`;
+            button.addEventListener('click', () => selectEquipmentItem(item.id));
+            pickerList.appendChild(button);
+        });
+    }
+
+    function selectEquipmentItem(itemId) {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        current.equipment[activeEquipmentSlot] = itemId;
+        saveRegistryToStorage();
+        renderEquipment();
+        itemModal.hidden = true;
+    }
+
+    function renderJournal() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        if (!current.notes.some(note => note.id === activeNoteId)) {
+            activeNoteId = current.notes[0]?.id || '';
+        }
+        noteList.innerHTML = '';
+        if (current.notes.length === 0) {
+            noteList.innerHTML = '<span style="font-size:0.7rem;">No entries.</span>';
+            noteTitle.value = '';
+            noteBody.value = '';
             return;
         }
-        
-        const fileName = `ifrm_saber${selection}.png`;
-        const relativePath = `./PNG/${fileName}`;
-        
-        saberIconZone.innerHTML = '';
-        
-        const img = document.createElement('img');
-        img.className = 'saber-icon-img';
-        img.src = relativePath;
-        img.alt = fileName;
-        
-        img.onerror = function() {
-            saberIconZone.innerHTML = `<div class="saber-icon-fallback">${fileName}</div>`;
-        };
-        
-        saberIconZone.appendChild(img);
+        current.notes.forEach(note => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = note.title || 'Untitled note';
+            button.classList.toggle('active', note.id === activeNoteId);
+            button.addEventListener('click', () => {
+                activeNoteId = note.id;
+                renderJournal();
+            });
+            noteList.appendChild(button);
+        });
+        const activeNote = current.notes.find(note => note.id === activeNoteId);
+        noteTitle.value = activeNote?.title || '';
+        noteBody.value = activeNote?.body || '';
+    }
+
+    function createNote() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        const note = { id: `note_${Date.now()}`, title: 'New entry', body: '' };
+        current.notes.unshift(note);
+        activeNoteId = note.id;
+        saveRegistryToStorage();
+        renderJournal();
+        noteTitle.focus();
+        noteTitle.select();
+    }
+
+    function saveActiveNote() {
+        const current = getActiveCharacter();
+        const note = current?.notes.find(entry => entry.id === activeNoteId);
+        if (!note) return;
+        note.title = noteTitle.value;
+        note.body = noteBody.value;
+        saveRegistryToStorage();
+        const activeButton = [...noteList.querySelectorAll('button')].find(button => button.classList.contains('active'));
+        if (activeButton) activeButton.textContent = note.title || 'Untitled note';
+    }
+
+    function deleteActiveNote() {
+        const current = getActiveCharacter();
+        if (!current || !activeNoteId) return;
+        current.notes = current.notes.filter(note => note.id !== activeNoteId);
+        activeNoteId = current.notes[0]?.id || '';
+        saveRegistryToStorage();
+        renderJournal();
+    }
+
+    function exportActiveCharacter() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        const exportData = JSON.stringify(current, null, 2);
+        const blob = new Blob([exportData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${(current.data['char-name'] || 'character').replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
     }
 
     function initRegistry() {
-        const storedList = localStorage.getItem(MASTER_KEY);
-        const storedActive = localStorage.getItem(ACTIVE_KEY);
+        const storedList = localStorage.getItem(LIST_STORAGE_KEY);
+        const storedActiveId = localStorage.getItem(ACTIVE_ID_KEY);
         
         if (storedList) {
             characters = JSON.parse(storedList);
         }
-
-        if (Object.keys(characters).length === 0) {
-            const defaultId = 'char_' + Date.now();
-            characters[defaultId] = {
-                id: defaultId,
-                "char-name": "Hala Diskil",
-                "char-class": "Jedi Sentinel 1",
-                "alignment": "50",
-                "str": "12", "dex": "16", "con": "12", "int": "14", "wis": "12", "cha": "10",
-                "vit-cur": "31", "vit-max": "34", "force-cur": "0", "force-max": "0",
-                "defense": "15", "exp-cur": "0", "exp-need": "1000", "saberForm": "",
-                "featsPowers": "", "avatar": ""
-            };
-            currentId = defaultId;
-        } else {
-            currentId = characters[storedActive] ? storedActive : Object.keys(characters);
-        }
-
-        localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
-        localStorage.setItem(ACTIVE_KEY, currentId);
         
-        renderSelector();
-        loadCharacter(currentId);
+        if (characters.length === 0) {
+            createNewCharacter("Hala Diskil");
+        } else {
+            activeCharId = storedActiveId || characters[0].id;
+            // Fallback if ID doesn't exist anymore
+            if (!characters.some(c => c.id === activeCharId)) {
+                activeCharId = characters[0].id;
+            }
+            characters.forEach(ensureCharacterShape);
+            buildDropdown();
+            loadActiveCharacter();
+        }
     }
 
-    function renderSelector() {
-        charSelector.innerHTML = '';
-        Object.keys(characters).forEach(id => {
+    function createNewCharacter(defaultName = "New Retainer") {
+        const newId = 'char_' + Date.now();
+        const newChar = {
+            id: newId,
+            avatar: "",
+            equipment: {},
+            notes: [],
+            data: {
+                "char-name": defaultName,
+                "char-class": "Jedi Initiate",
+                "alignment": "50",
+                "saberForm": "",
+                "str": "10", "dex": "10", "con": "10", "int": "10", "wis": "10", "cha": "10",
+                "vit-cur": "20", "vit-max": "20", "force-cur": "0", "force-max": "0", "defense": "10",
+                "exp-cur": "0", "exp-need": "1000", "featsLog": ""
+            }
+        };
+        
+        characters.push(newChar);
+        ensureCharacterShape(newChar);
+        activeCharId = newId;
+        saveRegistryToStorage();
+        buildDropdown();
+        loadActiveCharacter();
+    }
+
+    function buildDropdown() {
+        charDropdown.innerHTML = '';
+        characters.forEach(char => {
             const opt = document.createElement('option');
-            opt.value = id;
-            opt.textContent = characters[id]["char-name"] || "Unnamed Entity";
-            if (id === currentId) opt.selected = true;
-            charSelector.appendChild(opt);
+            opt.value = char.id;
+            opt.textContent = char.data["char-name"] || "Unnamed Retainer";
+            if (char.id === activeCharId) opt.selected = true;
+            charDropdown.appendChild(opt);
         });
     }
 
-    function loadCharacter(id) {
-        if (!characters[id]) return;
-        currentId = id;
-        localStorage.setItem(ACTIVE_KEY, currentId);
+    function loadActiveCharacter() {
+        const current = characters.find(c => c.id === activeCharId);
+        if (!current) return;
+        ensureCharacterShape(current);
         
-        const data = characters[id];
         fields.forEach(field => {
-            if (data[field.id] !== undefined) {
-                field.value = data[field.id];
+            if (current.data[field.id] !== undefined) {
+                field.value = current.data[field.id];
             }
         });
-
-        if (data.avatar) {
-            avatarDisplay.style.backgroundImage = `url(${data.avatar})`;
-            avatarDisplay.classList.add('has-image');
+        
+        if (current.avatar) {
+            avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
+            noSignalTxt.style.display = 'none';
         } else {
             avatarDisplay.style.backgroundImage = 'none';
-            avatarDisplay.classList.remove('has-image');
+            noSignalTxt.style.display = 'block';
         }
-
+        
         updateAllModifiers();
         updateAlignmentGlow();
-        updateSaberFormAssets();
+        updateSaberFormTelemetry();
+        renderEquipment();
+        renderJournal();
     }
 
-    function saveCurrentData() {
-        if (!currentId || !characters[currentId]) return;
+    function saveActiveCharacterData() {
+        const current = characters.find(c => c.id === activeCharId);
+        if (!current) return;
+        ensureCharacterShape(current);
         
         fields.forEach(field => {
-            characters[currentId][field.id] = field.value;
+            current.data[field.id] = field.value;
         });
-
-        localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
         
-        const nameField = document.getElementById('char-name').value;
-        const selectOpt = charSelector.querySelector(`option[value="${currentId}"]`);
-        if (selectOpt && selectOpt.textContent !== nameField) {
-            selectOpt.textContent = nameField || "Unnamed Entity";
+        // Sync name live to dropdown
+        const dropdownOption = charDropdown.querySelector(`option[value="${activeCharId}"]`);
+        if (dropdownOption) {
+            dropdownOption.textContent = current.data["char-name"] || "Unnamed Retainer";
         }
-
+        
+        saveRegistryToStorage();
+        
         updateAllModifiers();
         updateAlignmentGlow();
-        updateSaberFormAssets();
-
+        
         saveIndicator.classList.add('visible');
         clearTimeout(saveTimeout);
         saveTimeout = setTimeout(() => {
             saveIndicator.classList.remove('visible');
-        }, 1200);
+        }, 1500);
     }
 
-    function createNewCharacter() {
-        const newId = 'char_' + Date.now();
-        characters[newId] = {
-            id: newId,
-            "char-name": "New Holocron Record",
-            "char-class": "Jedi Recruit",
-            "alignment": "50",
-            "str": "10", "dex": "10", "con": "10", "int": "10", "wis": "10", "cha": "10",
-            "vit-cur": "10", "vit-max": "10", "force-cur": "0", "force-max": "0",
-            "defense": "10", "exp-cur": "0", "exp-need": "1000", "saberForm": "",
-            "featsPowers": "", "avatar": ""
-        };
-        
-        localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
-        currentId = newId;
-        localStorage.setItem(ACTIVE_KEY, currentId);
-        
-        renderSelector();
-        loadCharacter(newId);
+    function saveRegistryToStorage() {
+        localStorage.setItem(LIST_STORAGE_KEY, JSON.stringify(characters));
+        localStorage.setItem(ACTIVE_ID_KEY, activeCharId);
     }
 
-    function deleteCurrentCharacter() {
-        const keys = Object.keys(characters);
-        if (keys.length <= 1) {
-            alert("System Core Restriction: A master database registry must contain at least one character profile.");
+    // Event Bindings
+    fields.forEach(field => {
+        field.addEventListener('input', saveActiveCharacterData);
+    });
+    
+    saberFormDropdown.addEventListener('change', updateSaberFormTelemetry);
+    
+    charDropdown.addEventListener('change', (e) => {
+        activeCharId = e.target.value;
+        localStorage.setItem(ACTIVE_ID_KEY, activeCharId);
+        loadActiveCharacter();
+    });
+    
+    document.querySelectorAll('.icon-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const section = toggle.dataset.section;
+            const isPressed = toggle.getAttribute('aria-pressed') === 'true';
+            toggle.setAttribute('aria-pressed', String(!isPressed));
+            if (section === 'journal') {
+                journalPanel.classList.toggle('section-hidden', isPressed);
+            } else if (section === 'equipment') {
+                document.getElementById('equipmentPanel').classList.toggle('section-hidden', isPressed);
+            } else if (section === 'combat') {
+                document.getElementById('combatPanel').hidden = isPressed;
+            } else if (section === 'character') {
+                document.getElementById('profilePanel').classList.toggle('section-hidden', isPressed);
+                document.querySelector('.stats-panel').classList.toggle('section-hidden', isPressed);
+            }
+        });
+    });
+
+    adminTrigger.addEventListener('click', () => {
+        const isOpen = adminTrigger.getAttribute('aria-expanded') === 'true';
+        adminTrigger.setAttribute('aria-expanded', String(!isOpen));
+        adminMenu.hidden = isOpen;
+    });
+
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.admin-wrap')) {
+            adminTrigger.setAttribute('aria-expanded', 'false');
+            adminMenu.hidden = true;
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            itemModal.hidden = true;
+            adminTrigger.setAttribute('aria-expanded', 'false');
+            adminMenu.hidden = true;
+        }
+    });
+
+    document.getElementById('newCharBtn').addEventListener('click', () => createNewCharacter());
+    document.getElementById('exportCharBtn').addEventListener('click', exportActiveCharacter);
+    
+    document.getElementById('deleteCharBtn').addEventListener('click', () => {
+        if (characters.length <= 1) {
+            alert("Terminal configuration failure: Registry requires a minimum of one remaining character datapad.");
             return;
         }
-        
-        if (confirm("Are you certain you wish to purge this entity projection profile from memory records permanently?")) {
-            delete characters[currentId];
-            localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
-            currentId = Object.keys(characters);
-            localStorage.setItem(ACTIVE_KEY, currentId);
-            renderSelector();
-            loadCharacter(currentId);
+        if (confirm("Execute purge sequence? This character data record will be permanently deleted from local memory.")) {
+            characters = characters.filter(c => c.id !== activeCharId);
+            activeCharId = characters[0].id;
+            saveRegistryToStorage();
+            buildDropdown();
+            loadActiveCharacter();
         }
-    }
+    });
 
-    avatarUpload.addEventListener('change', function(e) {
+    document.getElementById('newNoteBtn').addEventListener('click', createNote);
+    document.getElementById('deleteNoteBtn').addEventListener('click', deleteActiveNote);
+    noteTitle.addEventListener('input', saveActiveNote);
+    noteBody.addEventListener('input', saveActiveNote);
+    itemSearch.addEventListener('input', renderItemPicker);
+    document.getElementById('closeItemModalBtn').addEventListener('click', () => {
+        itemModal.hidden = true;
+    });
+    itemModal.addEventListener('click', event => {
+        if (event.target === itemModal) itemModal.hidden = true;
+    });
+
+    portraitInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (!file) return;
         
         const reader = new FileReader();
-        reader.onload = function(evt) {
-            const base64Str = evt.target.result;
-            avatarDisplay.style.backgroundImage = `url(${base64Str})`;
-            avatarDisplay.classList.add('has-image');
-            
-            if (characters[currentId]) {
-                characters[currentId].avatar = base64Str;
-                localStorage.setItem(MASTER_KEY, JSON.stringify(characters));
+        reader.onload = function(event) {
+            const current = characters.find(c => c.id === activeCharId);
+            if (current) {
+                current.avatar = event.target.result;
+                avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
+                noSignalTxt.style.display = 'none';
+                saveRegistryToStorage();
             }
         };
         reader.readAsDataURL(file);
     });
 
-    charSelector.addEventListener('change', function() {
-        loadCharacter(this.value);
-    });
-
-    fields.forEach(field => {
-        field.addEventListener('input', saveCurrentData);
-    });
-
     window.addEventListener('DOMContentLoaded', initRegistry);
 </script>
+
 </body>
 </html>
