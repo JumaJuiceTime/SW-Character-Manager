@@ -37,10 +37,23 @@
             border-radius: 20px;
             padding: 25px;
             width: 100%;
-            max-width: 950px;
+            max-width: 1180px;
             box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9), 0 15px 35px rgba(0,0,0,0.6);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
+
+        .command-bar { order: 1; }
+        .main-layout { order: 2; }
+        .combat-panel { order: 3; }
+        .modifications-panel { order: 4; }
+        .inventory-panel { order: 5; }
+        .development-panel { order: 6; }
+        .journal-panel { order: 7; }
+        .force-panel { order: 8; }
+        .feats-panel { order: 9; }
+        .action-row { order: 10; }
 
         .menu-header {
             display: flex;
@@ -624,8 +637,220 @@
 
         .equipment-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 8px;
+        }
+
+        .equipment-slot {
+            min-height: 104px;
+        }
+
+        .command-title {
+            min-width: 150px;
+        }
+
+        .command-xp {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-neon);
+            white-space: nowrap;
+            font-size: 0.8rem;
+        }
+
+        .command-xp input {
+            width: 58px;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            font: inherit;
+            padding: 4px;
+        }
+
+        .panel-section {
+            margin-top: 18px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+
+        .combat-panel { order: 3; }
+
+        .panel-section[hidden] {
+            display: none;
+        }
+
+        .modification-layout,
+        .development-layout {
+            display: grid;
+            grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.8fr);
+            gap: 14px;
+        }
+
+        .catalog-list,
+        .development-list {
+            display: grid;
+            gap: 7px;
+        }
+
+        .catalog-item,
+        .development-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 7px;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.45);
+            color: var(--text-bright);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .catalog-item:hover,
+        .catalog-item.active,
+        .development-item:hover:not(:disabled) {
+            border-color: var(--border-neon);
+        }
+
+        .catalog-item img,
+        .development-item img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
+
+        .catalog-item small,
+        .development-item small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+        }
+
+        .modification-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .modification-column,
+        .modification-row {
+            display: grid;
+            gap: 8px;
+        }
+
+        .modification-row {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .modification-slot {
+            min-height: 86px;
+            padding: 6px;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.45);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: center;
+        }
+
+        .modification-slot:hover {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+        }
+
+        .modification-slot img {
+            display: block;
+            width: 38px;
+            height: 38px;
+            margin: 0 auto 4px;
+            object-fit: contain;
+        }
+
+        .origin-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .origin-grid select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 8px;
+        }
+
+        .development-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .development-filter {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .development-filter input,
+        .development-filter select {
+            min-width: 0;
+            flex: 1;
+            background: #000;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            padding: 7px;
+            font: inherit;
+        }
+
+        .development-track {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            position: relative;
+        }
+
+        .development-item.purchased {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.35);
+            opacity: 1;
+        }
+
+        .development-arrow {
+            position: absolute;
+            z-index: 2;
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            left: calc(33.333% - 12px);
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .development-arrow.second {
+            left: calc(66.666% - 12px);
+        }
+
+        .inventory-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .development-item:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
         }
 
         .equipment-slot {
@@ -818,6 +1043,10 @@
                 display: none;
             }
 
+            .command-xp {
+                display: none;
+            }
+
             .icon-toggle,
             .admin-trigger {
                 width: 44px;
@@ -825,7 +1054,9 @@
             }
 
             .main-layout,
-            .journal-panel {
+            .journal-panel,
+            .modification-layout,
+            .development-layout {
                 grid-template-columns: 1fr;
             }
 
@@ -838,6 +1069,15 @@
                 border-bottom: 1px solid var(--border-dim);
                 padding: 0 0 10px;
             }
+
+            .modification-grid,
+            .origin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modification-row {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
         }
     </style>
 </head>
@@ -845,7 +1085,8 @@
 
 <div class="console-frame">
     <nav class="command-bar" aria-label="Character sections">
-        <div class="command-title">Character Menu</div>
+        <div class="command-title" id="menuCharacterName">Character Menu</div>
+        <label class="command-xp" title="Experience points">XP: <input id="topXp" type="number" min="0" step="1" aria-label="Experience points"></label>
         <button class="icon-toggle" type="button" data-section="character" aria-pressed="true" title="Toggle character overview" aria-label="Toggle character overview">
             <img src="./PNG/i_examine.png" alt="">
         </button>
@@ -858,6 +1099,21 @@
         <button class="icon-toggle" type="button" data-section="journal" aria-pressed="false" title="Toggle journal" aria-label="Toggle journal">
             <img src="./PNG/ii_datapad_001.png" alt="">
         </button>
+        <button class="icon-toggle" type="button" data-section="modifications" aria-pressed="false" title="Toggle modifications" aria-label="Toggle modifications">
+            <img src="./PNG/isk_repair.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="inventory" aria-pressed="false" title="Toggle inventory" aria-label="Toggle inventory">
+            <img src="./PNG/i_openplace.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="development" aria-pressed="false" title="Toggle development" aria-label="Toggle development">
+            <img src="./PNG/if_mentor.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="force" aria-pressed="true" title="Toggle force powers" aria-label="Toggle force powers">
+            <img src="./PNG/i_force02.png" alt="">
+        </button>
+        <button class="icon-toggle" type="button" data-section="feats" aria-pressed="false" title="Toggle feats" aria-label="Toggle feats">
+            <img src="./PNG/i_useplace.png" alt="">
+        </button>
         <div class="admin-wrap">
             <button class="admin-trigger" id="adminTrigger" type="button" aria-expanded="false" title="Character administration" aria-label="Character administration">
                 <img src="./PNG/i_gstance01.png" alt="">
@@ -865,6 +1121,11 @@
             <div class="admin-menu" id="adminMenu" hidden>
                 <label for="charDropdown">Active character</label>
                 <select id="charDropdown" class="char-selector"></select>
+                <label for="renameCharacterInput">Character name</label>
+                <input id="renameCharacterInput" class="char-selector" type="text" placeholder="Character name">
+                <button class="control-btn" id="renameCharacterBtn" type="button">Rename</button>
+                <button class="control-btn" id="loadPortraitBtn" type="button">Load profile</button>
+                <input type="file" id="portraitInput" accept="image/*" style="display: none;">
                 <div class="admin-actions">
                     <button class="control-btn" id="newCharBtn" type="button">New</button>
                     <button class="control-btn" id="exportCharBtn" type="button">JSON</button>
@@ -877,11 +1138,6 @@
     <div class="main-layout">
         
         <div class="profile-panel" id="profilePanel">
-            <div class="identity-heading">
-                <label for="char-name">Identity Designation</label>
-                <input type="text" id="char-name" class="save-field" placeholder="Unnamed Retainer">
-            </div>
-            
             <div class="profile-visual-row">
                 <div class="alignment-vertical">
                     <span class="alignment-label" style="color: #55ccff;">LIGHT</span>
@@ -898,21 +1154,30 @@
                 </div>
             </div>
             
-            <button class="control-btn" onclick="document.getElementById('portraitInput').click()" style="margin-bottom: 15px;">Load Datapad Profile</button>
-            <input type="file" id="portraitInput" accept="image/*" style="display: none;">
-
             <div class="profile-details">
                 <div class="profile-detail">
                     <label for="char-class">Class Orientation</label>
                     <input type="text" id="char-class" class="save-field" placeholder="Jedi Initiate">
                 </div>
-                <div class="profile-detail">
-                    <label for="exp-cur">Experience Accumulation</label>
-                    <div class="compound-row">
-                        <input type="number" id="exp-cur" class="save-field" value="0">
-                        <span>/</span>
-                        <input type="number" id="exp-need" class="save-field" value="1000">
+                <div class="origin-grid">
+                    <div class="profile-detail">
+                        <label for="char-background">Background</label>
+                        <select id="char-background" class="char-selector save-field">
+                            <option value="outcast">Outcast (+1 Constitution)</option>
+                            <option value="scholar">Scholar (+1 Intelligence)</option>
+                            <option value="soldier">Soldier (+1 Strength)</option>
+                        </select>
                     </div>
+                    <div class="profile-detail">
+                        <label for="char-species">Species</label>
+                        <select id="char-species" class="char-selector save-field">
+                            <option value="human">Human (+1 Charisma)</option>
+                            <option value="mirialan">Mirialan (+1 Wisdom)</option>
+                            <option value="twi_lekk">Twi'lek (+1 Dexterity)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="profile-detail">
                 </div>
             </div>
         </div>
@@ -987,15 +1252,49 @@
                         </td>
                         <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">FP</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name" style="color: var(--text-muted);">Defense Rating</td>
-                        <td style="text-align: center;"><input type="number" id="defense" class="stat-input save-field" value="10"></td>
-                        <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">DEF</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <section class="panel-section modifications-panel" id="modificationsPanel" hidden aria-labelledby="modificationsHeading">
+        <div class="panel-heading" id="modificationsHeading"><span>Modifications</span><span id="modificationStatus">Select an item</span></div>
+        <div class="modification-layout">
+            <div class="catalog-list" id="modificationItems"></div>
+            <div id="modificationSlots"><span>Select a weapon or armor from the list.</span></div>
+        </div>
+    </section>
+
+    <section class="panel-section inventory-panel" id="inventoryPanel" hidden aria-labelledby="inventoryHeading">
+        <div class="panel-heading" id="inventoryHeading"><span>Inventory</span><span id="inventoryStatus">0 items</span></div>
+        <div class="inventory-actions">
+            <button class="control-btn" id="addInventoryBtn" type="button">Add item</button>
+            <button class="control-btn" id="removeInventoryBtn" type="button">Remove item</button>
+        </div>
+        <div class="inventory-grid" id="inventoryGrid"></div>
+    </section>
+
+    <section class="panel-section development-panel" id="developmentPanel" hidden aria-labelledby="developmentHeading">
+        <div class="panel-heading" id="developmentHeading"><span>Development</span><span id="developmentXp">0 XP available</span></div>
+        <div class="development-layout">
+            <div>
+                <div class="panel-heading"><span>Available upgrades</span></div>
+                <div class="development-filter">
+                    <input id="developmentSearch" type="search" placeholder="Search upgrades" aria-label="Search upgrades">
+                    <select id="developmentTypeFilter" aria-label="Filter upgrade type">
+                        <option value="all">All types</option>
+                        <option value="force">Force powers</option>
+                        <option value="feat">Feats</option>
+                    </select>
+                    <select id="developmentTagFilter" aria-label="Filter upgrade tags">
+                        <option value="all">All tags</option>
+                    </select>
+                </div>
+                <div class="development-list" id="developmentList"></div>
+            </div>
+            <div class="console-box" id="developmentDetails">Select an upgrade to inspect its requirements.</div>
+        </div>
+    </section>
 
     <section class="combat-panel" id="combatPanel" hidden aria-labelledby="combatHeading">
         <div class="panel-heading" id="combatHeading">
@@ -1020,6 +1319,16 @@
                 </div>
             </div>
             <div class="saber-bonus-box" id="saberBonus">No active technique modifiers.</div>
+            <div class="origin-grid">
+                <div class="profile-detail">
+                    <label for="attackRating">Attack Rating</label>
+                    <input type="number" id="attackRating" class="save-field" value="0">
+                </div>
+                <div class="profile-detail">
+                    <label for="defenseRating">Defense Rating</label>
+                    <input type="number" id="defenseRating" class="save-field" value="10">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1035,10 +1344,19 @@
         </div>
     </section>
 
-    <div class="console-row">
-        <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats & Force Powers Console Log</label>
+    <div class="console-row force-panel" id="forcePanel">
+        <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Force Powers Console Log</label>
         <div class="console-box">
-            <textarea id="featsLog" class="save-field" placeholder="[Console Active] Record acquired Feats and Force Powers matrix parameters here..."></textarea>
+            <div id="forceUnlocks">No Force Powers acquired.</div>
+            <textarea id="forceLog" class="save-field" placeholder="[Console Active] Record acquired Force Powers here..."></textarea>
+        </div>
+    </div>
+
+    <div class="console-row feats-panel" id="featsPanel" hidden>
+        <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats Console Log</label>
+        <div class="console-box">
+            <div id="featUnlocks">No feats acquired.</div>
+            <textarea id="featsLog" class="save-field" placeholder="[Console Active] Record acquired Feats here..."></textarea>
         </div>
     </div>
 
@@ -1085,29 +1403,92 @@
     const itemSearch = document.getElementById('itemSearch');
     const adminMenu = document.getElementById('adminMenu');
     const adminTrigger = document.getElementById('adminTrigger');
+    const menuCharacterName = document.getElementById('menuCharacterName');
+    const modificationPanel = document.getElementById('modificationsPanel');
+    const modificationItems = document.getElementById('modificationItems');
+    const modificationSlots = document.getElementById('modificationSlots');
+    const inventoryPanel = document.getElementById('inventoryPanel');
+    const inventoryGrid = document.getElementById('inventoryGrid');
+    const inventoryStatus = document.getElementById('inventoryStatus');
+    const developmentPanel = document.getElementById('developmentPanel');
+    const developmentList = document.getElementById('developmentList');
+    const developmentDetails = document.getElementById('developmentDetails');
+    const developmentXp = document.getElementById('developmentXp');
+    const forcePanel = document.getElementById('forcePanel');
+    const featsPanel = document.getElementById('featsPanel');
+    const forceUnlocks = document.getElementById('forceUnlocks');
+    const featUnlocks = document.getElementById('featUnlocks');
+    const topXp = document.getElementById('topXp');
+    const renameCharacterInput = document.getElementById('renameCharacterInput');
 
     const equipmentSlots = [
-        { id: 'rightWeapon', label: 'Right hand', types: ['weapon'] },
-        { id: 'leftWeapon', label: 'Left hand', types: ['weapon'] },
-        { id: 'head', label: 'Head', types: ['armor'] },
-        { id: 'chest', label: 'Chest', types: ['armor'] },
-        { id: 'hands', label: 'Hands', types: ['armor'] },
-        { id: 'belt', label: 'Belt', types: ['armor'] },
-        { id: 'implant', label: 'Implant', types: ['implant'] }
+        { id: 'implant', label: 'Implant', types: ['implant'], image: './PNG/KotOR2 Equip Slots/implant_slot.PNG' },
+        { id: 'head', label: 'Head', types: ['armor'], image: './PNG/KotOR2 Equip Slots/head_slot.PNG' },
+        { id: 'hands', label: 'Hands', types: ['armor'], image: './PNG/KotOR2 Equip Slots/hands_slot.PNG' },
+        { id: 'leftArm', label: 'Left arm', types: ['armor'], image: './PNG/KotOR2 Equip Slots/left_arm_slot.PNG' },
+        { id: 'body', label: 'Body', types: ['armor'], image: './PNG/KotOR2 Equip Slots/body_slot.PNG' },
+        { id: 'rightArm', label: 'Right arm', types: ['armor'], image: './PNG/KotOR2 Equip Slots/right_arm_slot.PNG' },
+        { id: 'leftHand', label: 'Left hand', types: ['weapon'], image: './PNG/KotOR2 Equip Slots/left_hand_slot.PNG' },
+        { id: 'belt', label: 'Belt', types: ['armor'], image: './PNG/KotOR2 Equip Slots/belt_slot.PNG' },
+        { id: 'rightHand', label: 'Right hand', types: ['weapon'], image: './PNG/KotOR2 Equip Slots/right_hand_slot.PNG' }
     ];
 
     const itemCatalog = [
-        { id: 'lghtsbr', name: 'Lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_lghtsbr_001.png' },
-        { id: 'dblsbr', name: 'Double-bladed lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_dblsbr_001.png' },
-        { id: 'shortsbr', name: 'Short lightsaber', slot: 'weapon', type: 'weapon', image: './PNG/iw_shortsbr_001.png' },
-        { id: 'jedirobe', name: 'Jedi robe', slot: 'armor', type: 'armor', image: './PNG/ia_jedirobe_001.png' },
-        { id: 'mstrrobe', name: 'Master robe', slot: 'armor', type: 'armor', image: './PNG/ia_mstrrobe_001.png' },
-        { id: 'belt', name: 'Utility belt', slot: 'armor', type: 'armor', image: './PNG/ii_belt_001.png' },
-        { id: 'implant', name: 'Reflex implant', slot: 'implant', type: 'implant', image: './PNG/ii_implant1_001.png' }
+        { id: 'lghtsbr', name: 'Lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_lghtsbr_001.png' },
+        { id: 'dblsbr', name: 'Double-bladed lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_dblsbr_001.png' },
+        { id: 'shortsbr', name: 'Short lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_shortsbr_001.png' },
+        { id: 'blaster', name: 'Blaster pistol', type: 'weapon', modificationType: 'blaster', image: './PNG/iw_dsrptpstl_001.png' },
+        { id: 'vibroblade', name: 'Vibro-blade', type: 'weapon', modificationType: 'vibroblade', image: './PNG/iw_vbroshort_001.png' },
+        { id: 'jedirobe', name: 'Jedi robe', type: 'armor', modificationType: 'armor', image: './PNG/ia_jedirobe_001.png' },
+        { id: 'mstrrobe', name: 'Master robe', type: 'armor', modificationType: 'armor', image: './PNG/ia_mstrrobe_001.png' },
+        { id: 'belt', name: 'Utility belt', type: 'armor', modificationType: 'armor', image: './PNG/ii_belt_001.png' },
+        { id: 'implant', name: 'Reflex implant', type: 'implant', image: './PNG/ii_implant1_001.png' }
+    ];
+
+    const modificationCatalog = [
+        { id: 'powerCrystal', name: 'Power Crystal', type: 'powerCrystal', image: './PNG/i_powerc.png' },
+        { id: 'colorCrystal', name: 'Color Crystal', type: 'colorCrystal', image: './PNG/i_colorc.png' },
+        { id: 'lens', name: 'Lens', type: 'lens', image: './PNG/i_lens.png' },
+        { id: 'emitter', name: 'Emitter', type: 'emitter', image: './PNG/i_emitter.png' },
+        { id: 'cell', name: 'Cell', type: 'cell', image: './PNG/i_lsenergy.png' },
+        { id: 'trigger', name: 'Trigger', type: 'trigger', image: './PNG/i_hair.png' },
+        { id: 'scope', name: 'Scope', type: 'scope', image: './PNG/i_scope.png' },
+        { id: 'beam', name: 'Beam', type: 'beam', image: './PNG/i_beam.png' },
+        { id: 'chamber', name: 'Chamber', type: 'chamber', image: './PNG/i_imp_eng.png' },
+        { id: 'energy', name: 'Energy', type: 'energy', image: './PNG/i_energy.png' },
+        { id: 'edge', name: 'Edge', type: 'edge', image: './PNG/i_edge.png' },
+        { id: 'durasteel', name: 'Energy Cell', type: 'durasteel', image: './PNG/i_durasteel.png' },
+        { id: 'grip', name: 'Grip', type: 'grip', image: './PNG/i_grip.png' },
+        { id: 'vcell', name: 'Vibro Cell', type: 'vcell', image: './PNG/i_vcell.png' },
+        { id: 'overlay', name: 'Overlay', type: 'overlay', image: './PNG/i_armorrein.png' },
+        { id: 'underlay', name: 'Underlay', type: 'underlay', image: './PNG/i_armorrein.png' }
+    ];
+
+    const modificationLayouts = {
+        lightsaber: [[['Power Crystal', 'powerCrystal'], ['Color Crystal', 'colorCrystal'], ['Power Crystal', 'powerCrystal']], [['Lens', 'lens'], ['Emitter', 'emitter'], ['Cell', 'cell']]],
+        blaster: [[['Trigger', 'trigger'], ['Scope', 'scope']], [['Beam', 'beam'], ['Chamber', 'chamber'], ['Energy', 'energy']]],
+        vibroblade: [[['Edge', 'edge'], ['Energy Cell', 'vcell'], ['Grip', 'grip']]],
+        armor: [[['Overlay', 'overlay'], ['Underlay', 'underlay']]]
+    };
+
+    const developmentCatalog = [
+        { id: 'shock', name: 'Shock', group: 'Lightning powers', type: 'force', tier: 1, cost: 5, image: './PNG/ip_shock.png' },
+        { id: 'lightning', name: 'Lightning', group: 'Lightning powers', type: 'force', tier: 2, cost: 10, requires: 'shock', image: './PNG/ip_lightning.png' },
+        { id: 'storm', name: 'Storm', group: 'Lightning powers', type: 'force', tier: 3, cost: 15, requires: 'lightning', image: './PNG/ip_storm.png' },
+        { id: 'push', name: 'Push', group: 'Force powers', type: 'force', tier: 1, cost: 5, image: './PNG/ip_push.png' },
+        { id: 'cure', name: 'Cure', group: 'Healing', type: 'force', tier: 1, cost: 5, image: './PNG/ip_cure.png' },
+        { id: 'heal', name: 'Heal', group: 'Healing', type: 'force', tier: 2, cost: 10, requires: 'cure', image: './PNG/ip_heal.png' },
+        { id: 'masterHeal', name: 'Master Heal', group: 'Healing', type: 'force', tier: 3, cost: 15, requires: 'heal', image: './PNG/ip_masterheal.png' },
+        { id: 'lightArmor', name: 'Light Armor Proficiency', group: 'Armor Proficiency', type: 'feat', tier: 1, cost: 5, image: './PNG/if_armprof01.png' },
+        { id: 'mediumArmor', name: 'Medium Armor Proficiency', group: 'Armor Proficiency', type: 'feat', tier: 2, cost: 10, requires: 'lightArmor', image: './PNG/if_armprof02.png' },
+        { id: 'heavyArmor', name: 'Heavy Armor Proficiency', group: 'Armor Proficiency', type: 'feat', tier: 3, cost: 15, requires: 'mediumArmor', image: './PNG/if_armprof03.png' },
+        ...Array.from({ length: 7 }, (_, index) => [1, 2, 3].map(tier => ({ id: `form${index + 1}_${tier}`, name: `Form ${index + 1} Tier ${tier}`, group: 'Lightsaber forms', type: 'feat', tier, cost: tier * 5, requires: tier > 1 ? `form${index + 1}_${tier - 1}` : '', image: `./PNG/ifrm_saber0${index + 1}.png` }))).flat()
     ];
 
     let activeEquipmentSlot = '';
     let activeNoteId = '';
+    let activeModificationItemId = '';
+    let activeDevelopmentId = '';
     
     let characters = [];
     let activeCharId = '';
@@ -1169,6 +1550,22 @@
     function ensureCharacterShape(character) {
         character.equipment = character.equipment || {};
         character.notes = Array.isArray(character.notes) ? character.notes : [];
+        character.inventory = Array.isArray(character.inventory) ? character.inventory : itemCatalog.map(item => item.id);
+        character.modifications = character.modifications || {};
+        character.unlocks = Array.isArray(character.unlocks) ? character.unlocks : [];
+        character.data = character.data || {};
+        if (character.data['char-background'] === undefined) character.data['char-background'] = 'outcast';
+        if (character.data['char-species'] === undefined) character.data['char-species'] = 'human';
+        if (character.data.forceLog === undefined) character.data.forceLog = character.data.featsLog || '';
+        if (character.data['attackRating'] === undefined) character.data['attackRating'] = '0';
+        if (character.data['defenseRating'] === undefined) character.data['defenseRating'] = '10';
+        const originBonus = getOriginBonusMap(character);
+        character.baseStats = character.baseStats || {};
+        ['str', 'dex', 'con', 'int', 'wis', 'cha'].forEach(stat => {
+            if (character.baseStats[stat] === undefined) {
+                character.baseStats[stat] = String((parseInt(character.data[stat], 10) || 10) - (originBonus[stat] || 0));
+            }
+        });
         equipmentSlots.forEach(slot => {
             if (character.equipment[slot.id] === undefined) character.equipment[slot.id] = null;
         });
@@ -1192,12 +1589,14 @@
             button.title = `Choose ${slot.label}`;
             button.innerHTML = item
                 ? `<img src="${item.image}" alt=""><strong>${item.name}</strong><small>${slot.label}</small>`
-                : `<img src="./PNG/i_unequip.png" alt=""><strong>Empty</strong><small>${slot.label}</small>`;
+                : `<img src="${slot.image}" alt=""><strong>Empty</strong><small>${slot.label}</small>`;
             button.addEventListener('click', () => openItemPicker(slot.id));
             equipmentGrid.appendChild(button);
         });
         const equippedCount = equipmentSlots.filter(slot => current.equipment[slot.id]).length;
         equipmentStatus.textContent = `${equippedCount}/${equipmentSlots.length} equipped`;
+        renderInventory();
+        renderModifications();
     }
 
     function openItemPicker(slotId) {
@@ -1213,7 +1612,8 @@
     function renderItemPicker() {
         const slot = equipmentSlots.find(candidate => candidate.id === activeEquipmentSlot);
         const query = itemSearch.value.trim().toLowerCase();
-        const choices = itemCatalog.filter(item => slot && slot.types.includes(item.type) && item.name.toLowerCase().includes(query));
+        const current = getActiveCharacter();
+        const choices = itemCatalog.filter(item => current?.inventory.includes(item.id) && slot && slot.types.includes(item.type) && item.name.toLowerCase().includes(query));
         pickerList.innerHTML = '';
         const clearButton = document.createElement('button');
         clearButton.type = 'button';
@@ -1239,6 +1639,194 @@
         saveRegistryToStorage();
         renderEquipment();
         itemModal.hidden = true;
+    }
+
+    function openInventoryPicker(mode) {
+        const current = getActiveCharacter();
+        if (!current) return;
+        activeEquipmentSlot = `inventory:${mode}`;
+        document.getElementById('pickerHeading').textContent = mode === 'add' ? 'Add inventory item' : 'Remove inventory item';
+        itemSearch.value = '';
+        pickerList.innerHTML = '';
+        const choices = itemCatalog.filter(item => mode === 'add' ? !current.inventory.includes(item.id) : current.inventory.includes(item.id));
+        choices.forEach(item => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'picker-item';
+            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}</span>`;
+            button.addEventListener('click', () => selectInventoryItem(item.id, mode));
+            pickerList.appendChild(button);
+        });
+        itemModal.hidden = false;
+    }
+
+    function selectInventoryItem(itemId, mode) {
+        const current = getActiveCharacter();
+        if (!current) return;
+        current.inventory = mode === 'add'
+            ? [...new Set([...current.inventory, itemId])]
+            : current.inventory.filter(id => id !== itemId);
+        saveRegistryToStorage();
+        renderInventory();
+        renderEquipment();
+        itemModal.hidden = true;
+    }
+
+    function getCharacterItemIds(current) {
+        return [...new Set([...(current.inventory || []), ...Object.values(current.equipment || {}).filter(Boolean)])];
+    }
+
+    function renderInventory() {
+        const current = getActiveCharacter();
+        if (!current || !inventoryGrid) return;
+        const items = getCharacterItemIds(current).map(id => itemCatalog.find(item => item.id === id)).filter(Boolean);
+        inventoryGrid.innerHTML = '';
+        items.forEach(item => {
+            const entry = document.createElement('div');
+            entry.className = 'catalog-item';
+            entry.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}<small>${item.type}</small></span>`;
+            inventoryGrid.appendChild(entry);
+        });
+        inventoryStatus.textContent = `${items.length} items`;
+    }
+
+    function renderModifications() {
+        const current = getActiveCharacter();
+        if (!current || !modificationItems || !modificationSlots) return;
+        const items = getCharacterItemIds(current).map(id => itemCatalog.find(item => item.id === id)).filter(item => item?.modificationType);
+        modificationItems.innerHTML = '';
+        items.forEach(item => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'catalog-item';
+            button.classList.toggle('active', item.id === activeModificationItemId);
+            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}<small>${item.modificationType}</small></span>`;
+            button.addEventListener('click', () => {
+                activeModificationItemId = item.id;
+                renderModifications();
+            });
+            modificationItems.appendChild(button);
+        });
+        const selected = itemCatalog.find(item => item.id === activeModificationItemId);
+        if (!selected) {
+            modificationSlots.innerHTML = '<span>Select a weapon or armor from the list.</span>';
+            return;
+        }
+        document.getElementById('modificationStatus').textContent = selected.name;
+        const layout = modificationLayouts[selected.modificationType] || [];
+        const saved = current.modifications[selected.id] || {};
+        modificationSlots.innerHTML = `<div class="modification-grid">${layout.map((column, columnIndex) => `<div class="modification-column">${column.map((slot, slotIndex) => renderModificationSlot(selected, saved, slot, `${columnIndex}_${slotIndex}`)).join('')}</div>`).join('')}</div>`;
+        modificationSlots.querySelectorAll('.modification-slot').forEach(button => {
+            button.addEventListener('click', () => openModificationPicker(selected.id, button.dataset.key, button.dataset.type));
+        });
+    }
+
+    function renderModificationSlot(item, saved, slot, key) {
+        const installed = modificationCatalog.find(modification => modification.id === saved[key]);
+        const emptyImage = modificationCatalog.find(modification => modification.type === slot[1])?.image || './PNG/i_powerc.png';
+        return `<button type="button" class="modification-slot" data-key="${key}" data-type="${slot[1]}"><img src="${installed?.image || emptyImage}" alt=""><strong>${installed?.name || slot[0]}</strong><small>${installed ? 'Installed' : 'Empty'}</small></button>`;
+    }
+
+    function openModificationPicker(itemId, key, type) {
+        activeEquipmentSlot = `modification:${itemId}:${key}:${type}`;
+        document.getElementById('pickerHeading').textContent = `Select ${type}`;
+        itemSearch.value = '';
+        pickerList.innerHTML = '';
+        const clearButton = document.createElement('button');
+        clearButton.type = 'button';
+        clearButton.className = 'picker-item';
+        clearButton.innerHTML = '<img src="./PNG/i_unequip.png" alt=""><span>Clear slot</span>';
+        clearButton.addEventListener('click', () => selectModification(null));
+        pickerList.appendChild(clearButton);
+        modificationCatalog.filter(item => item.type === type).forEach(item => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'picker-item';
+            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}</span>`;
+            button.addEventListener('click', () => selectModification(item.id));
+            pickerList.appendChild(button);
+        });
+        itemModal.hidden = false;
+    }
+
+    function selectModification(modificationId) {
+        const current = getActiveCharacter();
+        const [, itemId, key] = activeEquipmentSlot.split(':');
+        if (!current || !itemId || !key) return;
+        current.modifications[itemId] = current.modifications[itemId] || {};
+        current.modifications[itemId][key] = modificationId;
+        saveRegistryToStorage();
+        renderModifications();
+        itemModal.hidden = true;
+    }
+
+    function renderPurchasedUpgrades(current) {
+        const purchased = developmentCatalog.filter(upgrade => current.unlocks.includes(upgrade.id));
+        forceUnlocks.innerHTML = purchased.filter(upgrade => upgrade.type === 'force').map(upgrade => `<div>${upgrade.name}</div>`).join('') || 'No Force Powers acquired.';
+        featUnlocks.innerHTML = purchased.filter(upgrade => upgrade.type === 'feat').map(upgrade => `<div>${upgrade.name}</div>`).join('') || 'No feats acquired.';
+    }
+
+    function renderDevelopmentDetails(upgrade) {
+        if (!upgrade) {
+            developmentDetails.textContent = 'Hover over an upgrade to inspect its requirements.';
+            return;
+        }
+        developmentDetails.textContent = upgrade.requires
+            ? `Requires: ${developmentCatalog.find(candidate => candidate.id === upgrade.requires)?.name || upgrade.requires}`
+            : 'Requirements: none recorded.';
+    }
+
+    function renderDevelopment() {
+        const current = getActiveCharacter();
+        if (!current || !developmentList) return;
+        const xp = parseInt(current.data['exp-cur'], 10) || 0;
+        developmentXp.textContent = `${xp} XP available`;
+        developmentList.innerHTML = '';
+        const query = document.getElementById('developmentSearch').value.trim().toLowerCase();
+        const type = document.getElementById('developmentTypeFilter').value;
+        const groups = [...new Set(developmentCatalog.map(upgrade => upgrade.group))];
+        groups.forEach(group => {
+            const track = document.createElement('div');
+            track.className = 'development-track';
+            const upgrades = developmentCatalog.filter(upgrade => upgrade.group === group && (!query || upgrade.name.toLowerCase().includes(query)) && (type === 'all' || upgrade.type === type));
+            [1, 2, 3].forEach(tier => {
+                const upgrade = upgrades.find(candidate => candidate.tier === tier);
+                if (!upgrade) {
+                    track.appendChild(document.createElement('span'));
+                    return;
+                }
+                const unlocked = current.unlocks.includes(upgrade.id);
+                const requirementMet = !upgrade.requires || current.unlocks.includes(upgrade.requires);
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = `development-item${unlocked ? ' purchased' : ''}`;
+                button.disabled = unlocked || !requirementMet || xp < upgrade.cost;
+                button.innerHTML = `<img src="${upgrade.image}" alt=""><span>${upgrade.name}<small>Tier ${upgrade.tier} | ${unlocked ? 'Purchased' : `${upgrade.cost} XP`}</small></span>`;
+                button.addEventListener('mouseenter', () => renderDevelopmentDetails(upgrade));
+                button.addEventListener('focus', () => renderDevelopmentDetails(upgrade));
+                button.addEventListener('click', () => purchaseDevelopment(upgrade));
+                track.appendChild(button);
+                if (unlocked && tier < 3 && upgrades.some(candidate => candidate.tier === tier + 1)) {
+                    const arrow = document.createElement('img');
+                    arrow.className = `development-arrow${tier === 2 ? ' second' : ''}`;
+                    arrow.src = './PNG/arrow.png';
+                    arrow.alt = '';
+                    track.appendChild(arrow);
+                }
+            });
+            if (upgrades.length) developmentList.appendChild(track);
+        });
+        renderPurchasedUpgrades(current);
+    }
+
+    function purchaseDevelopment(upgrade) {
+        const current = getActiveCharacter();
+        const xp = parseInt(current?.data['exp-cur'], 10) || 0;
+        if (!current || current.unlocks.includes(upgrade.id) || xp < upgrade.cost || (upgrade.requires && !current.unlocks.includes(upgrade.requires))) return;
+        current.data['exp-cur'] = String(xp - upgrade.cost);
+        current.unlocks.push(upgrade.id);
+        saveRegistryToStorage();
+        loadActiveCharacter();
     }
 
     function renderJournal() {
@@ -1349,11 +1937,13 @@
             data: {
                 "char-name": defaultName,
                 "char-class": "Jedi Initiate",
+                "char-background": "outcast",
+                "char-species": "human",
                 "alignment": "50",
                 "saberForm": "",
                 "str": "10", "dex": "10", "con": "10", "int": "10", "wis": "10", "cha": "10",
                 "vit-cur": "20", "vit-max": "20", "force-cur": "0", "force-max": "0", "defense": "10",
-                "exp-cur": "0", "exp-need": "1000", "featsLog": ""
+                "exp-cur": "0", "exp-need": "1000", "forceLog": "", "featsLog": "", "attackRating": "0", "defenseRating": "10"
             }
         };
         
@@ -1386,6 +1976,9 @@
                 field.value = current.data[field.id];
             }
         });
+        menuCharacterName.textContent = current.data['char-name'] || 'Character Menu';
+        renameCharacterInput.value = current.data['char-name'] || '';
+        topXp.value = current.data['exp-cur'] || '0';
         
         if (current.avatar) {
             avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
@@ -1396,10 +1989,14 @@
         }
         
         updateAllModifiers();
+        applyOriginStatBonuses();
         updateAlignmentGlow();
         updateSaberFormTelemetry();
         renderEquipment();
         renderJournal();
+        renderInventory();
+        renderModifications();
+        renderDevelopment();
     }
 
     function saveActiveCharacterData() {
@@ -1408,7 +2005,13 @@
         ensureCharacterShape(current);
         
         fields.forEach(field => {
-            current.data[field.id] = field.value;
+            if (current.baseStats && Object.prototype.hasOwnProperty.call(current.baseStats, field.id)) {
+                const bonus = getOriginBonusMap(current)[field.id] || 0;
+                current.baseStats[field.id] = String((parseInt(field.value, 10) || 10) - bonus);
+                current.data[field.id] = current.baseStats[field.id];
+            } else {
+                current.data[field.id] = field.value;
+            }
         });
         
         // Sync name live to dropdown
@@ -1416,6 +2019,7 @@
         if (dropdownOption) {
             dropdownOption.textContent = current.data["char-name"] || "Unnamed Retainer";
         }
+        menuCharacterName.textContent = current.data['char-name'] || 'Character Menu';
         
         saveRegistryToStorage();
         
@@ -1434,12 +2038,57 @@
         localStorage.setItem(ACTIVE_ID_KEY, activeCharId);
     }
 
+    function applyOriginStatBonuses() {
+        const current = getActiveCharacter();
+        if (!current) return;
+        ensureCharacterShape(current);
+        const originBonus = getOriginBonusMap(current);
+        document.querySelectorAll('.core-stat').forEach(field => {
+            const baseValue = parseInt(current.baseStats[field.id], 10) || 10;
+            field.value = String(baseValue + (originBonus[field.id] || 0));
+        });
+        updateAllModifiers();
+    }
+
+    function getOriginBonusMap(character) {
+        const backgroundBonuses = { outcast: 'con', scholar: 'int', soldier: 'str' };
+        const speciesBonuses = { human: 'cha', mirialan: 'wis', twi_lekk: 'dex' };
+        const bonuses = {};
+        [backgroundBonuses[character.data?.['char-background']], speciesBonuses[character.data?.['char-species']]].forEach(stat => {
+            if (stat) bonuses[stat] = (bonuses[stat] || 0) + 1;
+        });
+        return bonuses;
+    }
+
     // Event Bindings
     fields.forEach(field => {
         field.addEventListener('input', saveActiveCharacterData);
     });
     
     saberFormDropdown.addEventListener('change', updateSaberFormTelemetry);
+    document.getElementById('char-background').addEventListener('change', applyOriginStatBonuses);
+    document.getElementById('char-species').addEventListener('change', applyOriginStatBonuses);
+    document.getElementById('developmentSearch').addEventListener('input', renderDevelopment);
+    document.getElementById('developmentTypeFilter').addEventListener('change', renderDevelopment);
+    document.getElementById('developmentTagFilter').addEventListener('change', renderDevelopment);
+
+    topXp.addEventListener('input', () => {
+        const current = getActiveCharacter();
+        if (!current) return;
+        current.data['exp-cur'] = String(Math.max(0, parseInt(topXp.value, 10) || 0));
+        topXp.value = current.data['exp-cur'];
+        saveRegistryToStorage();
+        renderDevelopment();
+    });
+
+    document.getElementById('renameCharacterBtn').addEventListener('click', () => {
+        const current = getActiveCharacter();
+        if (!current) return;
+        current.data['char-name'] = renameCharacterInput.value.trim() || 'Unnamed Retainer';
+        saveRegistryToStorage();
+        buildDropdown();
+        loadActiveCharacter();
+    });
     
     charDropdown.addEventListener('change', (e) => {
         activeCharId = e.target.value;
@@ -1461,6 +2110,17 @@
             } else if (section === 'character') {
                 document.getElementById('profilePanel').classList.toggle('section-hidden', isPressed);
                 document.querySelector('.stats-panel').classList.toggle('section-hidden', isPressed);
+            } else if (section === 'modifications') {
+                modificationPanel.hidden = isPressed;
+            } else if (section === 'inventory') {
+                inventoryPanel.hidden = isPressed;
+            } else if (section === 'development') {
+                developmentPanel.hidden = isPressed;
+                if (!isPressed) renderDevelopment();
+            } else if (section === 'force') {
+                forcePanel.hidden = isPressed;
+            } else if (section === 'feats') {
+                featsPanel.hidden = isPressed;
             }
         });
     });
@@ -1488,6 +2148,9 @@
 
     document.getElementById('newCharBtn').addEventListener('click', () => createNewCharacter());
     document.getElementById('exportCharBtn').addEventListener('click', exportActiveCharacter);
+    document.getElementById('loadPortraitBtn').addEventListener('click', () => portraitInput.click());
+    document.getElementById('addInventoryBtn').addEventListener('click', () => openInventoryPicker('add'));
+    document.getElementById('removeInventoryBtn').addEventListener('click', () => openInventoryPicker('remove'));
     
     document.getElementById('deleteCharBtn').addEventListener('click', () => {
         if (characters.length <= 1) {
