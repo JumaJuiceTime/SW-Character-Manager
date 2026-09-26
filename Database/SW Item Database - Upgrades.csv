@@ -195,55 +195,61 @@ ip_pltuseitm_247.png,,,Melee Upgrade,,,,,FALSE
 ip_pltuseitm_248.png,,,,,,,,FALSE
 ip_pltuseitm_249.png,,,,,,,,FALSE
 ip_pltuseitm_250.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-iw_SbrCrstl_001.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_002.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_003.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_004.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_005.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_006.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_007.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_008.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_009.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_010.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_011.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_012.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_013.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_014.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_015.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_016.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_017.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_018.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_018a.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_020.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_021.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_022.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_023.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_024.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_025.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_026.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_027.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_028.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_029.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_030.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_031.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_031a.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_032.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_033.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_034.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_035.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_036.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_037.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_038.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_039.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_040.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_041.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_042.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_043.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_044.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_045.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_046.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_047.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_048.png,,,Crystal,,,,,FALSE
-iw_sbrcrstl_049.png,,,Crystal,,,,,FALSE
+iw_SbrCrstl_001.png,,"Crystal, Opila",Lightsaber Upgrade,Power Crystal,"Found in the asteroid fields of the Fyrth system, this crystal can be used in lightsaber construction to produce an intense beam that seems extraordinarily quick to the cut.",,1,TRUE
+iw_sbrcrstl_002.png,,"Crystal, Bondar",Lightsaber Upgrade,Power Crystal,"This crystal was mined on a far-orbit asteroid circling the Alderaan system. It produces a volatile lightsaber beam that pulses on impact, potentially stunning an opponent.",,1,TRUE
+iw_sbrcrstl_002.png,,"Crystal, Phond",Lightsaber Upgrade,Power Crystal,"The strange byproduct of rare impurities bonding during the making of certain alloys and some random external condition, this crystal produces a fiercely burning lightsaber beam.",,1,TRUE
+iw_sbrcrstl_003.png,,"Crystal, Damind",Lightsaber Upgrade,Power Crystal,"Found on the desert world of Daminia, this crystal can be used in lightsaber construction to produce a clearly defined beam of subtly wider width and length.",,1,TRUE
+iw_sbrcrstl_004.png,,"Crystal, Rubat",Lightsaber Upgrade,Power Crystal,"Used in lightsaber construction, rubat crystal is mined on Phemis. It produces a clearly defined blade that a Jedi can easily track, making it easier to hit opponents.",,1,TRUE
+iw_sbrcrstl_004.png,,"Crystal, Eralam",Lightsaber Upgrade,Power Crystal,"Once mined on the third moon of Erai, ancient Sith bombardment shattered much that remained. If they can be found, these crystals produce a clear, superior lightsaber beam.",,1,TRUE
+iw_sbrcrstl_005.png,,"Crystal, Firkrann",Lightsaber Upgrade,Power Crystal,This heavy crystal is collected by the natives of Rafa V. If used in lightsaber construction it produces an electrically charged beam that is devastating to droids.,,1,TRUE
+iw_sbrcrstl_013.png,,"Crystal, Sapith",Lightsaber Upgrade,Power Crystal,"This crystallized material was excreted once every 11 years by the ancient Volice worm of Lwhekk, now extinct. It produces a more intense lightsaber beam, granting better control.",,1,TRUE
+iw_sbrcrstl_031a.png,,"Crystal, Solari",Lightsaber Upgrade,Power Crystal,"There are many famous lightsaber crystals spoken of in the history of the Jedi Order. An artifact of true light side power, only those Jedi who are pure in spirit can wield a lightsaber equipped with this gleaming white gem.
+ 
+When the great Jedi Master Ood Bnar initiated his life-cycle change after a thousand years of serving the Order, he bequeathed the Solari crystal to his most promising student, a young female Jedi named Shaela Nuur. When Shaela disappeared shortly after the time of the Great Hunt, the Solari crystal vanished with her.",Light Side,1,TRUE
+iw_sbrcrstl_006.png,,"Crystal, Sigil",Lightsaber Upgrade,Power Crystal,"Mined in the Sigil System, this crystal is a costly but valued addition to a lightsaber. It produces a fiercely bright beam that sears on contact, inflicting great damage.",,1,TRUE
+iw_sbrcrstl_007.png,,"Crystal, Upari",Lightsaber Upgrade,Power Crystal,"Strangely, this crystal is usually encountered scattered in the orbit of primarily forest worlds. It is brittle but versatile, and a Master Jedi can get it to produce many effects.",,1,TRUE
+iw_sbrcrstl_008.png,,"Crystal, Jenruax",Lightsaber Upgrade,Power Crystal,"The refined form of Opila, this crystal has been cleansed of all impurities. When used in lightsaber construction it produces a blade of unerring quickness.",,1,TRUE
+iw_sbrcrstl_009.png,,"Crystal, Dragite",Lightsaber Upgrade,Power Crystal,"Dragite crystals are found on M'haeli, in the D'olop mountain range. The beam they create resonates loudly when it strikes, inflicting a minor amount of sonic damage.",,1,TRUE
+iw_sbrcrstl_010.png,,"Crystal, Silver",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with a silvery light.,,1,TRUE
+iw_sbrcrstl_012.png,,"Crystal, Nextor",Lightsaber Upgrade,Power Crystal,"This crystal is mined in the mountains of planet M'haeli, and when used in lightsaber construction it produces a volatile blade that can cause surprising amounts of damage.",,1,TRUE
+iw_sbrcrstl_011.png,,"Crystal, Ruusan",Lightsaber Upgrade,Power Crystal,"Ruusan crystals come from the Mid Rim planet of the same name. While not directly affecting a lightsaber's effectiveness, they aid a Jedi in focusing the Force.",,1,TRUE
+iw_sbrcrstl_014.png,,"Crystal, Blue",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner blue light.,,1,TRUE
+iw_sbrcrstl_015.png,,"Crystal, Yellow",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner yellow light.,,1,TRUE
+iw_sbrcrstl_016.png,,"Crystal, Green",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner green light.,,1,TRUE
+iw_sbrcrstl_017.png,,"Crystal, Pontite",Lightsaber Upgrade,Power Crystal,Pontite is one of the rarest forms of Adegan crystal. It radiates a powerful aura that cools both skin and tempers.,,1,TRUE
+iw_sbrcrstl_017.png,,"Crystal, Violet",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner violet light.,,1,TRUE
+iw_sbrcrstl_018.png,,"Crystal, Red",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner red light.,,1,TRUE
+iw_sbrcrstl_020.png,,"Crystal, Bronze",Lightsaber Upgrade,Color Crystal,"A facetted crystal used in the constructing of a lightsaber. Yellowish-brown in color, the same sort of crystal is sometimes used in high resolution displays.",,1,TRUE
+iw_sbrcrstl_021.png,,"Crystal, Cyan",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with an inner cyan light.,,1,TRUE
+iw_sbrcrstl_022.png,,"Crystal, Adegan",Lightsaber Upgrade,Power Crystal,"Adegan crystals, also called Ilum crystals, are one of the most common lightsaber focusing crystals.",,1,TRUE
+iw_sbrcrstl_023.png,,"Crystal, Orange",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner orange light.,,1,TRUE
+iw_sbrcrstl_024.png,,"Crystal, Viridian",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with a silvery green light.,,1,TRUE
+iw_sbrcrstl_025.png,,"Crystal, Velmorite",Lightsaber Upgrade,Power Crystal,"Found only on the planet Velmor, these crystals produce a very fine beam that is easy to wield skillfully.",,1,TRUE
+iw_sbrcrstl_026.png,,"Crystal, Kasha",Lightsaber Upgrade,Power Crystal,"This crystal is traditionally used by the Cereans as a meditation tool. When used as a lightsaber crystal, it helps clear the wielder's mind of distractions, even during tense combat.",,1,TRUE
+iw_sbrcrstl_027.png,,"Crystal, Stygium",Lightsaber Upgrade,Power Crystal,"The stygium mineral can be used to create cloaking effects that foil enemy sensors. In its pure crystal form, it is suitable for a lightsaber.",,1,TRUE
+iw_sbrcrstl_028.png,,"Crystal, Hurrikaine",Lightsaber Upgrade,Power Crystal,"The very rare Hurrikaine crystal is best known for its unparalleled beauty. When used in a lightsaber, the dark gemstone creates a devastating beam that can partially penetrate any defenses.",,1,TRUE
+iw_sbrcrstl_029.png,,Ultima-Pearl,Lightsaber Upgrade,Power Crystal,"An unusual choice for a lightsaber focusing crystal, this rare stone can be found on Calamari. Difficult to properly install in a lightsaber, this valuable stone has powerful effects.",,1,TRUE
+iw_sbrcrstl_030.png,,Lorrdian Gemstone,Lightsaber Upgrade,Power Crystal,"During their subjugation, the Lorrdians were banned from speaking to each other and thus learned to use subtle gestures and ticks to communicate. The few Force-Adepts found after the Jedi freed the population of slaves has imprinted these gemstones with the Force to enhance the ability to read an opponent.",,1,TRUE
+iw_sbrcrstl_031.png,,Barab Ore Ingot,Lightsaber Upgrade,Power Crystal,"The ore from Barab I actually lies on the planets surface, meaning it is exposed to high doses of radiation and torrential downpours daily. This ore can be found in concentrated ingots that actual store and magnify the radiation.
+ 
+When placed in a lightsaber, the ingots produce a blade that burns almost to the point of losing its cohesion.",,1,TRUE
+iw_sbrcrstl_032.png,,"Crystal, Kaiburr",Lightsaber Upgrade,Power Crystal,"Perhaps the most powerful crystal that can be used in a lightsaber, the Kaiburr gem bestows insight and fortitute upon its owner.",,1,TRUE
+iw_sbrcrstl_033.png,,Ankarres Sapphire,Lightsaber Upgrade,Power Crystal,This crystal possesses legendary healing powers and numerous other effects. It is one of the most potent crystals that can be used in lightsaber creation.,,1,TRUE
+iw_sbrcrstl_034.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_035.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_036.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_037.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_038.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_039.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_040.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_041.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_042.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_043.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_044.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_045.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_046.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_047.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_048.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
+iw_sbrcrstl_049.png,,"Crystal, Qixoni",Lightsaber Upgrade,Power Crystal,Qixoni crystals were formed on a planet that was destroyed millenia ago when its star went supernova. They are exceedingly rare and also quite powerful.,,1,TRUE
 ip_pltuseitm_003.png,,,Melee Upgrade,,,,,FALSE
 ip_pltuseitm_004.png,,,Melee Upgrade,,,,,FALSE
