@@ -543,25 +543,6 @@
             margin-top: 20px;
         }
 
-        .close-btn {
-            background-color: transparent;
-            border: 1px solid var(--border-dim);
-            color: var(--text-muted);
-            font-family: inherit;
-            text-transform: uppercase;
-            padding: 6px 24px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .close-btn:hover {
-            border-color: var(--border-neon);
-            color: var(--text-bright);
-            background-color: rgba(0, 255, 204, 0.1);
-            box-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
-        }
-
         .autosave-msg {
             font-size: 0.75rem;
             color: var(--text-neon);
@@ -1278,7 +1259,21 @@
             }
         }
     </style>
-</head>
+
+    <!-- Load datasets from the Database folder -->
+    <script src="Database/Armor.js"></script>
+    <script src="Database/Feats.js"></script>
+    <script src="Database/Misc.js"></script>
+    <script src="Database/Powers.js"></script>
+    <script src="Database/Upgrades.js"></script>
+    <script src="Database/Weapons.js"></script>
+    <script src="Database/Class.js"></script>
+    <script src="Database/Species.js"></script>
+    <script src="Database/Background.js"></script>
+    <script src="Database/DroidParts.js"></script>
+    <script src="Database/Consumables.js"></script>
+    <script src="Database/Implants.js"></script>
+    </head>
 <body>
 
 <div class="console-frame">
@@ -1574,7 +1569,6 @@
 
     <div class="action-row">
         <div id="save-indicator" class="autosave-msg">DATA_STREAM_SYNCHRONIZED</div>
-        <button class="close-btn" onclick="window.close()">Close</button>
     </div>
 </div>
 
@@ -1661,30 +1655,31 @@
     const legacyItemIds = new Set(['lghtsbr', 'dblsbr', 'shortsbr', 'blaster', 'vibroblade', 'jedirobe', 'mstrrobe', 'belt', 'implant']);
     let itemCatalog = [];
 
-    const modificationCatalog = [
-        { id: 'powerCrystal', name: 'Power Crystal', type: 'powerCrystal', image: './PNG/i_powerc.png' },
-        { id: 'colorCrystal', name: 'Color Crystal', type: 'colorCrystal', image: './PNG/i_colorc.png' },
-        { id: 'lens', name: 'Lens', type: 'lens', image: './PNG/i_lens.png' },
-        { id: 'emitter', name: 'Emitter', type: 'emitter', image: './PNG/i_emitter.png' },
-        { id: 'cell', name: 'Cell', type: 'cell', image: './PNG/i_lsenergy.png' },
-        { id: 'trigger', name: 'Trigger', type: 'trigger', image: './PNG/i_hair.png' },
-        { id: 'scope', name: 'Scope', type: 'scope', image: './PNG/i_scope.png' },
-        { id: 'beam', name: 'Beam', type: 'beam', image: './PNG/i_beam.png' },
-        { id: 'chamber', name: 'Chamber', type: 'chamber', image: './PNG/i_imp_eng.png' },
-        { id: 'energy', name: 'Energy', type: 'energy', image: './PNG/i_energy.png' },
-        { id: 'edge', name: 'Edge', type: 'edge', image: './PNG/i_edge.png' },
-        { id: 'durasteel', name: 'Energy Cell', type: 'durasteel', image: './PNG/i_durasteel.png' },
-        { id: 'grip', name: 'Grip', type: 'grip', image: './PNG/i_grip.png' },
-        { id: 'vcell', name: 'Vibro Cell', type: 'vcell', image: './PNG/i_vcell.png' },
-        { id: 'overlay', name: 'Overlay', type: 'overlay', image: './PNG/i_armorrein.png' },
-        { id: 'underlay', name: 'Underlay', type: 'underlay', image: './PNG/i_armorrein.png' }
-    ];
+    let modificationCatalog = [];
 
     const modificationLayouts = {
         lightsaber: [[['Power Crystal', 'powerCrystal'], ['Color Crystal', 'colorCrystal'], ['Power Crystal', 'powerCrystal']], [['Lens', 'lens'], ['Emitter', 'emitter'], ['Cell', 'cell']]],
         blaster: [[['Trigger', 'trigger'], ['Scope', 'scope']], [['Beam', 'beam'], ['Chamber', 'chamber'], ['Energy', 'energy']]],
         vibroblade: [[['Edge', 'edge'], ['Energy Cell', 'vcell'], ['Grip', 'grip']]],
         armor: [[['Overlay', 'overlay'], ['Underlay', 'underlay']]]
+    };
+
+    const modificationPlaceholderImages = {
+        powerCrystal: './PNG/i_powerc.png',
+        colorCrystal: './PNG/i_colorc.png',
+        lens: './PNG/i_lens.png',
+        emitter: './PNG/i_emitter.png',
+        cell: './PNG/i_lsenergy.png',
+        trigger: './PNG/i_hair.png',
+        scope: './PNG/i_scope.png',
+        beam: './PNG/i_beam.png',
+        chamber: './PNG/i_imp_eng.png',
+        energy: './PNG/i_energy.png',
+        edge: './PNG/i_edge.png',
+        grip: './PNG/i_grip.png',
+        vcell: './PNG/i_vcell.png',
+        overlay: './PNG/i_armorrein.png',
+        underlay: './PNG/i_armorrein.png'
     };
 
     const legacyDevelopmentCatalog = [
@@ -1704,42 +1699,6 @@
 
     let activeInventoryType = 'Weapons';
 
-    function parseCsv(text) {
-        const rows = [];
-        let row = [];
-        let cell = '';
-        let quoted = false;
-        for (let index = 0; index < text.length; index += 1) {
-            const character = text[index];
-            if (character === '"') {
-                if (quoted && text[index + 1] === '"') {
-                    cell += '"';
-                    index += 1;
-                } else {
-                    quoted = !quoted;
-                }
-            } else if (character === ',' && !quoted) {
-                row.push(cell);
-                cell = '';
-            } else if (character === '\n' && !quoted) {
-                row.push(cell);
-                rows.push(row);
-                row = [];
-                cell = '';
-            } else if (character !== '\r' || quoted) {
-                cell += character;
-            }
-        }
-        if (cell || row.length) {
-            row.push(cell);
-            rows.push(row);
-        }
-        const headers = rows.shift()?.map(header => header.trim()) || [];
-        return rows.filter(values => values.some(value => value.trim())).map(values =>
-            Object.fromEntries(headers.map((header, index) => [header, (values[index] || '').trim()]))
-        );
-    }
-
     function slugify(value) {
         return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     }
@@ -1755,28 +1714,39 @@
         return 'Misc';
     }
 
-    async function loadCatalogs() {
+    function loadCatalogs() {
+        const datasets = window.appData || {};
         const sources = [
-            ['Armor', './Database/SW Item Database - Armor.csv'],
-            ['Misc', './Database/SW Item Database - Misc.csv'],
-            ['Upgrades', './Database/SW Item Database - Upgrades.csv'],
-            ['Weapons', './Database/SW Item Database - Weapons.csv'],
-            ['Feats', './Database/SW Item Database - Feats.csv'],
-            ['Powers', './Database/SW Item Database - Powers.csv']
+            ['Armor', ['armor']],
+            ['Misc', ['misc']],
+            ['Upgrades', ['upgrades']],
+            ['Weapons', ['weapons']],
+            ['Feats', ['feats']],
+            ['Powers', ['powers']],
+            ['Droid Parts', ['droidParts', 'droidparts']],
+            ['Consumables', ['consumables']],
+            ['Implants', ['implants']]
         ];
-        const databases = await Promise.all(sources.map(async ([source, path]) => {
-            const response = await fetch(path);
-            if (!response.ok) throw new Error(`Could not load ${path}`);
-            return [source, parseCsv(await response.text())];
-        }));
-        const rowsBySource = Object.fromEntries(databases);
-        const csvItems = ['Armor', 'Misc', 'Upgrades', 'Weapons'].flatMap(source => rowsBySource[source]
+        const requiredSources = new Set(['Armor', 'Misc', 'Upgrades', 'Weapons', 'Feats', 'Powers']);
+        const missingSources = sources.filter(([source, keys]) => requiredSources.has(source)
+            && !keys.some(key => Array.isArray(datasets[key])));
+        if (missingSources.length) {
+            throw new Error(`Missing JavaScript datasets: ${missingSources.map(([source]) => source).join(', ')}`);
+        }
+        const rowsBySource = Object.fromEntries(sources.map(([source, keys]) => [
+            source,
+            keys.flatMap(key => Array.isArray(datasets[key]) ? datasets[key] : [])
+        ]));
+        const itemSources = ['Armor', 'Misc', 'Upgrades', 'Weapons', 'Droid Parts', 'Consumables', 'Implants'];
+        const catalogItems = itemSources.flatMap(source => rowsBySource[source]
             .filter(row => row['File name'] && row.Name)
             .map(row => {
                 const fileName = row['File name'];
-                const rawType = row.Type || 'Misc';
+                const rawType = row.Type || source;
                 const normalizedType = rawType.toLowerCase();
-            const equipType = source === 'Weapons' ? 'weapon' : normalizedType === 'body' ? 'armor' : normalizedType;
+                const equipType = source === 'Weapons' ? 'weapon'
+                    : source === 'Implants' ? 'implant'
+                        : normalizedType === 'body' ? 'armor' : normalizedType;
                 const cost = Number.parseInt(row.Cost, 10);
                 return {
                     id: `${source.toLowerCase()}:${fileName}:${slugify(row.Name)}`,
@@ -1784,7 +1754,9 @@
                     type: equipType,
                     rawType,
                     subtype: row.Subtype,
-                    category: getInventoryCategory(rawType, fileName),
+                    category: ['Droid Parts', 'Consumables', 'Implants'].includes(source)
+                        ? source
+                        : getInventoryCategory(rawType, fileName),
                     image: `./PNG/${fileName}`,
                     description: row.Description,
                     requires: row.Prerequisite,
@@ -1792,12 +1764,13 @@
                     defenseRating: row['Defense Rating'] || '',
                     defenseBonus: row['Defense Bonus'] || row['Defese Bonus'] || '',
                     fields: row,
+                    source,
                     cost: Number.isFinite(cost) ? cost : 0,
                     visible: (row.Visible || '').toUpperCase() === 'TRUE'
                 };
             })
         );
-        const csvUpgrades = ['Feats', 'Powers'].flatMap(source => rowsBySource[source]
+        const catalogUpgrades = ['Feats', 'Powers'].flatMap(source => rowsBySource[source]
             .filter(row => row['File name'] && row.Name)
             .map(row => {
                 const cost = Number.parseInt(row.Cost, 10);
@@ -1816,8 +1789,9 @@
                 };
             })
         );
-        itemCatalog = csvItems;
-        developmentCatalog = [...legacyDevelopmentCatalog.map(upgrade => ({ ...upgrade, legacy: true, visible: false })), ...csvUpgrades];
+        itemCatalog = catalogItems;
+        modificationCatalog = catalogItems.filter(item => item.source === 'Upgrades');
+        developmentCatalog = [...legacyDevelopmentCatalog.map(upgrade => ({ ...upgrade, legacy: true, visible: false })), ...catalogUpgrades];
     }
 
     let activeEquipmentSlot = '';
@@ -2308,17 +2282,77 @@
         creditsInput.value = current.credits;
     }
 
+    function getModificationType(item) {
+        if (item.type === 'armor') {
+            const fields = item.fields || {};
+            return [
+                String(fields['Upgradeable Underlay'] || '').toUpperCase(),
+                String(fields['Upgradable Overlay'] || '').toUpperCase()
+            ].includes('TRUE') ? 'armor' : '';
+        }
+        if (item.type === 'weapon') {
+            return ({
+                lightsaber: 'lightsaber',
+                blaster: 'blaster',
+                'melee weapon': 'vibroblade'
+            })[item.rawType.toLowerCase()] || '';
+        }
+        return '';
+    }
+
+    function getModificationLayout(item) {
+        const type = getModificationType(item);
+        if (type !== 'armor') return modificationLayouts[type] || [];
+        const fields = item.fields || {};
+        const slots = [];
+        if (String(fields['Upgradeable Underlay'] || '').toUpperCase() === 'TRUE') slots.push(['Underlay', 'underlay']);
+        if (String(fields['Upgradable Overlay'] || '').toUpperCase() === 'TRUE') slots.push(['Overlay', 'overlay']);
+        return slots.length ? [slots] : [];
+    }
+
+    function getModificationOptions(slotType, current) {
+        const subtypeBySlot = {
+            powerCrystal: 'power crystal',
+            colorCrystal: 'color crystal',
+            lens: 'lens',
+            emitter: 'emitter',
+            cell: 'cell',
+            trigger: 'trigger',
+            scope: 'scope',
+            beam: 'beam',
+            chamber: 'firing chamber',
+            energy: 'energy cell',
+            edge: 'edge',
+            grip: 'grip',
+            vcell: 'cell',
+            overlay: 'overlay',
+            underlay: 'underlay'
+        };
+        const expectedSubtype = subtypeBySlot[slotType];
+        return modificationCatalog.filter(upgrade => upgrade.visible
+            && expectedSubtype
+            && String(upgrade.subtype || '').trim().toLowerCase() === expectedSubtype
+            && current.inventory.includes(upgrade.id));
+    }
+
     function renderModifications() {
         const current = getActiveCharacter();
         if (!current || !modificationItems || !modificationSlots) return;
-        const items = getCharacterItemIds(current).map(id => itemCatalog.find(item => item.id === id)).filter(item => item?.modificationType);
+        const items = getCharacterItemIds(current).map(id => itemCatalog.find(item => item.id === id))
+            .filter(item => item && getModificationLayout(item).length);
         modificationItems.innerHTML = '';
+        if (!items.length) {
+            modificationItems.innerHTML = '<span>Select an upgradeable item from inventory or equipment.</span>';
+            activeModificationItemId = '';
+        } else if (!items.some(item => item.id === activeModificationItemId)) {
+            activeModificationItemId = items[0].id;
+        }
         items.forEach(item => {
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'catalog-item';
             button.classList.toggle('active', item.id === activeModificationItemId);
-            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}<small>${item.modificationType}</small></span>`;
+            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}<small>${getModificationLayout(item).flat().map(slot => slot[0]).join(' / ')}</small></span>`;
             button.addEventListener('click', () => {
                 activeModificationItemId = item.id;
                 renderModifications();
@@ -2331,18 +2365,37 @@
             return;
         }
         document.getElementById('modificationStatus').textContent = selected.name;
-        const layout = modificationLayouts[selected.modificationType] || [];
+        const layout = getModificationLayout(selected);
         const saved = current.modifications[selected.id] || {};
-        modificationSlots.innerHTML = `<div class="modification-grid">${layout.map((column, columnIndex) => `<div class="modification-column">${column.map((slot, slotIndex) => renderModificationSlot(selected, saved, slot, `${columnIndex}_${slotIndex}`)).join('')}</div>`).join('')}</div>`;
-        modificationSlots.querySelectorAll('.modification-slot').forEach(button => {
-            button.addEventListener('click', () => openModificationPicker(selected.id, button.dataset.key, button.dataset.type));
+        const grid = document.createElement('div');
+        grid.className = 'modification-grid';
+        layout.forEach((column, columnIndex) => {
+            const columnElement = document.createElement('div');
+            columnElement.className = 'modification-column';
+            column.forEach((slot, slotIndex) => {
+                const button = renderModificationSlot(saved, slot, `${columnIndex}_${slotIndex}`);
+                button.addEventListener('click', () => openModificationPicker(selected.id, button.dataset.key, button.dataset.type));
+                columnElement.appendChild(button);
+            });
+            grid.appendChild(columnElement);
         });
+        modificationSlots.replaceChildren(grid);
     }
 
-    function renderModificationSlot(item, saved, slot, key) {
+    function renderModificationSlot(saved, slot, key) {
         const installed = modificationCatalog.find(modification => modification.id === saved[key]);
-        const emptyImage = modificationCatalog.find(modification => modification.type === slot[1])?.image || './PNG/i_powerc.png';
-        return `<button type="button" class="modification-slot" data-key="${key}" data-type="${slot[1]}"><img src="${installed?.image || emptyImage}" alt=""><strong>${installed?.name || slot[0]}</strong><small>${installed ? 'Installed' : 'Empty'}</small></button>`;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'modification-slot';
+        button.dataset.key = key;
+        button.dataset.type = slot[1];
+        button.title = installed ? `${slot[0]}: ${installed.name}` : slot[0];
+        button.setAttribute('aria-label', button.title);
+        const image = document.createElement('img');
+        image.src = installed?.image || modificationPlaceholderImages[slot[1]] || './PNG/i_powerc.png';
+        image.alt = '';
+        button.appendChild(image);
+        return button;
     }
 
     function openModificationPicker(itemId, key, type) {
@@ -2356,7 +2409,15 @@
         clearButton.innerHTML = '<img src="./PNG/i_unequip.png" alt=""><span>Clear slot</span>';
         clearButton.addEventListener('click', () => selectModification(null));
         pickerList.appendChild(clearButton);
-        modificationCatalog.filter(item => item.type === type).forEach(item => {
+        const current = getActiveCharacter();
+        const options = getModificationOptions(type, current);
+        if (!options.length) {
+            const empty = document.createElement('div');
+            empty.className = 'inventory-empty';
+            empty.textContent = `No owned ${type} upgrades are available.`;
+            pickerList.appendChild(empty);
+        }
+        options.forEach(item => {
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'picker-item';
@@ -2369,12 +2430,19 @@
 
     function selectModification(modificationId) {
         const current = getActiveCharacter();
-        const [, itemId, key] = activeEquipmentSlot.split(':');
+        const parts = activeEquipmentSlot.split(':');
+        const itemId = parts.slice(1, -2).join(':');
+        const key = parts.at(-2);
+        const type = parts.at(-1);
         if (!current || !itemId || !key) return;
         current.modifications[itemId] = current.modifications[itemId] || {};
+        const previousId = current.modifications[itemId][key];
+        if (modificationId && !getModificationOptions(type, current).some(item => item.id === modificationId)) return;
+        if (previousId && previousId !== modificationId && !current.inventory.includes(previousId)) current.inventory.push(previousId);
+        if (modificationId) current.inventory = current.inventory.filter(id => id !== modificationId);
         current.modifications[itemId][key] = modificationId;
         saveRegistryToStorage();
-        renderModifications();
+        renderEquipment();
         itemModal.hidden = true;
     }
 
