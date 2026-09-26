@@ -343,6 +343,74 @@
             min-height: 440px;
         }
 
+        .stats-toolbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+        }
+
+        .skill-group-toggle {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        .skill-group-toggle::before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid currentColor;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+            transition: transform 0.15s ease;
+        }
+
+        .skill-group-toggle[aria-expanded="false"]::before {
+            transform: rotate(-90deg);
+        }
+
+        .skill-group-toggle:hover,
+        .skill-group-toggle:focus-visible {
+            color: var(--text-neon);
+        }
+
+        .skill-row td {
+            padding-top: 4px;
+            padding-bottom: 4px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .skill-row[hidden] {
+            display: none;
+        }
+
+        .skill-name {
+            padding-left: 24px !important;
+        }
+
+        .skill-bonus {
+            width: 42px;
+            padding: 2px;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            font: inherit;
+            text-align: center;
+        }
+
+        .skill-bonus:focus {
+            outline: none;
+            border-color: var(--border-neon);
+        }
+
         .stats-table {
             width: 100%;
             border-collapse: collapse;
@@ -1191,42 +1259,45 @@
         </div>
 
         <div class="stats-panel">
+            <div class="stats-toolbar">
+                <button class="control-btn" id="skillsVisibilityToggle" type="button" aria-pressed="true">Hide skills</button>
+            </div>
             <table class="stats-table">
                 <thead>
                     <tr>
                         <th style="width: 55%;">Core Parameters</th>
-                        <th style="text-align: center; width: 25%;">Value</th>
-                        <th style="text-align: right; width: 20%;">Mod</th>
+                        <th style="text-align: center; width: 25%;">Value / Other</th>
+                        <th style="text-align: right; width: 20%;">Modifier</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="stat-name">Strength</td>
+                    <tr class="attribute-row" data-attribute="str">
+                        <td class="stat-name"><button class="skill-group-toggle" type="button" data-skill-group="str" aria-expanded="true" aria-label="Hide Strength skills"></button>Strength</td>
                         <td style="text-align: center;"><input type="number" id="str" class="stat-input save-field core-stat" value="10"></td>
                         <td class="stat-mod" id="str-mod">+0</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name">Dexterity</td>
+                    <tr class="attribute-row" data-attribute="dex">
+                        <td class="stat-name"><button class="skill-group-toggle" type="button" data-skill-group="dex" aria-expanded="true" aria-label="Hide Dexterity skills"></button>Dexterity</td>
                         <td style="text-align: center;"><input type="number" id="dex" class="stat-input save-field core-stat" value="10"></td>
                         <td class="stat-mod" id="dex-mod">+0</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name">Constitution</td>
+                    <tr class="attribute-row" data-attribute="con">
+                        <td class="stat-name"><button class="skill-group-toggle" type="button" data-skill-group="con" aria-expanded="true" aria-label="Hide Constitution skills"></button>Constitution</td>
                         <td style="text-align: center;"><input type="number" id="con" class="stat-input save-field core-stat" value="10"></td>
                         <td class="stat-mod" id="con-mod">+0</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name">Intelligence</td>
+                    <tr class="attribute-row" data-attribute="int">
+                        <td class="stat-name"><button class="skill-group-toggle" type="button" data-skill-group="int" aria-expanded="true" aria-label="Hide Intelligence skills"></button>Intelligence</td>
                         <td style="text-align: center;"><input type="number" id="int" class="stat-input save-field core-stat" value="10"></td>
                         <td class="stat-mod" id="int-mod">+0</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name">Wisdom</td>
+                    <tr class="attribute-row" data-attribute="wis">
+                        <td class="stat-name"><button class="skill-group-toggle" type="button" data-skill-group="wis" aria-expanded="true" aria-label="Hide Wisdom skills"></button>Wisdom</td>
                         <td style="text-align: center;"><input type="number" id="wis" class="stat-input save-field core-stat" value="10"></td>
                         <td class="stat-mod" id="wis-mod">+0</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name">Charisma</td>
+                    <tr class="attribute-row" data-attribute="cha">
+                        <td class="stat-name"><button class="skill-group-toggle" type="button" data-skill-group="cha" aria-expanded="true" aria-label="Hide Charisma skills"></button>Charisma</td>
                         <td style="text-align: center;"><input type="number" id="cha" class="stat-input save-field core-stat" value="10"></td>
                         <td class="stat-mod" id="cha-mod">+0</td>
                     </tr>
@@ -1433,6 +1504,15 @@
         { id: 'rightHand', label: 'Right hand', types: ['weapon'], image: './PNG/KotOR2 Equip Slots/right_hand_slot.PNG' }
     ];
 
+    const skillGroups = {
+        str: ['Athletics'],
+        dex: ['Security', 'Demolitions', 'Stealth', 'Coordination', 'Piloting (Space)', 'Piloting (Planetary)'],
+        con: ['Resilience'],
+        int: ['Computer use', 'Medicine', 'Repair', 'Astronav'],
+        wis: ['Awareness', 'Streetwise', 'Survival', 'Discipline'],
+        cha: ['Persuade', 'Intimidate', 'Deception', 'Cool']
+    };
+
     const itemCatalog = [
         { id: 'lghtsbr', name: 'Lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_lghtsbr_001.png' },
         { id: 'dblsbr', name: 'Double-bladed lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_dblsbr_001.png' },
@@ -1489,6 +1569,8 @@
     let activeNoteId = '';
     let activeModificationItemId = '';
     let activeDevelopmentId = '';
+    let allSkillsVisible = true;
+    const collapsedSkillGroups = {};
     
     let characters = [];
     let activeCharId = '';
@@ -1511,6 +1593,81 @@
         return mod >= 0 ? `+${mod}` : `${mod}`;
     }
 
+    function formatModifier(value) {
+        return value >= 0 ? `+${value}` : String(value);
+    }
+
+    function renderSkillRows(current) {
+        document.querySelectorAll('.skill-row').forEach(row => row.remove());
+        Object.entries(skillGroups).forEach(([attribute, skills]) => {
+            const attributeRow = document.querySelector(`.attribute-row[data-attribute="${attribute}"]`);
+            let previousRow = attributeRow;
+            skills.forEach(skill => {
+                const skillId = skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                const row = document.createElement('tr');
+                row.className = 'skill-row';
+                row.dataset.attribute = attribute;
+
+                const nameCell = document.createElement('td');
+                nameCell.className = 'skill-name';
+                nameCell.textContent = skill;
+
+                const bonusCell = document.createElement('td');
+                bonusCell.style.textAlign = 'center';
+                const bonusInput = document.createElement('input');
+                bonusInput.type = 'number';
+                bonusInput.step = '1';
+                bonusInput.className = 'skill-bonus';
+                bonusInput.id = `skill-other-${skillId}`;
+                bonusInput.value = current.skillBonuses[skillId] || '0';
+                bonusInput.setAttribute('aria-label', `${skill} other modifier`);
+                bonusInput.addEventListener('input', () => {
+                    current.skillBonuses[skillId] = bonusInput.value;
+                    saveActiveCharacterData();
+                });
+                bonusCell.appendChild(bonusInput);
+
+                const modifierCell = document.createElement('td');
+                modifierCell.className = 'stat-mod';
+                modifierCell.id = `skill-mod-${skillId}`;
+
+                row.append(nameCell, bonusCell, modifierCell);
+                previousRow.after(row);
+                previousRow = row;
+            });
+        });
+        updateSkillVisibility();
+        updateSkillModifiers();
+    }
+
+    function updateSkillVisibility() {
+        document.querySelectorAll('.skill-row').forEach(row => {
+            row.hidden = !allSkillsVisible || Boolean(collapsedSkillGroups[row.dataset.attribute]);
+        });
+        document.querySelectorAll('.skill-group-toggle').forEach(toggle => {
+            const attribute = toggle.dataset.skillGroup;
+            const expanded = !collapsedSkillGroups[attribute];
+            toggle.setAttribute('aria-expanded', String(expanded));
+            const attributeName = toggle.parentElement.textContent.trim();
+            toggle.setAttribute('aria-label', `${expanded ? 'Hide' : 'Show'} ${attributeName} skills`);
+        });
+        const visibilityToggle = document.getElementById('skillsVisibilityToggle');
+        visibilityToggle.setAttribute('aria-pressed', String(allSkillsVisible));
+        visibilityToggle.textContent = allSkillsVisible ? 'Hide skills' : 'Show skills';
+    }
+
+    function updateSkillModifiers() {
+        Object.entries(skillGroups).forEach(([attribute, skills]) => {
+            const attributeModifier = parseInt(calculateModifier(document.getElementById(attribute).value), 10) || 0;
+            skills.forEach(skill => {
+                const skillId = skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                const otherModifier = parseInt(document.getElementById(`skill-other-${skillId}`)?.value, 10) || 0;
+                const modifierCell = document.getElementById(`skill-mod-${skillId}`);
+                if (modifierCell) modifierCell.textContent = formatModifier(attributeModifier + otherModifier);
+            });
+        });
+    }
+
     function updateAllModifiers() {
         document.querySelectorAll('.core-stat').forEach(statField => {
             const modId = `${statField.id}-mod`;
@@ -1519,6 +1676,7 @@
                 modTarget.textContent = calculateModifier(statField.value);
             }
         });
+        updateSkillModifiers();
     }
 
     function updateAlignmentGlow() {
@@ -1552,6 +1710,7 @@
         character.notes = Array.isArray(character.notes) ? character.notes : [];
         character.inventory = Array.isArray(character.inventory) ? character.inventory : itemCatalog.map(item => item.id);
         character.modifications = character.modifications || {};
+        character.skillBonuses = character.skillBonuses || {};
         character.unlocks = Array.isArray(character.unlocks) ? character.unlocks : [];
         character.data = character.data || {};
         if (character.data['char-background'] === undefined) character.data['char-background'] = 'outcast';
@@ -1979,6 +2138,7 @@
         menuCharacterName.textContent = current.data['char-name'] || 'Character Menu';
         renameCharacterInput.value = current.data['char-name'] || '';
         topXp.value = current.data['exp-cur'] || '0';
+        renderSkillRows(current);
         
         if (current.avatar) {
             avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
@@ -2063,6 +2223,20 @@
     // Event Bindings
     fields.forEach(field => {
         field.addEventListener('input', saveActiveCharacterData);
+    });
+
+    document.querySelectorAll('.skill-group-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const attribute = toggle.dataset.skillGroup;
+            collapsedSkillGroups[attribute] = !collapsedSkillGroups[attribute];
+            updateSkillVisibility();
+        });
+    });
+
+    document.getElementById('skillsVisibilityToggle').addEventListener('click', () => {
+        allSkillsVisible = !allSkillsVisible;
+        if (allSkillsVisible) Object.keys(collapsedSkillGroups).forEach(attribute => delete collapsedSkillGroups[attribute]);
+        updateSkillVisibility();
     });
     
     saberFormDropdown.addEventListener('change', updateSaberFormTelemetry);
