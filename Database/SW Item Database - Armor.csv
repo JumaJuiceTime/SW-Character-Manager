@@ -1,0 +1,180 @@
+File name,Icon,Name,Type,Subtype,Defense Rating,Description,Prerequisite,Cost,Visible,Upgradeable Underlay,Upgradable Overlay,Restricts Force Powers
+ia_class4_001.png,,Combat Suit,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_002.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_003.png,,Echani Light Armor,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_004.png,,Light Combat Suit,Armor,Light,1d4,"The lightest form of armor available, the light combat suit is very inexpensive and still notably superior to normal civilian garb.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_005.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_006.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_007.png,,Electromesh Suit,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_008.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class4_009.png,,Miner Uniform,Armor,Light,1d4,"This is a standard uniform worn by miners at the Peragus facility. It provides minimal protection, but can be upgraded with some underlays.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_001.png,,Heavy Combat Suit,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_002.png,,Bonadan Alloy Heavy Suit,Armor,Light,1d4+1,,,1,TRUE,TRUE,FALSE,TRUE
+ia_class5_003.png,,Zabrak Battle Armor,Armor,Light,1d4+1,"On the far northern continent of the planet Iridonia, the Zabrak produce expensive armor that nonetheless has become very popular on the galactic markets, due to excellent low-temperature defensive properties.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_004.png,,Zabrak Field Armor,Armor,Light,1d4+1,"This is a higher-quality version of the basic armor produced by the Zabrak. These were often reserved for field commanders, and meant to be easily identified on the battlefield.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_005.png,,,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_006.png,,,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_007.png,,,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_008.png,,,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_009.png,,,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class5_010.png,,Khoonda Militia Armor,Armor,Light,1d4+1,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_001.png,,Military Suit,Armor,Medium,1d6,"This standard issue suit provides good protection, but can be heavier and more restrictive than some of its counterparts. Even so, many mercenaries swear the tradeoffs are worth it.",,1,TRUE,TRUE,FALSE,TRUE
+ia_class6_002.png,,Echani Battle Armor,Armor,Medium,1d6,"This armor provides solid defense at the cost of some flexibility, although it is still an Echani product and is therefore well suited to quick-moving combat.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_003.png,,Cinnagar War Suit,Armor,Medium,1d6,"After the Great Hyperspace War a thousand years ago, the heirs of Empress Teta militarized their world and industry, a legacy that produced battle armor still sought after today.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_004.png,,Verpine Fiber Mesh,Armor,Medium,1d6,"Raxsus Nuli had plans of planetary conquest in the wake of Sith aggression. Though eclipsed by recent events, the Jedi saw the pirate jailed and his Verpine stockpiles auctioned.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_005.png,,,Armor,Medium,1d6,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_006.png,,Exar Kun's Light Battle Suit,Armor,Medium,1d6,"Attributed to Exar Kun, this armor may well have been one of those worn by the Dark Lord prior to his defeat forty years ago. He was rarely without considerable, yet flexible, personal armor.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_007.png,,Verpine Fiber Ultramesh,Armor,Medium,1d6 + 2,"This Verpine combat suit is the most protective standard medium armor available, surpassing the defensive capabilities of most heavy armor.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_008.png,,Sith Battle Suit,Armor,Medium,1d6,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class6_009.png,,,Armor,Medium,1d6,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_001.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_002.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_003.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_004.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_005.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_006.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_007.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class7_008.png,,,Armor,Medium,1d8,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_001.png,,Battle Armor,Armor,Heavy,1d10,"This isn't the heaviest of armor, but it comes close. Designed for heavy militias, it has the protection needed to keep a soldier alive during ranged combat with massive weapons.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_002.png,,,Armor,Heavy,1d10,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_003.png,,Corellian Powersuit,Armor,Heavy,1d10,"Essentially an improved version of powered battle armor, the powersuit employs a system of servomotors to enhance the wearer's strength.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_004.png,,Echani Heavy Armor,Armor,Heavy,1d10,"Echani Heavy Armor is comparable to typical heavy battle armor in terms of protection, but allows for slightly more mobility.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_005.png,,Verpine Zal Alloy Mesh,Armor,Heavy,1d10,"Using the highly expensive Zal alloy, the Verpine have developed a suit without peer. The only thing greater than the protective capabilities of this armor is the price.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_006.png,,,Armor,Heavy,1d10,,,1,FALSE,TRUE,FALSE,TRUE
+ia_class8_007.png,,Iotran Braceman Armor,Armor,Heavy,1d10,"
+The Iotran are a militaristic species from the industrial planet of Iotra on the Outer Rim. Their versatile armor is a favorite among experienced bounty hunters.",,1,FALSE,TRUE,FALSE,TRUE
+ia_class9_001.png,,,Armor,Heavy,1d12,,,1,FALSE,TRUE,TRUE,TRUE
+ia_class9_002.png,,Durasteel Heavy Armor,Armor,Heavy,1d12,Battle armor production thrived on Bonadan as the Republic recovered from war. This model heavy durasteel casing provides superior protection when compared to normal Heavy Battle Armor.,,1,FALSE,TRUE,TRUE,TRUE
+ia_class9_003.png,,Mandalorian Battle Armor,Armor,Heavy,1d12,Republic soldiers saw this armor all too often during the Mandalorian War. It's understandable that the conflict could drag on when a fanatical enemy is so defensively outfitted.,,1,TRUE,TRUE,TRUE,TRUE
+ia_class9_004.png,,Mandalorian Heavy Armor,Armor,Heavy,1d12,"This armor is reserved for respected veteran Mandalorians. Immensely sturdy, stabilizers diffuse energy throughout the frame, shielding the wearer from disorienting impacts.",,1,FALSE,TRUE,TRUE,TRUE
+ia_class9_005.png,,Felenar Armor,Armor,Heavy,1d12,This flexible armor is made of a variety of exotic minerals. Markings suggest that it was created by a species called the Felenar.,,1,FALSE,TRUE,TRUE,TRUE
+ia_class9_006.png,,Matrix Armor,Armor,Heavy,1d12,Matrix armor is typically used for starship plating. Adapting it to personal use is expensive and technologically difficult. The armor is particularly resistant to blaster fire.,,1,FALSE,TRUE,TRUE,TRUE
+ia_class9_007.png,,Mandalorian Assault Armor,Armor,Heavy,1d12,"This was the armor of the Mandalorian elite frontline troops, a sight that Republic soldiers were all too familiar with during the war.",,1,FALSE,TRUE,TRUE,TRUE
+ia_class9_008.png,,Flex Heavy Armor,Armor,Heavy,1d12,"Flex Heavy Armor allows for greater mobility than even some medium armor. The primary alloy is still durasteel, but it is treated in methods that are poorly understood by most in the Republic. In fact, it is unclear who manufactures these rare suits of armor.",,1,FALSE,TRUE,FALSE,TRUE
+ia_classflt_001.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_classflt_002.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_classflt_003.png,,,Armor,Light,1d4,,,1,FALSE,TRUE,FALSE,TRUE
+ia_classzs_001.png,,Zeison Sha Warrior Armor,Armor,Light,1d4,"Zeison Sha Warriors are powerful combatants who are particularly skilled in telekenetic Force Powers. Their fortified garments are somewhat restrictive, but do not interfere with their use of the Force. They can be upgraded with some underlays.
+ 
+The Outer Rim planet Yanibar was the home of the Zeison Sha, who developed their Force powers as a means of surviving the harsh planet. Zeison Sha stress independence and survival as well as assistance to those in need.",,1,FALSE,TRUE,TRUE,FALSE
+ia_classzs_002.png,,Zeison Sha Initiate Armor,Armor,Light,1d4,"Zeison Sha initiates are known for their survival skills and resourcefulness. Their flexible armor is very durable and can be upgraded with some underlays.
+ 
+The Outer Rim planet Yanibar was the home of the Zeison Sha, who developed their Force powers as a means of surviving the harsh planet. Zeison Sha stress independence and survival as well as assistance to those in need.",,1,FALSE,TRUE,TRUE,FALSE
+ia_classzs_003.png,,Jal Shey Neophyte Armor,Armor,Light,1d4,"Jal Shey neophytes have begun their lifelong quest to understand the nature of the Force. Their light armor carries with it an aura of dignity and competence.
+ 
+The Jal Shey concentrate on intellectual study of the Force, seeking to understand it at a mental level, rather than a spiritual one. Jal Shey are typically exceptional diplomats, but are less successful in physical pursuits.",,1,FALSE,TRUE,TRUE,FALSE
+ia_classzs_004.png,,Jal Shey Advisor Armor,Armor,Light,1d4,"Jal Shey advisors possess a strong understanding of the Force and are widely respected for their wisdom.
+ 
+The Jal Shey concentrate on intellectual study of the Force, seeking to understand it at a mental level, rather than a spiritual one. Jal Shey are typically exceptional diplomats, but are less successful in physical pursuits.",,1,FALSE,TRUE,TRUE,FALSE
+ia_classzs_005.png,,Darth Malak's Armor,Armor,Light,1d4,"It is believed that Darth Malak, the fallen former apprentice of Darth Revan, once possessed this garment. Malak and Revan are credited with starting the Jedi Civil War, which led to the collapse of the Jedi Order.",,1,FALSE,TRUE,TRUE,FALSE
+ia_classzs_006.png,,Jal Shey Mentor Armor,Armor,Light,1d4,"Jal Shey mentors are unparalleled in their intellect and often serve as highly respected advisors and teachers.
+ 
+The Jal Shey concentrate on intellectual study of the Force, seeking to understand it at a mental level, rather than a spiritual one. Jal Shey are typically exceptional diplomats, but are less successful in physical pursuits.",,1,FALSE,TRUE,TRUE,FALSE
+ia_cloths_001.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_002.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_003.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_004.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_005.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_006.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_007.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_008.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_cloths_009.png,,,Armor,Clothes,0,,,1,FALSE,TRUE,FALSE,FALSE
+ia_disguise_001.png,,Sith Trooper Armor,Armor,Armor,0,,,1,FALSE,FALSE,FALSE,TRUE
+ia_disguise_002.png,,,Armor,Armor,0,,,1,FALSE,FALSE,FALSE,TRUE
+ia_jedirobe_001.png,,Padawan Robe,Armor,Robe,0,Members of the Jedi Order typically wear plain or unassuming garments.,,1,TRUE,FALSE,FALSE,FALSE
+ia_jedirobe_002.png,,Jolee's Robe,Armor,Robe,0,"Jolee Bindo remained outside of the Jedi Order in his pursuit of knowledge. These powerful, yet unassuming robes were believed to have been owned by him, though his current whereabouts is unknown.",,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_003.png,,Dark Padawan Robe,Armor,Robe,0,"These are simple robes, kept modest not by a desire to appear humble, but to offer the greatest freedom of movement during battle.",,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_004.png,,Jedi Robe,Armor,Robe,0,Members of the Jedi Order typically wear plain or unassuming garments.,,1,TRUE,FALSE,FALSE,FALSE
+ia_jedirobe_005.png,,Exile's Robe,Armor,Robe,0,Unassuming garment of an exiled Jedi.,,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_006.png,,Dark Jedi Robe,Armor,Robe,0,"These are simple robes, kept modest not by a desire to appear humble, but to offer the greatest freedom of movement during battle.",,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_007.png,,Baran Do Novice Robe,Armor,Robe,0,"Novices are those who have begun their training in the Baran Do philosophy, learning how to empty their minds and find tranquility in any situation.
+ 
+The Baran Do are force sensitive members of the Kel Dor race. They seek inner peace and are very patient, consulting with the Force before making decisions.",,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_008.png,,Ossus Keeper Robe,Armor,Robe,0,The Keepers of the Hall of Knowledge in the Great Jedi Library maintained the protected archives and acted as references to those who desired a more interactive solution to the their problems.,,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_009.png,,Norris Robe,Armor,Robe,0,"Stained with pigments from the beautiful and rare norris root found on the planet Almar, these robes are naturally resistant to energy.",,1,FALSE,FALSE,FALSE,FALSE
+ia_jedirobe_010.png,,Baran Do Sage Robe,Armor,Robe,0,"Baran Do Sages are the most elite of their order, able to see into the future, the past, and across the entire galaxy.
+ 
+The Baran Do are force sensitive members of the Kel Dor race. They seek inner peace and are very patient, consulting with the Force before making decisions.",,1,FALSE,FALSE,FALSE,FALSE
+ia_kghtrobe_001.png,,Brown Tunic,Armor,Robe,0,,,1,FALSE,FALSE,FALSE,FALSE
+ia_kghtrobe_002.png,,Grey Tunic,Armor,Robe,0,,,1,FALSE,FALSE,FALSE,FALSE
+ia_kghtrobe_003.png,,Orange Tunic,Armor,Robe,0,,,1,FALSE,FALSE,FALSE,FALSE
+ia_kghtrobe_004.png,,Blue Tunic,Armor,Robe,0,,,1,FALSE,FALSE,FALSE,FALSE
+ia_mstrrobe_001.png,,Jedi Knight Robe,Armor,Robe,0,"Members of the Order typically wear plain or unassuming garments, but this variant offers the additional protection needed by Jedi influencing important events.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_002.png,,Sylvar's Robe,Armor,Robe,0,"Sylvar was a fellow student of Exar Kun and the wife of the fallen Jedi Crado, who fell to Kun's side during the Sith War many decades past. Despite several major trials, Sylvar ultimately remained true to the light side and was a strong voice in the Jedi Order.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_003.png,,Crado's Robe,Armor,Robe,0,"Crado was a Jedi who fell to the power of the dark side through the mighty Exar Kun. Crado betrayed his beloved Sylvar and was ultimately obliterated when the Cron Cluster was destroyed.
+ 
+Given how completely Crado was killed, it is questionable whether this robe ever actually belonged to him. Regardless, this garment clearly eminates the power and corruption of the dark side.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_004.png,,Dark Jedi Knight Robe,Armor,Robe,0,"Designed for those who relish personal combat, and know that power comes to those who take it, these robes offer good protection with no hindrance to movement.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_005.png,,Gray Jedi Robe,Armor,Robe,0,"Gray Jedi are those who, though having completed the teachings of the Jedi, operate independently and outside of the Jedi Council. They are typically seen as misguided, though they have not necessarily succumbed to the dark side.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_006.png,,Jedi Master Robe,Armor,Robe,0,"Members of the Order typically wear plain or unassuming garments, but Jedi Masters also know the importance of adequate protection when great challenges must be surmounted.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_007.png,,Natth Cowling,Armor,Robe,0,"Dyed with water from the tainted Lake Natth on Ambria, these robes infuse the wearer a trace of the dark powers contained within the lake.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_008.png,,Thon's Robe,Armor,Robe,0,Thon was an enigmatic Jedi Watchman who kept even his species secret. He was a powerful agent of the light side and also trained many Jedi.,,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_009.png,,Handmaiden's Robe,Armor,Robe,0,"This robe once belonged to the Handmaiden's mother, Arren. It is the only thing of hers the Handmaiden possesses.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_010.png,,Dark Jedi Master Robe,Armor,Robe,0,"These robes offer superior protection while still allowing full freedom of movement. They are the robes of the true masters, those whose will and authority go unopposed.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_011.png,,Aleema Keto's Robe,Armor,Robe,0,"Aleema Keto began her training as a Jedi, but while researching the Sith became enthralled by their power and fell to the dark side. She was a master of illusions and helped seduce Ulic Qel-Droma to the dark side.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_012.png,,Matukai Adept Robe,Armor,Robe,0,"Matukai adepts are masters at guiding their bodies with the Force. They are capable of astounding physical feats.
+ 
+The Matukai are a group of Force sensitives who use their physical body to channel the Force. The balance of the physical and spiritual is a cornerstone of their philosophy.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_013.png,,Matukai Apprentice Robe,Armor,Robe,0,"Matukai apprentices master physical meditation by practicing martial arts techniques. Their robes are designed to help them achieve harmony between the mind and body.
+ 
+The Matukai are a group of Force sensitives who use their physical body to channel the Force. The balance of the physical and spiritual is a cornerstone of their philosophy.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_014.png,,Nomi's Robe,Armor,Robe,0,"Nomi displayed incredible affinity for the Force, but only reluctantly pursued Jedi training following the death of her husband, Andur. She became one of the greatest Jedi of the time, training under Master Thon.",,1,FALSE,TRUE,FALSE,FALSE
+ia_mstrrobe_015.png,,Arca Jeth's Robe,Armor,Robe,0,Arca Jeth was a powerful Arkanian Jedi Master who was killed in the Great Sith War. His spirit helped provide guidance to Ulic Qel-Droma.,,1,FALSE,TRUE,FALSE,FALSE
+ia_revan_001.png,,Revan's Robe,Armor,Robe,1d4,"Created by the mystical technology of the Star Forge, these robes focus the dark side energies of the wearer, fueling their power. The Sith Lord Darth Revan was wearing similar robes when captured by the Jedi, who viewed the garments as an abomination and destroyed them. However the Jedi Council, not being familiar with the origins of the robes, were unaware that the Star Forge would be capable of producing an item of such terrible power a second time.",,1,FALSE,TRUE,TRUE,FALSE
+ia_revan_002.png,,Starforge Robe,Armor,Robe,1d4,"Created by the mystical technology of the Star Forge, these robes focus the inherent Force abilities of the wearer, fueling their power. Although the Star Forge itself is an artifact of the dark side, these robes were customized using an analysis of the Jedi they were created for, resulting in a powerful light side item that the Jedi can safely use against their enemies without fear of taint or corruption.",,1,TRUE,TRUE,TRUE,FALSE
+ia_slave_001.png,,,Armor,Clothes,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_001.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_002.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_003.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_004.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_005.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_006.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_007.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_008.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_009.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_frarmbnds_010.png,,,Shield,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_001.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_002.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_003.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_004.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_005.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_006.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_007.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_008.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_009.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_010.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_011.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_012.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_013.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_gauntlet_014.png,,,Gloves,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_001.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_002.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_003.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_004.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_005.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_006.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_007.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_008.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_009.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_010.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_011.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_012.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_013.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_014.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_belt_015.png,,,Belt,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_001.png,,,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_002.png,,,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_003.png,,Absorption Visor,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_004.png,,Bothan Sensory Visor,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_005.png,,,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_006.png,,Breath Mask,Headgear,Breathing,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_007.png,,Bothan Perception Visor,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_008.png,,,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_009.png,,,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_010.png,,,Headgear,Breathing,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_011.png,,,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_012.png,,,Headgear,Breathing,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_013.png,,Das'skar Hunting Mask,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ii_mask_014.png,,Circlet of Saresh,Headgear,,0,,,1,FALSE,FALSE,FALSE,FALSE
+ip_pltuseitm_251.png,,Nihilus' mask,Headgear,,0,It is the last surviving piece of the beast who died and was reborn in the shattered world of Malachor V.,,1,TRUE,FALSE,FALSE,FALSE
+ip_pltuseitm_011.png,,Mandalorian Helmet,Headgear,Breathing,0,,,1,FALSE,FALSE,FALSE,FALSE

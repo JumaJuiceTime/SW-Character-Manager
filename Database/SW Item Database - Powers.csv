@@ -1,0 +1,158 @@
+File name,Icon,Name,Type,Subtype,Description,Prerequisite,Cost,Visible
+ip_advjump.png,,Advanced Jump,Power,Universal,,,,FALSE
+ip_affectmind.png,,Affect Mind,Power,Universal,"Affect and Dominate Mind enable persuasive use of the Force. Once a Jedi has this power, extra options will appear in conversations as appropriate. Success is not guaranteed for extreme commands or if the target is strong willed. Dominate Mind is more powerful than Affect Mind, and very few beings can resist its effects. This power does not affect droids. Only the main character can select this power during level-up.",,,FALSE
+ip_affliction.png,,Affliction,Power,Dark Side,Affliction causes a target to suffer as though poisoned.,,,FALSE
+ip_alter.png,,,Power,,,,,FALSE
+ip_armor.png,,Armor,Power,,"Restricted by Armor
+
+When this power is activated, the Jedi is temporarily granted a bonus to Defense and all saving throws.",,,FALSE
+ip_aura.png,,Aura,Power,,"Restricted by Armor
+
+When this power is activated, the Jedi is temporarily granted a bonus to Defense and all saving throws.",,,FALSE
+ip_batlprecog.png,,Battle Precognition,Power,,This power allows the Jedi to sense the flows of the Force and increases the Jedi's reaction time in combat. The Jedi adds their Wisdom modifier to their Defense.,,,TRUE
+ip_battlemed01.png,,Battle Meditation,Power,Universal,"Restricted by Armor
+
+This power also increases the vitality point regeneration rate of the party (doubling it, although this doesn't include Regeneration item bonuses, which are simply added afterward). This effect lasts for 20 seconds and will not affect any droids in the party.
+
+Misc. effect damage added by this power is not multiplied by a Critical Hit.",,,TRUE
+ip_battlemed02.png,,Improved Battle Meditation,Power,Universal,"Restricted by Armor
+
+This power also increases the vitality point regeneration rate of the party (doubling it, although this doesn't include Regeneration item bonuses, which are simply added afterward). This effect lasts for 20 seconds and will not affect any droids in the party.
+
+Misc. effect damage added by this power is not multiplied by a Critical Hit.",,,TRUE
+ip_battlemed03.png,,Master Battle Meditation,Power,Universal,"Restricted by Armor
+
+This power also increases the vitality point regeneration rate of the party (doubling it, although this doesn't include Regeneration item bonuses, which are simply added afterward). This effect lasts for 20 seconds and will not affect any droids in the party.
+
+Misc. effect damage added by this power is not multiplied by a Critical Hit.",,,TRUE
+ip_beastconf.png,,Beast Control,Power,Universal,,,,FALSE
+ip_beasttrick.png,,Beast Trick,Power,Universal,,,,FALSE
+ip_breach.png,,Breach,Power,Universal,,,,FALSE
+ip_breath.png,,Breath Control,Power,Universal,,,,FALSE
+ip_choke.png,,Choke,Power,Dark Side,,,,FALSE
+ip_confusion.png,,Confusion,Power,Universal,,Mind Trick,,FALSE
+ip_control.png,,,Power,,,,,FALSE
+ip_crushop01.png,,,Power,,,,,FALSE
+ip_crushop02.png,,,Power,,,,,FALSE
+ip_crushop03.png,,,Power,,,,,FALSE
+ip_crushop04.png,,,Power,,,,,FALSE
+ip_crushop05.png,,,Power,,,,,FALSE
+ip_crushop06.png,,,Power,,,,,FALSE
+ip_cure.png,,Cure,Power,Light Side,,,,FALSE
+ip_deathfield.png,,Death Field,Power,Dark Side,,,,FALSE
+ip_dominate.png,,Dominate,Power,,,,,FALSE
+ip_drainforce01.png,,Drain Force,Power,Dark Side,,,,FALSE
+ip_drainforce02.png,,Improved Drain Force,Power,Dark Side,,,,FALSE
+ip_drainforce03.png,,Master Drain Force,Power,Dark Side,,,,FALSE
+ip_drainlife.png,,Drain Life,Power,Dark Side,,,,FALSE
+ip_droiddestroy.png,,Destroy Droid,Power,Universal,,,,FALSE
+ip_droiddisable.png,,Disable Droid,Power,Universal,,,,FALSE
+ip_droidstun.png,,Stun Droid,Power,Universal,,,,FALSE
+ip_fear.png,,Fear,Power,Dark Side,,,,FALSE
+ip_foccontr.png,,,Power,,,,,FALSE
+ip_focmaster.png,,,Power,,,,,FALSE
+ip_focsense.png,,,Power,,,,,FALSE
+ip_forcebody01.png,,Force Body,Power,Universal,,,,FALSE
+ip_forcebody02.png,,Improved Force Body,Power,Universal,,,,FALSE
+ip_forcebody03.png,,Master Force Body,Power,Universal,,,,FALSE
+ip_forcecamo01.png,,Camouflage,Power,Universal,Enable the Jedi character to use their Stealth skill without a Stealth Field Generator. The power lasts until the character deactivates it.,,,FALSE
+ip_forcecamo02.png,,Improved Camouflage,Power,Universal,,,,FALSE
+ip_forcecamo03.png,,Master Camouflage,Power,Universal,,,,FALSE
+ip_forcecrush.png,,Crush,Power,Dark Side,,,,FALSE
+ip_forcesight.png,,Force Sight,Power,Universal,,,,FALSE
+ip_frcbarrier01.png,,Barrier,Power,Light Side,,,,FALSE
+ip_frcbarrier02.png,,Improved Barrier,Power,Light Side,,,,FALSE
+ip_frcbarrier03.png,,Master barrier,Power,Light Side,,,,FALSE
+ip_frcenlight.png,,Enlightenment,Power,Light Side,,,,FALSE
+ip_frcredirect.png,,Deflection,Power,Universal,,,,FALSE
+ip_frcrepulse.png,,Redirection,Power,Universal,,,,FALSE
+ip_frcscream01.png,,Scream,Power,Dark Side,,,,TRUE
+ip_frcscream02.png,,Improved Scream,Power,Dark Side,,,,TRUE
+ip_frcscream03.png,,Master Scream,Power,Dark Side,,,,TRUE
+ip_fury01.png,,Fury,Power,,,,,FALSE
+ip_fury02.png,,Improved Fury,Power,,,,,FALSE
+ip_fury03.png,,Master Fury,Power,,,,,FALSE
+ip_heal.png,,Heal,Power,Light Side,,,,FALSE
+ip_hold.png,,Stasis,Power,,,,,FALSE
+ip_horror.png,,Horror,Power,,,,,FALSE
+ip_immunity.png,,,Power,,,,,FALSE
+ip_insanity.png,,Insanity,Power,,,,,FALSE
+ip_inspfol01.png,,,Power,,,,,FALSE
+ip_inspfol02.png,,,Power,,,,,FALSE
+ip_inspfol03.png,,,Power,,,,,FALSE
+ip_inspfol04.png,,,Power,,,,,FALSE
+ip_inspfol05.png,,,Power,,,,,FALSE
+ip_inspfol06.png,,,Power,,,,,FALSE
+ip_jump.png,,Jump,Power,,,,,FALSE
+ip_kill.png,,Kill,Power,Dark Side,"Kill causes the target to choke for 6 seconds and inflicts damage close to half the target's maximum Vitality points. If the target makes a Fortitude save they are not choked, but instead suffer damage equal to attacker level.
+
+This power does not affect droids.",,,FALSE
+ip_knightmind.png,,Knight Valor,Power,Light Side,,,,FALSE
+ip_knightspeed.png,,Knight Speed,Power,Universal,"Restricted by Armor
+
+For the duration of the effect (36 seconds), movement speed is doubled.
+
+Attacks are added to the main hand. Attacks aren't normally added when using Power Blasts or Sniper Shots, although the latter gains one (and only one) with a (heavy) repeating blaster (the same is true when using standard Attack with a single blaster pistol).",Speed,,FALSE
+ip_lightning.png,,Lightning,Power,Dark Side,"Restricted by Armor
+
+This power unleashes an electrical attack. Force Storm also inflicts the same damage on Force points. A successful Will save by the target reduces damage by half.",,,FALSE
+ip_lsthrow.png,,Throw Lightsaber,Power,Universal,"Requires lightsaber
+
+The target must be at least 5 meters away, and any additional targets must be within 5 meters of the previous. This attack always hits. Once the lightsaber is thrown, it will automatically return to the Jedi's hand at the end of the round.
+
+Deflection rolls aren't made during use, even if a lightsaber remains in the off hand, unless Force Deflection has been selected (in which case all bonuses and penalties are still added, even those restricted to lightsabers).",,,FALSE
+ip_masterheal.png,,Master Heal,Power,Light Side,,Improved Heal,,FALSE
+ip_mastermind.png,,Master Valor,Power,Light Side,,,,FALSE
+ip_masterspeed.png,,Master Speed,Power,Universal,"Restricted by Armor
+
+For the duration of the effect (36 seconds), movement speed is doubled.
+
+Attacks are added to the main hand. Attacks aren't normally added when using Power Blasts or Sniper Shots, although the latter gains one (and only one) with a (heavy) repeating blaster (the same is true when using standard Attack with a single blaster pistol).",Knight Speed,,FALSE
+ip_medit01.png,,,Power,,,,,FALSE
+ip_medit02.png,,,Power,,,,,FALSE
+ip_medit03.png,,,Power,,,,,FALSE
+ip_mind.png,,Valor,Power,Light Side,,,,FALSE
+ip_mindtrick.png,,Mind Trick,Power,Universal,,,,FALSE
+ip_plague.png,,Plague,Power,Dark Side,,,,FALSE
+ip_precog.png,,Precognition,Power,Universal,Precognition warns the Jedi whenever they are about to enter extreme danger. These warnings are quite rare.,,,FALSE
+ip_push.png,,Push,Power,Universal,"An opponent targeted by Force Push is pushed back 5 meters, thrown to the ground stunned, and suffers damage. A successful Reflex save means the target is not pushed back or stunned, but still suffers half damage. Unlike the first game, most droids are affected by Force Push, but can't be stunned by it, only pushed back and damaged.",,,TRUE
+ip_resistenergy1.png,,Energy Resistance,Power,Universal,"This power absorbs the first points of damage from energy, sonic, fire, cold and electrical attacks. Damage over and above the first points is suffered as normal. This effect lasts for 120 seconds.
+
+This doesn't sum with Damage Resistance from other sources: only the highest value has any effect.",,,FALSE
+ip_resistenergy2.png,,Improved Energy Resistance,Power,Universal,"This power absorbs the first points of damage from energy, sonic, fire, cold and electrical attacks. Damage over and above the first points is suffered as normal. This effect lasts for 120 seconds.
+
+This doesn't sum with Damage Resistance from other sources: only the highest value has any effect.",,,FALSE
+ip_resistenergy3.png,,Master Energy Resistance,Power,Universal,"This power absorbs the first points of damage from energy, sonic, fire, cold and electrical attacks. Damage over and above the first points is suffered as normal. This effect lasts for 120 seconds.
+
+This doesn't sum with Damage Resistance from other sources: only the highest value has any effect.",,,FALSE
+ip_resistforce.png,,Force Resistance,Power,Universal,"Restricted by Armor
+
+This power offers some protection from direct Force power attacks of Jedi opponents, possibly negating their effects. The attacking Jedi makes an opposed roll versus the defender. If the attacker's result is greater (or equal), the attack succeeds. If the defender's total is greater, the attack has no effect. This effect lasts for 60 seconds.",,,FALSE
+ip_revital01.png,,Revitalize,Power,Light Side,,,,FALSE
+ip_revital02.png,,Improved Revitalize,Power,Light Side,,,,FALSE
+ip_revital03.png,,Master Revitalize,Power,Light Side,,,,FALSE
+ip_scram01.png,,,Power,,,,,FALSE
+ip_scram02.png,,,Power,,,,,FALSE
+ip_scram03.png,,,Power,,,,,FALSE
+ip_secret.png,,Secret,Power,,,,,FALSE
+ip_sense.png,,,Power,,,,,FALSE
+ip_shield.png,,,Power,,,,,FALSE
+ip_shock.png,,Shock,Power,Dark Side,"Restricted by Armor
+
+This power unleashes an electrical attack.",,,TRUE
+ip_sleep.png,,Stasis Field,Power,Light Side,,,,FALSE
+ip_sleep01.png,,,Power,,,,,FALSE
+ip_slow.png,,Slow,Power,Dark Side,"Slow clouds the mind, making a target's actions unusually sluggish.",,,FALSE
+ip_speedburst.png,,Speed,Power,Universal,,,,FALSE
+ip_stasis.png,,Stasis,Power,Light Side,,,,FALSE
+ip_storm.png,,Force Storm,Power,Dark Side,"Restricted by Armor
+
+This power unleashes an electrical attack. Force Storm also inflicts the same damage on Force points. A successful Will save by the target reduces damage by half.",,,TRUE
+ip_stun.png,,Stun,Power,Light Side,,,,FALSE
+ip_supress.png,,,Power,,,,,FALSE
+ip_surpress.png,,Supress,Power,Universal,"Restricted by Armor
+
+This ability will cancel Force powers active on the target. These powers are instantly cancelled, but the target can reactivate them if Force points are available.",,,FALSE
+ip_wave.png,,Wave,Power,Universal,"Force Wave creates a telekinetic explosion around the Jedi. All enemies within 15 meters are thrown 5 meters, fall to the ground and are incapacitated, and take damage. A successful Reflex save means an enemy is not thrown or stunned, but still suffers half damage.",,,TRUE
+ip_whirlwind.png,,Whirlwind,Power,Universal,"Force Whirlwind encircles the target victim in a small maelstrom of air and dust, inflicting damage and rendering them unable to take any action. A successful Reflex save negates the damage and immobilizing effects altogether. This power does not affect droids equipped with energy shield hardware.",,,TRUE
+ip_wound.png,,Wound,Power,Dark Side,"Wound triggers spasms in the victim's lungs, causing great pain and inflicting 2/3 attacker level in damage every 2 seconds for the duration (6 seconds). A successful Fortitude save results in no effect.",,,FALSE

@@ -47,12 +47,12 @@
         .command-bar { order: 1; }
         .main-layout { order: 2; }
         .combat-panel { order: 3; }
-        .modifications-panel { order: 4; }
-        .inventory-panel { order: 5; }
-        .development-panel { order: 6; }
-        .journal-panel { order: 7; }
-        .force-panel { order: 8; }
-        .feats-panel { order: 9; }
+        .force-panel { order: 4; }
+        .feats-panel { order: 5; }
+        .inventory-panel { order: 6; }
+        .modifications-panel { order: 7; }
+        .journal-panel { order: 8; }
+        .development-panel { order: 9; }
         .action-row { order: 10; }
 
         .menu-header {
@@ -757,6 +757,10 @@
             gap: 14px;
         }
 
+        .development-layout {
+            grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
+        }
+
         .catalog-list,
         .development-list {
             display: grid;
@@ -858,6 +862,47 @@
             gap: 8px;
         }
 
+        .inventory-tabs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+
+        .inventory-tabs button {
+            flex: 0 0 auto;
+            padding: 6px 9px;
+        }
+
+        .inventory-tabs button[aria-pressed="true"] {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+        }
+
+        .inventory-credits {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+
+        .inventory-credits input {
+            width: 84px;
+            padding: 5px;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            color: var(--text-bright);
+            font: inherit;
+        }
+
+        .inventory-empty {
+            grid-column: 1 / -1;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
         .development-list {
             display: grid;
             gap: 12px;
@@ -884,7 +929,108 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 8px;
-            position: relative;
+        }
+
+        .development-item {
+            min-height: 112px;
+            display: grid;
+            justify-items: center;
+            align-content: start;
+            gap: 4px;
+            text-align: center;
+        }
+
+        .development-item.selected {
+            border-color: var(--border-neon);
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.25);
+        }
+
+        .development-item img {
+            width: 42px;
+            height: 42px;
+        }
+
+        .development-item .development-name {
+            font-size: 0.65rem;
+        }
+
+        .development-item .development-cost {
+            color: var(--text-neon);
+            font-size: 0.62rem;
+        }
+
+        .development-purchase-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .development-purchase-group button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .console-upgrade-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+            min-height: 46px;
+        }
+
+        .console-upgrade-icon {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            padding: 3px;
+            border: 1px solid var(--border-dim);
+            background: rgba(0, 0, 0, 0.45);
+            cursor: pointer;
+        }
+
+        .console-upgrade-icon:hover,
+        .console-upgrade-icon[aria-pressed="true"] {
+            border-color: var(--border-neon);
+            box-shadow: 0 0 7px rgba(0, 255, 204, 0.3);
+        }
+
+        .console-upgrade-icon img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .console-upgrade-empty {
+            align-self: center;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .console-chart {
+            margin: 8px 0;
+        }
+
+        .console-chart table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.72rem;
+        }
+
+        .console-chart th,
+        .console-chart td {
+            padding: 4px 7px;
+            border-bottom: 1px solid rgba(30, 90, 82, 0.5);
+            text-align: left;
+        }
+
+        .console-chart th {
+            color: var(--text-bright);
+        }
+
+        .console-chart td:first-child {
+            width: 70px;
+            color: var(--text-neon);
         }
 
         .development-item.purchased {
@@ -892,22 +1038,6 @@
             color: var(--text-bright);
             box-shadow: 0 0 8px rgba(0, 255, 204, 0.35);
             opacity: 1;
-        }
-
-        .development-arrow {
-            position: absolute;
-            z-index: 2;
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-            left: calc(33.333% - 12px);
-            top: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .development-arrow.second {
-            left: calc(66.666% - 12px);
         }
 
         .inventory-actions {
@@ -1161,11 +1291,11 @@
         <button class="icon-toggle" type="button" data-section="equipment" aria-pressed="true" title="Toggle equipment" aria-label="Toggle equipment">
             <img src="./PNG/i_equip.png" alt="">
         </button>
-        <button class="icon-toggle" type="button" data-section="combat" aria-pressed="false" title="Toggle combat" aria-label="Toggle combat">
-            <img src="./PNG/iw_lghtsbr_001.png" alt="">
+        <button class="icon-toggle" type="button" data-section="combat" aria-pressed="true" title="Toggle combat" aria-label="Toggle combat">
+            <img src="./PNG/i_stancedef.png" alt="">
         </button>
         <button class="icon-toggle" type="button" data-section="journal" aria-pressed="false" title="Toggle journal" aria-label="Toggle journal">
-            <img src="./PNG/ii_datapad_001.png" alt="">
+            <img src="./PNG/if_mentor.png" alt="">
         </button>
         <button class="icon-toggle" type="button" data-section="modifications" aria-pressed="false" title="Toggle modifications" aria-label="Toggle modifications">
             <img src="./PNG/isk_repair.png" alt="">
@@ -1174,12 +1304,12 @@
             <img src="./PNG/i_openplace.png" alt="">
         </button>
         <button class="icon-toggle" type="button" data-section="development" aria-pressed="false" title="Toggle development" aria-label="Toggle development">
-            <img src="./PNG/if_mentor.png" alt="">
+            <img src="./PNG/if_scdac01.png" alt="">
         </button>
         <button class="icon-toggle" type="button" data-section="force" aria-pressed="true" title="Toggle force powers" aria-label="Toggle force powers">
             <img src="./PNG/i_force02.png" alt="">
         </button>
-        <button class="icon-toggle" type="button" data-section="feats" aria-pressed="false" title="Toggle feats" aria-label="Toggle feats">
+        <button class="icon-toggle" type="button" data-section="feats" aria-pressed="true" title="Toggle feats" aria-label="Toggle feats">
             <img src="./PNG/i_useplace.png" alt="">
         </button>
         <div class="admin-wrap">
@@ -1312,17 +1442,6 @@
                         </td>
                         <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">VIT</td>
                     </tr>
-                    <tr>
-                        <td class="stat-name" style="color: var(--text-muted);">Force Points</td>
-                        <td style="text-align: center;">
-                            <div class="compound-row">
-                                <input type="number" id="force-cur" class="stat-input save-field" value="0">
-                                <span>/</span>
-                                <input type="number" id="force-max" class="stat-input save-field" value="0">
-                            </div>
-                        </td>
-                        <td class="stat-mod" style="color: var(--text-muted); font-size:0.8rem;">FP</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -1337,16 +1456,36 @@
     </section>
 
     <section class="panel-section inventory-panel" id="inventoryPanel" hidden aria-labelledby="inventoryHeading">
-        <div class="panel-heading" id="inventoryHeading"><span>Inventory</span><span id="inventoryStatus">0 items</span></div>
+        <div class="panel-heading" id="inventoryHeading">
+            <span>Inventory</span>
+            <label class="inventory-credits">Credits <input id="creditsInput" type="number" min="0" step="1" value="0" aria-label="Credits"></label>
+            <span id="inventoryStatus">0 items</span>
+        </div>
+        <div class="inventory-tabs" role="group" aria-label="Inventory item types">
+            <button class="control-btn" type="button" data-inventory-type="Weapons" aria-pressed="true">Weapons</button>
+            <button class="control-btn" type="button" data-inventory-type="Upgrades" aria-pressed="false">Upgrades</button>
+            <button class="control-btn" type="button" data-inventory-type="Consumables" aria-pressed="false">Consumables</button>
+            <button class="control-btn" type="button" data-inventory-type="Implants" aria-pressed="false">Implants</button>
+            <button class="control-btn" type="button" data-inventory-type="Droid Parts" aria-pressed="false">Droid Parts</button>
+            <button class="control-btn" type="button" data-inventory-type="Armor" aria-pressed="false">Armor</button>
+            <button class="control-btn" type="button" data-inventory-type="Misc" aria-pressed="false">Misc</button>
+        </div>
         <div class="inventory-actions">
             <button class="control-btn" id="addInventoryBtn" type="button">Add item</button>
+            <button class="control-btn" id="purchaseInventoryBtn" type="button">Purchase item</button>
             <button class="control-btn" id="removeInventoryBtn" type="button">Remove item</button>
         </div>
         <div class="inventory-grid" id="inventoryGrid"></div>
     </section>
 
     <section class="panel-section development-panel" id="developmentPanel" hidden aria-labelledby="developmentHeading">
-        <div class="panel-heading" id="developmentHeading"><span>Development</span><span id="developmentXp">0 XP available</span></div>
+        <div class="panel-heading" id="developmentHeading">
+            <span>Development</span>
+            <div class="development-purchase-group">
+                <button class="control-btn" id="purchaseDevelopmentBtn" type="button" disabled>Purchase</button>
+                <span id="developmentXp">0 XP available</span>
+            </div>
+        </div>
         <div class="development-layout">
             <div>
                 <div class="panel-heading"><span>Available upgrades</span></div>
@@ -1367,7 +1506,7 @@
         </div>
     </section>
 
-    <section class="combat-panel" id="combatPanel" hidden aria-labelledby="combatHeading">
+    <section class="combat-panel" id="combatPanel" aria-labelledby="combatHeading">
         <div class="panel-heading" id="combatHeading">
             <span>Combat Configuration</span>
             <span>Lightsaber telemetry</span>
@@ -1393,11 +1532,11 @@
             <div class="origin-grid">
                 <div class="profile-detail">
                     <label for="attackRating">Attack Rating</label>
-                    <input type="number" id="attackRating" class="save-field" value="0">
+                    <input type="text" id="attackRating" value="0" readonly aria-label="Calculated attack rating">
                 </div>
                 <div class="profile-detail">
                     <label for="defenseRating">Defense Rating</label>
-                    <input type="number" id="defenseRating" class="save-field" value="10">
+                    <input type="text" id="defenseRating" value="0" readonly aria-label="Calculated defense rating">
                 </div>
             </div>
         </div>
@@ -1418,15 +1557,17 @@
     <div class="console-row force-panel" id="forcePanel">
         <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Force Powers Console Log</label>
         <div class="console-box">
-            <div id="forceUnlocks">No Force Powers acquired.</div>
+            <div id="forcePowerIcons" class="console-upgrade-icons" role="group" aria-label="Purchased Force powers"></div>
+            <div class="console-chart" id="forceChart"></div>
             <textarea id="forceLog" class="save-field" placeholder="[Console Active] Record acquired Force Powers here..."></textarea>
         </div>
     </div>
 
-    <div class="console-row feats-panel" id="featsPanel" hidden>
+    <div class="console-row feats-panel" id="featsPanel">
         <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats Console Log</label>
         <div class="console-box">
-            <div id="featUnlocks">No feats acquired.</div>
+            <div id="featConsoleIcons" class="console-upgrade-icons" role="group" aria-label="Tagged purchased feats"></div>
+            <div class="console-chart" id="featChart"></div>
             <textarea id="featsLog" class="save-field" placeholder="[Console Active] Record acquired Feats here..."></textarea>
         </div>
     </div>
@@ -1481,26 +1622,30 @@
     const inventoryPanel = document.getElementById('inventoryPanel');
     const inventoryGrid = document.getElementById('inventoryGrid');
     const inventoryStatus = document.getElementById('inventoryStatus');
+    const creditsInput = document.getElementById('creditsInput');
     const developmentPanel = document.getElementById('developmentPanel');
     const developmentList = document.getElementById('developmentList');
     const developmentDetails = document.getElementById('developmentDetails');
     const developmentXp = document.getElementById('developmentXp');
     const forcePanel = document.getElementById('forcePanel');
     const featsPanel = document.getElementById('featsPanel');
-    const forceUnlocks = document.getElementById('forceUnlocks');
-    const featUnlocks = document.getElementById('featUnlocks');
+    const forcePowerIcons = document.getElementById('forcePowerIcons');
+    const featConsoleIcons = document.getElementById('featConsoleIcons');
+    const forceChart = document.getElementById('forceChart');
+    const featChart = document.getElementById('featChart');
+    const purchaseDevelopmentBtn = document.getElementById('purchaseDevelopmentBtn');
     const topXp = document.getElementById('topXp');
     const renameCharacterInput = document.getElementById('renameCharacterInput');
 
     const equipmentSlots = [
         { id: 'implant', label: 'Implant', types: ['implant'], image: './PNG/KotOR2 Equip Slots/implant_slot.PNG' },
-        { id: 'head', label: 'Head', types: ['armor'], image: './PNG/KotOR2 Equip Slots/head_slot.PNG' },
-        { id: 'hands', label: 'Hands', types: ['armor'], image: './PNG/KotOR2 Equip Slots/hands_slot.PNG' },
-        { id: 'leftArm', label: 'Left arm', types: ['armor'], image: './PNG/KotOR2 Equip Slots/left_arm_slot.PNG' },
+        { id: 'head', label: 'Head', types: ['headgear'], image: './PNG/KotOR2 Equip Slots/head_slot.PNG' },
+        { id: 'hands', label: 'Hands', types: ['gloves'], image: './PNG/KotOR2 Equip Slots/hands_slot.PNG' },
+        { id: 'leftArm', label: 'Left arm', types: ['shield'], image: './PNG/KotOR2 Equip Slots/left_arm_slot.PNG' },
         { id: 'body', label: 'Body', types: ['armor'], image: './PNG/KotOR2 Equip Slots/body_slot.PNG' },
-        { id: 'rightArm', label: 'Right arm', types: ['armor'], image: './PNG/KotOR2 Equip Slots/right_arm_slot.PNG' },
+        { id: 'rightArm', label: 'Right arm', types: ['shield'], image: './PNG/KotOR2 Equip Slots/right_arm_slot.PNG' },
         { id: 'leftHand', label: 'Left hand', types: ['weapon'], image: './PNG/KotOR2 Equip Slots/left_hand_slot.PNG' },
-        { id: 'belt', label: 'Belt', types: ['armor'], image: './PNG/KotOR2 Equip Slots/belt_slot.PNG' },
+        { id: 'belt', label: 'Belt', types: ['belt'], image: './PNG/KotOR2 Equip Slots/belt_slot.PNG' },
         { id: 'rightHand', label: 'Right hand', types: ['weapon'], image: './PNG/KotOR2 Equip Slots/right_hand_slot.PNG' }
     ];
 
@@ -1513,17 +1658,8 @@
         cha: ['Persuade', 'Intimidate', 'Deception', 'Cool']
     };
 
-    const itemCatalog = [
-        { id: 'lghtsbr', name: 'Lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_lghtsbr_001.png' },
-        { id: 'dblsbr', name: 'Double-bladed lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_dblsbr_001.png' },
-        { id: 'shortsbr', name: 'Short lightsaber', type: 'weapon', modificationType: 'lightsaber', image: './PNG/iw_shortsbr_001.png' },
-        { id: 'blaster', name: 'Blaster pistol', type: 'weapon', modificationType: 'blaster', image: './PNG/iw_dsrptpstl_001.png' },
-        { id: 'vibroblade', name: 'Vibro-blade', type: 'weapon', modificationType: 'vibroblade', image: './PNG/iw_vbroshort_001.png' },
-        { id: 'jedirobe', name: 'Jedi robe', type: 'armor', modificationType: 'armor', image: './PNG/ia_jedirobe_001.png' },
-        { id: 'mstrrobe', name: 'Master robe', type: 'armor', modificationType: 'armor', image: './PNG/ia_mstrrobe_001.png' },
-        { id: 'belt', name: 'Utility belt', type: 'armor', modificationType: 'armor', image: './PNG/ii_belt_001.png' },
-        { id: 'implant', name: 'Reflex implant', type: 'implant', image: './PNG/ii_implant1_001.png' }
-    ];
+    const legacyItemIds = new Set(['lghtsbr', 'dblsbr', 'shortsbr', 'blaster', 'vibroblade', 'jedirobe', 'mstrrobe', 'belt', 'implant']);
+    let itemCatalog = [];
 
     const modificationCatalog = [
         { id: 'powerCrystal', name: 'Power Crystal', type: 'powerCrystal', image: './PNG/i_powerc.png' },
@@ -1551,7 +1687,7 @@
         armor: [[['Overlay', 'overlay'], ['Underlay', 'underlay']]]
     };
 
-    const developmentCatalog = [
+    const legacyDevelopmentCatalog = [
         { id: 'shock', name: 'Shock', group: 'Lightning powers', type: 'force', tier: 1, cost: 5, image: './PNG/ip_shock.png' },
         { id: 'lightning', name: 'Lightning', group: 'Lightning powers', type: 'force', tier: 2, cost: 10, requires: 'shock', image: './PNG/ip_lightning.png' },
         { id: 'storm', name: 'Storm', group: 'Lightning powers', type: 'force', tier: 3, cost: 15, requires: 'lightning', image: './PNG/ip_storm.png' },
@@ -1564,6 +1700,125 @@
         { id: 'heavyArmor', name: 'Heavy Armor Proficiency', group: 'Armor Proficiency', type: 'feat', tier: 3, cost: 15, requires: 'mediumArmor', image: './PNG/if_armprof03.png' },
         ...Array.from({ length: 7 }, (_, index) => [1, 2, 3].map(tier => ({ id: `form${index + 1}_${tier}`, name: `Form ${index + 1} Tier ${tier}`, group: 'Lightsaber forms', type: 'feat', tier, cost: tier * 5, requires: tier > 1 ? `form${index + 1}_${tier - 1}` : '', image: `./PNG/ifrm_saber0${index + 1}.png` }))).flat()
     ];
+    let developmentCatalog = legacyDevelopmentCatalog.map(upgrade => ({ ...upgrade, legacy: true, visible: false }));
+
+    let activeInventoryType = 'Weapons';
+
+    function parseCsv(text) {
+        const rows = [];
+        let row = [];
+        let cell = '';
+        let quoted = false;
+        for (let index = 0; index < text.length; index += 1) {
+            const character = text[index];
+            if (character === '"') {
+                if (quoted && text[index + 1] === '"') {
+                    cell += '"';
+                    index += 1;
+                } else {
+                    quoted = !quoted;
+                }
+            } else if (character === ',' && !quoted) {
+                row.push(cell);
+                cell = '';
+            } else if (character === '\n' && !quoted) {
+                row.push(cell);
+                rows.push(row);
+                row = [];
+                cell = '';
+            } else if (character !== '\r' || quoted) {
+                cell += character;
+            }
+        }
+        if (cell || row.length) {
+            row.push(cell);
+            rows.push(row);
+        }
+        const headers = rows.shift()?.map(header => header.trim()) || [];
+        return rows.filter(values => values.some(value => value.trim())).map(values =>
+            Object.fromEntries(headers.map((header, index) => [header, (values[index] || '').trim()]))
+        );
+    }
+
+    function slugify(value) {
+        return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    function getInventoryCategory(type, fileName) {
+        const normalizedType = type.toLowerCase();
+        if (['blaster', 'lightsaber', 'melee weapon'].includes(normalizedType)) return 'Weapons';
+        if (['armor', 'shield', 'gloves', 'belt', 'headgear', 'body'].includes(normalizedType)) return 'Armor';
+        if (normalizedType.includes('implant')) return 'Implants';
+        if (normalizedType.includes('droid')) return 'Droid Parts';
+        if (['consumable', 'medpack', 'mine', 'grenade'].includes(normalizedType)) return 'Consumables';
+        if (normalizedType.includes('upgrade') || fileName.toLowerCase().startsWith('i_')) return 'Upgrades';
+        return 'Misc';
+    }
+
+    async function loadCatalogs() {
+        const sources = [
+            ['Armor', './Database/SW Item Database - Armor.csv'],
+            ['Misc', './Database/SW Item Database - Misc.csv'],
+            ['Upgrades', './Database/SW Item Database - Upgrades.csv'],
+            ['Weapons', './Database/SW Item Database - Weapons.csv'],
+            ['Feats', './Database/SW Item Database - Feats.csv'],
+            ['Powers', './Database/SW Item Database - Powers.csv']
+        ];
+        const databases = await Promise.all(sources.map(async ([source, path]) => {
+            const response = await fetch(path);
+            if (!response.ok) throw new Error(`Could not load ${path}`);
+            return [source, parseCsv(await response.text())];
+        }));
+        const rowsBySource = Object.fromEntries(databases);
+        const csvItems = ['Armor', 'Misc', 'Upgrades', 'Weapons'].flatMap(source => rowsBySource[source]
+            .filter(row => row['File name'] && row.Name)
+            .map(row => {
+                const fileName = row['File name'];
+                const rawType = row.Type || 'Misc';
+                const normalizedType = rawType.toLowerCase();
+            const equipType = source === 'Weapons' ? 'weapon' : normalizedType === 'body' ? 'armor' : normalizedType;
+                const cost = Number.parseInt(row.Cost, 10);
+                return {
+                    id: `${source.toLowerCase()}:${fileName}:${slugify(row.Name)}`,
+                    name: row.Name,
+                    type: equipType,
+                    rawType,
+                    subtype: row.Subtype,
+                    category: getInventoryCategory(rawType, fileName),
+                    image: `./PNG/${fileName}`,
+                    description: row.Description,
+                    requires: row.Prerequisite,
+                    damage: row.Damage || '',
+                    defenseRating: row['Defense Rating'] || '',
+                    defenseBonus: row['Defense Bonus'] || row['Defese Bonus'] || '',
+                    fields: row,
+                    cost: Number.isFinite(cost) ? cost : 0,
+                    visible: (row.Visible || '').toUpperCase() === 'TRUE'
+                };
+            })
+        );
+        const csvUpgrades = ['Feats', 'Powers'].flatMap(source => rowsBySource[source]
+            .filter(row => row['File name'] && row.Name)
+            .map(row => {
+                const cost = Number.parseInt(row.Cost, 10);
+                return {
+                    id: `${source.toLowerCase()}:${row['File name']}:${slugify(row.Name)}`,
+                    name: row.Name,
+                    group: row.Subtype || (source === 'Powers' ? 'Powers' : 'Feats'),
+                    type: source === 'Powers' ? 'force' : 'feat',
+                    cost: Number.isFinite(cost) ? cost : 0,
+                    requires: row.Prerequisite,
+                    description: row.Description || '',
+                    image: `./PNG/${row['File name']}`,
+                    visible: (row.Visible || '').toUpperCase() === 'TRUE',
+                    source,
+                    fields: row
+                };
+            })
+        );
+        itemCatalog = csvItems;
+        developmentCatalog = [...legacyDevelopmentCatalog.map(upgrade => ({ ...upgrade, legacy: true, visible: false })), ...csvUpgrades];
+    }
 
     let activeEquipmentSlot = '';
     let activeNoteId = '';
@@ -1595,6 +1850,84 @@
 
     function formatModifier(value) {
         return value >= 0 ? `+${value}` : String(value);
+    }
+
+    function addDiceExpression(totals, expression) {
+        const tokens = String(expression || '').match(/[+-]?\s*(?:\d*d\d+|\d+)/gi) || [];
+        tokens.forEach(token => {
+            const normalized = token.replace(/\s+/g, '');
+            const dice = normalized.match(/^([+-]?)(\d*)d(\d+)$/i);
+            if (dice) {
+                const sign = dice[1] === '-' ? -1 : 1;
+                const count = sign * (Number.parseInt(dice[2], 10) || 1);
+                const sides = Number.parseInt(dice[3], 10);
+                totals.dice.set(sides, (totals.dice.get(sides) || 0) + count);
+            } else {
+                totals.fixed += Number.parseInt(normalized, 10) || 0;
+            }
+        });
+    }
+
+    function formatDiceTotals(totals) {
+        const terms = [...totals.dice.entries()]
+            .filter(([, count]) => count !== 0)
+            .sort(([left], [right]) => left - right)
+            .map(([sides, count]) => `${count}d${sides}`);
+        if (totals.fixed !== 0 || terms.length === 0) terms.push(String(totals.fixed));
+        return terms.reduce((result, term) => {
+            if (!result) return term;
+            return /^-/.test(term) ? `${result}${term}` : `${result}+${term}`;
+        }, '');
+    }
+
+    function abilityModifier(character, ability) {
+        const value = parseInt(document.getElementById(ability)?.value || character.data[ability], 10) || 10;
+        return Math.floor((value - 10) / 2);
+    }
+
+    function addRecordedRatingBonus(totals, entry, rating) {
+        const fields = entry.fields || {};
+        const fieldValue = rating === 'attack'
+            ? fields['Attack Bonus'] || fields['Attack Modifier']
+            : fields['Defense Bonus'] || fields['Defese Bonus'] || fields['Defense Modifier'];
+        addDiceExpression(totals, fieldValue);
+        const statMatch = String(entry.description || fields.Description || '').match(
+            /adds? (?:their|your) (Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma) modifier to (?:their|your )?(Attack|Defense)/i
+        );
+        if (statMatch && statMatch[2].toLowerCase() === rating) {
+            const statId = statMatch[1].slice(0, 3).toLowerCase();
+            totals.fixed += abilityModifier(getActiveCharacter(), statId);
+        }
+    }
+
+    function updateCombatRatings() {
+        const current = getActiveCharacter();
+        if (!current || !document.getElementById('attackRating')) return;
+        const attack = { dice: new Map(), fixed: 0 };
+        const defense = { dice: new Map(), fixed: abilityModifier(current, 'dex') };
+        Object.values(current.equipment).filter(Boolean).forEach(itemId => {
+            const item = itemCatalog.find(candidate => candidate.id === itemId);
+            if (!item) return;
+            if (item.type === 'weapon') {
+                addDiceExpression(attack, item.damage);
+                const weaponAbility = item.rawType.toLowerCase() === 'blaster' ? 'dex' : 'str';
+                attack.fixed += abilityModifier(current, weaponAbility);
+            } else {
+                addDiceExpression(defense, item.defenseRating);
+            }
+            addRecordedRatingBonus(attack, item, 'attack');
+            addRecordedRatingBonus(defense, item, 'defense');
+        });
+        developmentCatalog.filter(upgrade => hasDevelopmentUpgrade(current, upgrade)).forEach(upgrade => {
+            addRecordedRatingBonus(attack, upgrade, 'attack');
+            addRecordedRatingBonus(defense, upgrade, 'defense');
+        });
+        const attackRating = formatDiceTotals(attack);
+        const defenseRating = formatDiceTotals(defense);
+        document.getElementById('attackRating').value = attackRating;
+        document.getElementById('defenseRating').value = defenseRating;
+        current.data.attackRating = attackRating;
+        current.data.defenseRating = defenseRating;
     }
 
     function renderSkillRows(current) {
@@ -1677,6 +2010,7 @@
             }
         });
         updateSkillModifiers();
+        updateCombatRatings();
     }
 
     function updateAlignmentGlow() {
@@ -1693,10 +2027,20 @@
     }
 
     function updateSaberFormTelemetry() {
+        const current = getActiveCharacter();
         const selectedForm = saberFormDropdown.value;
-        saberBonusBox.textContent = formDescriptions[selectedForm] || "No active technique modifiers.";
-        
-        if (selectedForm) {
+        const formFeat = getFormFeat(selectedForm);
+        const unlocked = Boolean(current && formFeat && hasDevelopmentUpgrade(current, formFeat));
+        [...saberFormDropdown.options].forEach(option => {
+            if (option.value) {
+                const feat = getFormFeat(option.value);
+                option.disabled = !current || !feat || !hasDevelopmentUpgrade(current, feat);
+            }
+        });
+        if (selectedForm && !unlocked) saberFormDropdown.value = '';
+        saberBonusBox.textContent = unlocked ? formDescriptions[selectedForm] : 'No unlocked lightsaber form selected.';
+
+        if (selectedForm && unlocked) {
             saberIconDiv.style.backgroundImage = `url('./PNG/ifrm_saber${selectedForm}.png')`;
             saberIconDiv.style.display = 'block';
         } else {
@@ -1705,10 +2049,19 @@
         }
     }
 
+    function getFormFeat(formValue) {
+        const romanNumerals = { '01': 'I', '02': 'II', '03': 'III', '04': 'IV', '05': 'V', '06': 'VI', '07': 'VII' };
+        const roman = romanNumerals[formValue];
+        return roman ? developmentCatalog.find(upgrade => upgrade.type === 'feat' && upgrade.visible && upgrade.name.startsWith(`Form ${roman}:`)) : null;
+    }
+
     function ensureCharacterShape(character) {
         character.equipment = character.equipment || {};
         character.notes = Array.isArray(character.notes) ? character.notes : [];
-        character.inventory = Array.isArray(character.inventory) ? character.inventory : itemCatalog.map(item => item.id);
+        character.inventory = Array.isArray(character.inventory) ? character.inventory : [];
+        character.inventory = character.inventory.filter(itemId => !legacyItemIds.has(itemId));
+        character.consoleSelections = character.consoleSelections || {};
+        character.credits = Math.max(0, Number.parseInt(character.credits, 10) || 0);
         character.modifications = character.modifications || {};
         character.skillBonuses = character.skillBonuses || {};
         character.unlocks = Array.isArray(character.unlocks) ? character.unlocks : [];
@@ -1727,7 +2080,56 @@
         });
         equipmentSlots.forEach(slot => {
             if (character.equipment[slot.id] === undefined) character.equipment[slot.id] = null;
+            if (legacyItemIds.has(character.equipment[slot.id])) character.equipment[slot.id] = null;
+            const item = itemCatalog.find(candidate => candidate.id === character.equipment[slot.id]);
+            if (item && !slot.types.includes(item.type)) {
+                if (item.visible && !character.inventory.includes(item.id)) character.inventory.push(item.id);
+                character.equipment[slot.id] = null;
+            }
         });
+    }
+
+    function prerequisiteMet(character, prerequisite) {
+        if (!prerequisite) return true;
+        const normalized = prerequisite.trim().toLowerCase();
+        const upgrade = developmentCatalog.find(candidate => !candidate.legacy && candidate.name.toLowerCase() === normalized)
+            || developmentCatalog.find(candidate => candidate.name.toLowerCase() === normalized);
+        if (upgrade) {
+            return hasDevelopmentUpgrade(character, upgrade)
+                || developmentCatalog.some(candidate => candidate.legacy && candidate.name.toLowerCase() === normalized && character.unlocks.includes(candidate.id));
+        }
+        const requiredItem = itemCatalog.find(candidate => !candidate.legacy && candidate.name.toLowerCase() === normalized)
+            || itemCatalog.find(candidate => candidate.name.toLowerCase() === normalized);
+        if (requiredItem) {
+            return character.inventory.includes(requiredItem.id) || Object.values(character.equipment).includes(requiredItem.id);
+        }
+        const className = (character.data['char-class'] || '').toLowerCase();
+        const training = normalized.match(/^(.+?)\s+training$/);
+        return className.includes(normalized) || Boolean(training && className.includes(training[1]));
+    }
+
+    function legacyUpgradeId(name) {
+        const aliases = {
+            'armor proficiency light': 'lightArmor',
+            'armor proficiency medium': 'mediumArmor',
+            'armor proficiency heavy': 'heavyArmor',
+            'force storm': 'storm'
+        };
+        const normalized = name.toLowerCase();
+        if (aliases[normalized]) return aliases[normalized];
+        const form = name.match(/^(?:(Affinity|Mastery): )?Form (I|II|III|IV|V|VI|VII):/i);
+        if (!form) return '';
+        const formNumber = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'].indexOf(form[2].toUpperCase()) + 1;
+        const tier = form[1] === 'Affinity' ? 2 : form[1] === 'Mastery' ? 3 : 1;
+        return `form${formNumber}_${tier}`;
+    }
+
+    function hasDevelopmentUpgrade(character, upgrade) {
+        const legacyId = legacyUpgradeId(upgrade.name);
+        const legacyRecord = developmentCatalog.find(candidate => candidate.legacy && candidate.name.toLowerCase() === upgrade.name.toLowerCase());
+        return character.unlocks.includes(upgrade.id)
+            || Boolean(legacyId && character.unlocks.includes(legacyId))
+            || Boolean(legacyRecord && character.unlocks.includes(legacyRecord.id));
     }
 
     function getActiveCharacter() {
@@ -1754,6 +2156,7 @@
         });
         const equippedCount = equipmentSlots.filter(slot => current.equipment[slot.id]).length;
         equipmentStatus.textContent = `${equippedCount}/${equipmentSlots.length} equipped`;
+        updateCombatRatings();
         renderInventory();
         renderModifications();
     }
@@ -1772,7 +2175,7 @@
         const slot = equipmentSlots.find(candidate => candidate.id === activeEquipmentSlot);
         const query = itemSearch.value.trim().toLowerCase();
         const current = getActiveCharacter();
-        const choices = itemCatalog.filter(item => current?.inventory.includes(item.id) && slot && slot.types.includes(item.type) && item.name.toLowerCase().includes(query));
+        const choices = itemCatalog.filter(item => current?.inventory.includes(item.id) && item.visible && slot && slot.types.includes(item.type) && item.name.toLowerCase().includes(query) && prerequisiteMet(current, item.requires));
         pickerList.innerHTML = '';
         const clearButton = document.createElement('button');
         clearButton.type = 'button';
@@ -1794,6 +2197,9 @@
         const current = getActiveCharacter();
         if (!current) return;
         ensureCharacterShape(current);
+        const item = itemCatalog.find(candidate => candidate.id === itemId);
+        const slot = equipmentSlots.find(candidate => candidate.id === activeEquipmentSlot);
+        if (itemId && (!item || !item.visible || !current.inventory.includes(itemId) || !slot?.types.includes(item.type) || !prerequisiteMet(current, item.requires))) return;
         current.equipment[activeEquipmentSlot] = itemId;
         saveRegistryToStorage();
         renderEquipment();
@@ -1804,27 +2210,62 @@
         const current = getActiveCharacter();
         if (!current) return;
         activeEquipmentSlot = `inventory:${mode}`;
-        document.getElementById('pickerHeading').textContent = mode === 'add' ? 'Add inventory item' : 'Remove inventory item';
+        const heading = mode === 'add' ? 'Add inventory item' : mode === 'purchase' ? 'Purchase item' : 'Remove inventory item';
+        document.getElementById('pickerHeading').textContent = heading;
         itemSearch.value = '';
+        renderInventoryPicker(mode);
+        itemModal.hidden = false;
+        itemSearch.focus();
+    }
+
+    function renderInventoryPicker(mode) {
+        const current = getActiveCharacter();
+        if (!current) return;
+        const query = itemSearch.value.trim().toLowerCase();
+        const choices = itemCatalog.filter(item => {
+            const isOwned = current.inventory.includes(item.id);
+            return item.visible && !item.legacy && item.category === activeInventoryType
+                && (mode === 'remove' ? isOwned : !isOwned)
+                && item.name.toLowerCase().includes(query);
+        });
         pickerList.innerHTML = '';
-        const choices = itemCatalog.filter(item => mode === 'add' ? !current.inventory.includes(item.id) : current.inventory.includes(item.id));
+        if (!choices.length) {
+            const empty = document.createElement('div');
+            empty.className = 'inventory-empty';
+            empty.textContent = mode === 'remove' ? 'No items in this category to remove.' : 'No unowned items in this category.';
+            pickerList.appendChild(empty);
+        }
         choices.forEach(item => {
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'picker-item';
-            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}</span>`;
+            const image = document.createElement('img');
+            image.src = item.image;
+            image.alt = '';
+            const label = document.createElement('span');
+            label.textContent = item.name;
+            const details = document.createElement('small');
+            details.textContent = mode === 'purchase' ? `${item.cost} credits` : item.rawType || item.type;
+            label.appendChild(details);
+            button.append(image, label);
+            if (mode === 'purchase') button.disabled = current.credits < item.cost;
             button.addEventListener('click', () => selectInventoryItem(item.id, mode));
             pickerList.appendChild(button);
         });
-        itemModal.hidden = false;
     }
 
     function selectInventoryItem(itemId, mode) {
         const current = getActiveCharacter();
         if (!current) return;
-        current.inventory = mode === 'add'
-            ? [...new Set([...current.inventory, itemId])]
-            : current.inventory.filter(id => id !== itemId);
+        const item = itemCatalog.find(candidate => candidate.id === itemId);
+        if (!item || !item.visible) return;
+        if (mode === 'purchase') {
+            if (item.legacy || current.credits < item.cost) return;
+            current.credits -= item.cost;
+        }
+        current.inventory = mode === 'remove'
+            ? current.inventory.filter(id => id !== itemId)
+            : [...new Set([...current.inventory, itemId])];
         saveRegistryToStorage();
         renderInventory();
         renderEquipment();
@@ -1838,15 +2279,33 @@
     function renderInventory() {
         const current = getActiveCharacter();
         if (!current || !inventoryGrid) return;
-        const items = getCharacterItemIds(current).map(id => itemCatalog.find(item => item.id === id)).filter(Boolean);
+        ensureCharacterShape(current);
+        const items = getCharacterItemIds(current).map(id => itemCatalog.find(item => item.id === id))
+            .filter(item => item && item.category === activeInventoryType && (item.visible || item.legacy));
         inventoryGrid.innerHTML = '';
+        if (!items.length) {
+            const empty = document.createElement('div');
+            empty.className = 'inventory-empty';
+            empty.textContent = `No ${activeInventoryType.toLowerCase()} in inventory.`;
+            inventoryGrid.appendChild(empty);
+        }
         items.forEach(item => {
             const entry = document.createElement('div');
             entry.className = 'catalog-item';
-            entry.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}<small>${item.type}</small></span>`;
+            entry.title = item.description || '';
+            const image = document.createElement('img');
+            image.src = item.image;
+            image.alt = '';
+            const label = document.createElement('span');
+            label.textContent = item.name;
+            const details = document.createElement('small');
+            details.textContent = item.rawType || item.type;
+            label.appendChild(details);
+            entry.append(image, label);
             inventoryGrid.appendChild(entry);
         });
         inventoryStatus.textContent = `${items.length} items`;
+        creditsInput.value = current.credits;
     }
 
     function renderModifications() {
@@ -1920,9 +2379,153 @@
     }
 
     function renderPurchasedUpgrades(current) {
-        const purchased = developmentCatalog.filter(upgrade => current.unlocks.includes(upgrade.id));
-        forceUnlocks.innerHTML = purchased.filter(upgrade => upgrade.type === 'force').map(upgrade => `<div>${upgrade.name}</div>`).join('') || 'No Force Powers acquired.';
-        featUnlocks.innerHTML = purchased.filter(upgrade => upgrade.type === 'feat').map(upgrade => `<div>${upgrade.name}</div>`).join('') || 'No feats acquired.';
+        const purchased = developmentCatalog.filter(upgrade => hasDevelopmentUpgrade(current, upgrade)
+            && !(upgrade.legacy && developmentCatalog.some(candidate => !candidate.legacy
+                && (candidate.name.toLowerCase() === upgrade.name.toLowerCase() || legacyUpgradeId(candidate.name) === upgrade.id))));
+        const latestOwned = getLatestOwnedUpgrades(purchased);
+        const powers = latestOwned.filter(upgrade => upgrade.type === 'force');
+        const taggedFeats = latestOwned.filter(upgrade => upgrade.type === 'feat' && hasConsoleTag(upgrade));
+        renderConsoleSelection(forcePowerIcons, powers, current, 'force');
+        renderConsoleSelection(featConsoleIcons, taggedFeats, current, 'feat');
+        renderD100Chart(forceChart, findSelectedConsoleUpgrade(powers, current, 'force'));
+        renderD100Chart(featChart, findSelectedConsoleUpgrade(taggedFeats, current, 'feat'));
+    }
+
+    function getUpgradeTree(upgrade) {
+        const prefixes = [
+            [/^Mastery:\s*/i, 3],
+            [/^Master\s+/i, 3],
+            [/^Greater\s+/i, 3],
+            [/^Affinity:\s*/i, 2],
+            [/^Improved\s+/i, 2]
+        ];
+        for (const [pattern, tier] of prefixes) {
+            if (pattern.test(upgrade.name)) {
+                return { key: upgrade.name.replace(pattern, '').trim().toLowerCase(), tier };
+            }
+        }
+        return { key: upgrade.name.trim().toLowerCase(), tier: 1 };
+    }
+
+    function hasOwnedDescendant(upgrade, purchased) {
+        const tree = getUpgradeTree(upgrade);
+        return purchased.some(candidate => {
+            if (candidate.id === upgrade.id || candidate.type !== upgrade.type) return false;
+            const candidateTree = getUpgradeTree(candidate);
+            if (candidateTree.key === tree.key && candidateTree.tier > tree.tier) return true;
+
+            let prerequisite = candidate.requires;
+            const visited = new Set();
+            while (prerequisite && !visited.has(prerequisite.toLowerCase())) {
+                if (prerequisite.toLowerCase() === upgrade.name.toLowerCase()) return true;
+                visited.add(prerequisite.toLowerCase());
+                prerequisite = developmentCatalog.find(entry => entry.name.toLowerCase() === prerequisite.toLowerCase())?.requires;
+            }
+            return false;
+        });
+    }
+
+    function getLatestOwnedUpgrades(purchased) {
+        return purchased.filter(upgrade => !hasOwnedDescendant(upgrade, purchased));
+    }
+
+    function hasConsoleTag(upgrade) {
+        const fields = upgrade.fields || {};
+        return Object.entries(fields).some(([key, value]) => {
+            const normalizedKey = key.toLowerCase();
+            const normalizedValue = String(value || '').trim().toLowerCase();
+            if (!normalizedValue || ['false', 'no', '0', 'none', 'off'].includes(normalizedValue)) return false;
+            if (/(tag|console|chart|d100|log)/.test(normalizedKey)) return true;
+            return /^(console|chart|d100|log|console log|d100 chart)$/.test(normalizedValue);
+        });
+    }
+
+    function renderConsoleSelection(container, upgrades, current, selectionKey) {
+        container.innerHTML = '';
+        if (!upgrades.length) {
+            const empty = document.createElement('span');
+            empty.className = 'console-upgrade-empty';
+            empty.textContent = selectionKey === 'force' ? 'No purchased powers.' : 'No tagged feats purchased.';
+            container.appendChild(empty);
+            current.consoleSelections[selectionKey] = '';
+            return;
+        }
+        upgrades.forEach(upgrade => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'console-upgrade-icon';
+            button.title = upgrade.name;
+            button.setAttribute('aria-label', upgrade.name);
+            button.setAttribute('aria-pressed', String(current.consoleSelections[selectionKey] === upgrade.id));
+            const image = document.createElement('img');
+            image.src = upgrade.image;
+            image.alt = '';
+            button.appendChild(image);
+            button.addEventListener('click', () => {
+                current.consoleSelections[selectionKey] = upgrade.id;
+                saveRegistryToStorage();
+                renderPurchasedUpgrades(current);
+            });
+            container.appendChild(button);
+        });
+        const selectedId = current.consoleSelections[selectionKey];
+        if (!upgrades.some(upgrade => upgrade.id === selectedId)) current.consoleSelections[selectionKey] = upgrades[0].id;
+        container.querySelectorAll('.console-upgrade-icon').forEach(button => {
+            button.setAttribute('aria-pressed', String(button.getAttribute('aria-label') === upgrades.find(upgrade => upgrade.id === current.consoleSelections[selectionKey])?.name));
+        });
+    }
+
+    function findSelectedConsoleUpgrade(upgrades, current, selectionKey) {
+        return upgrades.find(upgrade => upgrade.id === current.consoleSelections[selectionKey]) || null;
+    }
+
+    function usesD100Chart(upgrade) {
+        if (!upgrade) return true;
+        const entries = Object.entries(upgrade.fields || {});
+        const flag = entries.find(([key]) => /(?:use|uses|enabled).*?(?:d100|chart)|(?:d100|chart).*?(?:use|enabled)/i.test(key))
+            || entries.find(([key]) => /^(?:d100|1d100|d100 chart|chart)$/i.test(key.trim()));
+        if (!flag) return true;
+        return !['false', 'no', '0', 'off', 'none'].includes(String(flag[1]).trim().toLowerCase());
+    }
+
+    function chartEffect(upgrade, range, letter) {
+        if (!upgrade) return letter ? `(${letter})` : 'power fails';
+        const fields = upgrade.fields || {};
+        const normalized = Object.fromEntries(Object.entries(fields).map(([key, value]) => [key.toLowerCase().replace(/[^a-z0-9]/g, ''), value]));
+        const rangeKey = range.replace(/[^a-z0-9]/gi, '').toLowerCase();
+        const letterKey = letter?.toLowerCase() || '';
+        const aliases = letter
+            ? [letterKey, `effect${letterKey}`, `outcome${letterKey}`, `chart${letterKey}`, `d100${letterKey}`, rangeKey, `roll${rangeKey}`]
+            : ['0', '00', 'failure', 'powerfails', 'roll0'];
+        const effect = aliases.map(key => normalized[key]).find(value => String(value || '').trim());
+        return effect ? String(effect).trim() : letter ? `(${letter})` : 'power fails';
+    }
+
+    function renderD100Chart(container, upgrade) {
+        container.innerHTML = '';
+        if (!usesD100Chart(upgrade)) {
+            container.textContent = `${upgrade.name} does not use the d100 chart.`;
+            return;
+        }
+        const ranges = [{ range: '0', letter: '' }, ...'ABCDEFGHIJ'.split('').map((letter, index) => ({
+            range: `${index * 10 + 1}-${index * 10 + 10}`,
+            letter
+        }))];
+        const table = document.createElement('table');
+        const head = document.createElement('thead');
+        head.innerHTML = '<tr><th>Roll</th><th>Effect</th></tr>';
+        const body = document.createElement('tbody');
+        ranges.forEach(({ range, letter }) => {
+            const row = document.createElement('tr');
+            const roll = document.createElement('td');
+            const effect = document.createElement('td');
+            roll.textContent = range;
+            effect.textContent = chartEffect(upgrade, range, letter);
+            row.append(roll, effect);
+            body.appendChild(row);
+        });
+        table.append(head, body);
+        container.appendChild(table);
     }
 
     function renderDevelopmentDetails(upgrade) {
@@ -1930,9 +2533,10 @@
             developmentDetails.textContent = 'Hover over an upgrade to inspect its requirements.';
             return;
         }
-        developmentDetails.textContent = upgrade.requires
-            ? `Requires: ${developmentCatalog.find(candidate => candidate.id === upgrade.requires)?.name || upgrade.requires}`
-            : 'Requirements: none recorded.';
+        const details = [upgrade.name, `${upgrade.cost} XP`];
+        if (upgrade.description) details.push(upgrade.description);
+        details.push(upgrade.requires ? `Requires: ${upgrade.requires}` : 'Requirements: none recorded.');
+        developmentDetails.textContent = details.join('\n\n');
     }
 
     function renderDevelopment() {
@@ -1943,45 +2547,52 @@
         developmentList.innerHTML = '';
         const query = document.getElementById('developmentSearch').value.trim().toLowerCase();
         const type = document.getElementById('developmentTypeFilter').value;
-        const groups = [...new Set(developmentCatalog.map(upgrade => upgrade.group))];
+        const availableUpgrades = developmentCatalog.filter(upgrade => !upgrade.legacy && upgrade.visible);
+        const groups = [...new Set(availableUpgrades.map(upgrade => upgrade.group))];
         groups.forEach(group => {
+            const upgrades = availableUpgrades.filter(upgrade => upgrade.group === group && (!query || upgrade.name.toLowerCase().includes(query)) && (type === 'all' || upgrade.type === type));
+            if (!upgrades.length) return;
+            const section = document.createElement('div');
+            const heading = document.createElement('div');
+            heading.className = 'panel-heading';
+            heading.textContent = group;
             const track = document.createElement('div');
             track.className = 'development-track';
-            const upgrades = developmentCatalog.filter(upgrade => upgrade.group === group && (!query || upgrade.name.toLowerCase().includes(query)) && (type === 'all' || upgrade.type === type));
-            [1, 2, 3].forEach(tier => {
-                const upgrade = upgrades.find(candidate => candidate.tier === tier);
-                if (!upgrade) {
-                    track.appendChild(document.createElement('span'));
-                    return;
-                }
-                const unlocked = current.unlocks.includes(upgrade.id);
-                const requirementMet = !upgrade.requires || current.unlocks.includes(upgrade.requires);
+            upgrades.forEach(upgrade => {
+                const unlocked = hasDevelopmentUpgrade(current, upgrade);
                 const button = document.createElement('button');
                 button.type = 'button';
-                button.className = `development-item${unlocked ? ' purchased' : ''}`;
-                button.disabled = unlocked || !requirementMet || xp < upgrade.cost;
-                button.innerHTML = `<img src="${upgrade.image}" alt=""><span>${upgrade.name}<small>Tier ${upgrade.tier} | ${unlocked ? 'Purchased' : `${upgrade.cost} XP`}</small></span>`;
+                button.className = `development-item${unlocked ? ' purchased' : ''}${activeDevelopmentId === upgrade.id ? ' selected' : ''}`;
+                button.innerHTML = `<img src="${upgrade.image}" alt=""><small class="development-cost">${unlocked ? 'Purchased' : `${upgrade.cost} XP`}</small><span class="development-name">${upgrade.name}</span>`;
                 button.addEventListener('mouseenter', () => renderDevelopmentDetails(upgrade));
                 button.addEventListener('focus', () => renderDevelopmentDetails(upgrade));
-                button.addEventListener('click', () => purchaseDevelopment(upgrade));
+                button.addEventListener('click', () => {
+                    activeDevelopmentId = upgrade.id;
+                    developmentList.querySelectorAll('.development-item').forEach(candidate => candidate.classList.toggle('selected', candidate === button));
+                    renderDevelopmentDetails(upgrade);
+                    updateDevelopmentPurchaseButton();
+                });
                 track.appendChild(button);
-                if (unlocked && tier < 3 && upgrades.some(candidate => candidate.tier === tier + 1)) {
-                    const arrow = document.createElement('img');
-                    arrow.className = `development-arrow${tier === 2 ? ' second' : ''}`;
-                    arrow.src = './PNG/arrow.png';
-                    arrow.alt = '';
-                    track.appendChild(arrow);
-                }
             });
-            if (upgrades.length) developmentList.appendChild(track);
+            section.append(heading, track);
+            developmentList.appendChild(section);
         });
         renderPurchasedUpgrades(current);
+        updateDevelopmentPurchaseButton();
+    }
+
+    function updateDevelopmentPurchaseButton() {
+        const current = getActiveCharacter();
+        const upgrade = developmentCatalog.find(candidate => candidate.id === activeDevelopmentId);
+        const xp = parseInt(current?.data['exp-cur'], 10) || 0;
+        purchaseDevelopmentBtn.disabled = !current || !upgrade || hasDevelopmentUpgrade(current, upgrade)
+            || xp < upgrade?.cost || !prerequisiteMet(current, upgrade?.requires);
     }
 
     function purchaseDevelopment(upgrade) {
         const current = getActiveCharacter();
         const xp = parseInt(current?.data['exp-cur'], 10) || 0;
-        if (!current || current.unlocks.includes(upgrade.id) || xp < upgrade.cost || (upgrade.requires && !current.unlocks.includes(upgrade.requires))) return;
+        if (!current || hasDevelopmentUpgrade(current, upgrade) || xp < upgrade.cost || !prerequisiteMet(current, upgrade.requires)) return;
         current.data['exp-cur'] = String(xp - upgrade.cost);
         current.unlocks.push(upgrade.id);
         saveRegistryToStorage();
@@ -2083,6 +2694,7 @@
             characters.forEach(ensureCharacterShape);
             buildDropdown();
             loadActiveCharacter();
+            saveRegistryToStorage();
         }
     }
 
@@ -2092,6 +2704,8 @@
             id: newId,
             avatar: "",
             equipment: {},
+            inventory: [],
+            credits: 0,
             notes: [],
             data: {
                 "char-name": defaultName,
@@ -2239,12 +2853,38 @@
         updateSkillVisibility();
     });
     
-    saberFormDropdown.addEventListener('change', updateSaberFormTelemetry);
+    saberFormDropdown.addEventListener('change', () => {
+        updateSaberFormTelemetry();
+        saveActiveCharacterData();
+    });
     document.getElementById('char-background').addEventListener('change', applyOriginStatBonuses);
     document.getElementById('char-species').addEventListener('change', applyOriginStatBonuses);
     document.getElementById('developmentSearch').addEventListener('input', renderDevelopment);
     document.getElementById('developmentTypeFilter').addEventListener('change', renderDevelopment);
     document.getElementById('developmentTagFilter').addEventListener('change', renderDevelopment);
+
+    purchaseDevelopmentBtn.addEventListener('click', () => {
+        const upgrade = developmentCatalog.find(candidate => candidate.id === activeDevelopmentId);
+        if (upgrade) purchaseDevelopment(upgrade);
+    });
+
+    document.querySelectorAll('[data-inventory-type]').forEach(tab => {
+        tab.addEventListener('click', () => {
+            activeInventoryType = tab.dataset.inventoryType;
+            document.querySelectorAll('[data-inventory-type]').forEach(candidate => {
+                candidate.setAttribute('aria-pressed', String(candidate === tab));
+            });
+            renderInventory();
+        });
+    });
+
+    creditsInput.addEventListener('input', () => {
+        const current = getActiveCharacter();
+        if (!current) return;
+        current.credits = Math.max(0, Number.parseInt(creditsInput.value, 10) || 0);
+        creditsInput.value = current.credits;
+        saveRegistryToStorage();
+    });
 
     topXp.addEventListener('input', () => {
         const current = getActiveCharacter();
@@ -2324,6 +2964,7 @@
     document.getElementById('exportCharBtn').addEventListener('click', exportActiveCharacter);
     document.getElementById('loadPortraitBtn').addEventListener('click', () => portraitInput.click());
     document.getElementById('addInventoryBtn').addEventListener('click', () => openInventoryPicker('add'));
+    document.getElementById('purchaseInventoryBtn').addEventListener('click', () => openInventoryPicker('purchase'));
     document.getElementById('removeInventoryBtn').addEventListener('click', () => openInventoryPicker('remove'));
     
     document.getElementById('deleteCharBtn').addEventListener('click', () => {
@@ -2344,7 +2985,13 @@
     document.getElementById('deleteNoteBtn').addEventListener('click', deleteActiveNote);
     noteTitle.addEventListener('input', saveActiveNote);
     noteBody.addEventListener('input', saveActiveNote);
-    itemSearch.addEventListener('input', renderItemPicker);
+    itemSearch.addEventListener('input', () => {
+        if (activeEquipmentSlot.startsWith('inventory:')) {
+            renderInventoryPicker(activeEquipmentSlot.split(':')[1]);
+        } else {
+            renderItemPicker();
+        }
+    });
     document.getElementById('closeItemModalBtn').addEventListener('click', () => {
         itemModal.hidden = true;
     });
@@ -2369,7 +3016,15 @@
         reader.readAsDataURL(file);
     });
 
-    window.addEventListener('DOMContentLoaded', initRegistry);
+    window.addEventListener('DOMContentLoaded', async () => {
+        try {
+            await loadCatalogs();
+        } catch (error) {
+            console.error(error);
+            inventoryStatus.textContent = 'Database unavailable';
+        }
+        initRegistry();
+    });
 </script>
 
 </body>

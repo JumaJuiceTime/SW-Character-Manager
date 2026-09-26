@@ -1,0 +1,259 @@
+File name,Icon,Name,Type,Subtype,Description,Prerequisite,Cost,Visible
+ifrm_force01.png,,Force Channel,Feat,Form,,,5,FALSE
+ifrm_force02.png,,Force Affinity,Feat,Form,,Force Channel,10,FALSE
+ifrm_force03.png,,Force Potency,Feat,Form,,Force Affinity,15,FALSE
+ifrm_force04.png,,Force Mastery,Feat,Form,,Force Potency,20,FALSE
+ifrm_saber01.png,,Form I: Shii-Cho (Determination),Feat,Form,,,5,TRUE
+ifrm_saber01.png,,Affinity: Form I: Shii-Cho (Determination),Feat,Form,,Form I: Shii-Cho (Determination),10,TRUE
+ifrm_saber01.png,,Mastery: Form I: Shii-Cho (Determination),Feat,Form,,Affinity: Form I: Shii-Cho (Determination),15,TRUE
+ifrm_saber02.png,,Form II: Makashi (Contention),Feat,Form,,,5,TRUE
+ifrm_saber02.png,,Affinity: Form II: Makashi (Contention),Feat,Form,,Form II: Makashi (Contention),10,TRUE
+ifrm_saber02.png,,Mastery: Form II: Makashi (Contention),Feat,Form,,Affinity: Form II: Makashi (Contention),15,TRUE
+ifrm_saber03.png,,Form III: Soresu (Resilience),Feat,Form,,,5,TRUE
+ifrm_saber03.png,,Affinity: Form III: Soresu (Resilience),Feat,Form,,Form III: Soresu (Resilience),10,TRUE
+ifrm_saber03.png,,Mastery: Form III: Soresu (Resilience),Feat,Form,,Affinity: Form III: Soresu (Resilience),15,TRUE
+ifrm_saber04.png,,Form IV: Ataru (Aggression),Feat,Form,,,5,TRUE
+ifrm_saber04.png,,Affinity: Form IV: Ataru (Aggression),Feat,Form,,Form IV: Ataru (Aggression),10,TRUE
+ifrm_saber04.png,,Mastery: Form IV: Ataru (Aggression),Feat,Form,,Affinity: Form IV: Ataru (Aggression),15,TRUE
+ifrm_saber05.png,,Form V: Shien (Perseverance),Feat,Form,,,5,TRUE
+ifrm_saber05.png,,Affinity: Form V: Shien (Perseverance),Feat,Form,,Form V: Shien (Perseverance),10,TRUE
+ifrm_saber05.png,,Mastery: Form V: Shien (Perseverance),Feat,Form,,Affinity: Form V: Shien (Perseverance),15,TRUE
+ifrm_saber06.png,,Form VI: Niman (Moderation),Feat,Form,,,5,TRUE
+ifrm_saber06.png,,Affinity: Form VI: Niman (Moderation),Feat,Form,,Form VI: Niman (Moderation),10,TRUE
+ifrm_saber06.png,,Mastery: Form VI: Niman (Moderation),Feat,Form,,Affinity: Form VI: Niman (Moderation),15,TRUE
+ifrm_saber07.png,,Form VII: Juyo (Ferocity),Feat,Form,,,5,TRUE
+ifrm_saber07.png,,Affinity: Form VII: Juyo (Ferocity),Feat,Form,,Form VII: Juyo (Ferocity),10,TRUE
+ifrm_saber07.png,,Mastery: Form VII: Juyo (Ferocity),Feat,Form,,Affinity: Form VII: Juyo (Ferocity),15,TRUE
+if_2weap01.png,,Two-Weapon Fighting,Feat,,,,5,FALSE
+if_2weap02.png,,Improved Two-Weapon Fighting,Feat,,,Two-Weapon Fighting,10,FALSE
+if_2weap03.png,,Master Two-Weapon Fighting,Feat,,,Improved Two-Weapon Fighting,15,FALSE
+if_armprof01.png,,Armor Proficiency Light,Feat,,,,5,TRUE
+if_armprof02.png,,Armor Proficiency Medium,Feat,,,Armor Proficiency Light,10,TRUE
+if_armprof03.png,,Armor Proficiency Heavy,Feat,,,Armor Proficiency Medium,15,TRUE
+if_assassin01.png,,Assassin Protocols,Feat,,,,5,FALSE
+if_assassin02.png,,Modified Assassin Protocols,Feat,,,Assassin Protocols,10,FALSE
+if_assassin03.png,,Integrated Assassin Protocols,Feat,,,Modified Assassin Protocols,15,FALSE
+if_battlemed.png,,,Feat,Power,Not needed?,,,FALSE
+if_blastint.png,,Blaster Integration,Feat,,"This feat grants Expert Droids the ability to integrate blasters into their frames to act as self-contained weapons systems. Special universal ports allow internal placement of most models of blaster pistol, tapping the energy pack and emitters as though factory installed.",Droid,5,FALSE
+if_cautious01.png,,Caution,Feat,,,,5,TRUE
+if_cautious02.png,,Improved Caution,Feat,,,Caution,10,TRUE
+if_cautious03.png,,Master Caution,Feat,,,Improved Caution,15,TRUE
+if_ccombat01.png,,Close Combat,Feat,,,,5,FALSE
+if_ccombat02.png,,Improved Close Combat,Feat,,,Close Combat,10,FALSE
+if_clsskill01.png,,,Feat,,,,,FALSE
+if_clsskill02.png,,,Feat,,,,,FALSE
+if_clsskill03.png,,,Feat,,,,,FALSE
+if_clsskill04.png,,,Feat,,,,,FALSE
+if_clsskill05.png,,,Feat,,,,,FALSE
+if_clsskill06.png,,,Feat,,,,,FALSE
+if_clsskill07.png,,,Feat,,,,,FALSE
+if_craft.png,,,Feat,,,,,FALSE
+if_crtstrk01.png,,Critical Strike,Feat,,,,5,FALSE
+if_crtstrk02.png,,Improved Critical Strike,Feat,,,Critical Strike,10,FALSE
+if_crtstrk03.png,,Master Critical Strike,Feat,,,Improved Critical Strike,15,FALSE
+if_deflect.png,,Deflect,Feat,,,?,5,FALSE
+if_dodge01.png,,Uncanny Dodge II,Feat,,,,5,FALSE
+if_dodge02.png,,Uncanny Dodge II,Feat,,,Uncanny Dodge II,10,FALSE
+if_drdinterf.png,,Droid Interface,Feat,,"This feat gives the Droid the ability to speak with other droids who don't speak a sentient language. Granted to Expert Droids.
+
+This feat can also be selected by a Combat Droid.",Droid,5,FALSE
+if_droidac01.png,,Logic Upgrade,Feat,,,,5,FALSE
+if_droidac02.png,,Logic Upgrade: Tactician,Feat,,,Logic Upgrade,10,FALSE
+if_droidac03.png,,Logic Upgrade: Mastermind,Feat,,,Logic Upgrade: Tactician,15,FALSE
+if_droidup01.png,,Class 1 Droid Upgrade,Feat,,,,5,FALSE
+if_droidup02.png,,Class 2 Droid Upgrade,Feat,,,Class 1 Droid Upgrade,10,FALSE
+if_droidup03.png,,Class 3 Droid Upgrade,Feat,,,Class 2 Droid Upgrade,15,FALSE
+if_dscorrupt.png,,Dark Side Corruption I,Feat,,,,,FALSE
+if_dscorrupt01.png,,Dark Side Corruption II,Feat,,,,,FALSE
+if_dscorrupt02.png,,Dark Side Corruption III,Feat,,,,,FALSE
+if_dscorrupt03.png,,Dark Side Corruption IV,Feat,,,,,FALSE
+if_dualstrk01.png,,Dual Strike,Feat,,,,5,FALSE
+if_dualstrk02.png,,Improved Dual Strike,Feat,,,Dual Strike,10,FALSE
+if_dualstrk03.png,,Master Dual Strike,Feat,,,Improved Dual Strike,15,FALSE
+if_duel01.png,,Dueling,Feat,,,,5,FALSE
+if_duel02.png,,Improved Dueling,Feat,,,Dueling,10,FALSE
+if_duel03.png,,Master Dueling,Feat,,,Improved Dueling,15,FALSE
+if_echstrike01.png,,Echani Strike,Feat,,,,5,FALSE
+if_echstrike02.png,,Improved Echani Strike,Feat,,,Echani Strike,10,FALSE
+if_echstrike03.png,,Master Echani Strike,Feat,,,Improved Echani Strike,15,FALSE
+if_empathy01.png,,Empathy,Feat,,,,5,FALSE
+if_empathy02.png,,Improved Empathy,Feat,,,Empathy,10,FALSE
+if_empathy03.png,,Master Empathy,Feat,,,Improved Empathy,15,FALSE
+if_evasion.png,,Evasion,Feat,,,,,FALSE
+if_finesse01.png,,Finesse: Melee Weapons,Feat,,,,5,FALSE
+if_finesse02.png,,Finesse: Lightsabers,Feat,,,Jedi,10,FALSE
+if_flurry01.png,,Flurry,Feat,,,,5,FALSE
+if_flurry02.png,,Improved Flurry,Feat,,,Flurry,10,FALSE
+if_flurry03.png,,Master Flurry,Feat,,,Improved Flurry,15,FALSE
+if_focalter.png,,,Feat,,,,,FALSE
+if_focaware.png,,,Feat,,,,,FALSE
+if_focboost.png,,,Feat,,,,,FALSE
+if_foccomp.png,,,Feat,,,,,FALSE
+if_foccontr.png,,,Feat,,,,,FALSE
+if_focdemo.png,,,Feat,,,,,FALSE
+if_focmaster.png,,,Feat,,,,,FALSE
+if_focmed.png,,,Feat,,,,,FALSE
+if_focpers.png,,,Feat,,,,,FALSE
+if_focrepair.png,,,Feat,,,,,FALSE
+if_focsecur.png,,,Feat,,,,,FALSE
+if_focsense.png,,,Feat,,,,,FALSE
+if_focstlth.png,,,Feat,,,,,FALSE
+if_forcechain.png,,Force Chain,Feat,,,,,FALSE
+if_forcesn.png,,,Feat,,,,,FALSE
+if_fortitude.png,,,Feat,,,,,FALSE
+if_frccamo01.png,,,Feat,Power,Not needed?,,5,FALSE
+if_frccamo02.png,,,Feat,Power,Not needed?,,10,FALSE
+if_frccamo03.png,,,Feat,Power,Not needed?,,15,FALSE
+if_gearhead01.png,,Gear Head,Feat,,,,5,TRUE
+if_gearhead02.png,,Improved Gear Head,Feat,,,Gear Head,10,TRUE
+if_gearhead03.png,,Master Gear Head,Feat,,,Improved Gear Head,15,TRUE
+if_gstance.png,,?,Feat,,,,,FALSE
+if_hidden.png,,?,Feat,,,,,FALSE
+if_ignrpain01.png,,Ignore Pain I,Feat,,,,5,FALSE
+if_ignrpain02.png,,Ignore Pain II,Feat,,,Ignore Pain I,10,FALSE
+if_ignrpain03.png,,Ignore Pain III,Feat,,,Ignore Pain II,15,FALSE
+if_immun01.png,,Force Immunity: Fear,Feat,,,,5,FALSE
+if_immun02.png,,Force Immunity: Stun,Feat,,,Force Immunity: Fear,10,FALSE
+if_immun03.png,,Force Immunity: Paralysis,Feat,,,Force Immunity: Stun,15,FALSE
+if_implant01.png,,Implant Class I,Feat,,,,5,TRUE
+if_implant02.png,,Implant Class II,Feat,,,Implant Class I,10,TRUE
+if_implant03.png,,Implant Class III,Feat,,,Implant Class II,15,TRUE
+if_implswtch.png,,Implant Switching,Feat,,,Implant Class I,5,FALSE
+if_incdmg01.png,,Increased Combat Damage I,Feat,,,,5,FALSE
+if_incdmg02.png,,Increased Combat Damage II,Feat,,,Increased Combat Damage I,10,FALSE
+if_incdmg03.png,,Increased Combat Damage III,Feat,,,Increased Combat Damage II,15,FALSE
+if_incmldmg01.png,,Increased Melee Damage I,Feat,,,,5,FALSE
+if_incmldmg02.png,,Increased Melee Damage II,Feat,,,Increased Melee Damage I,10,FALSE
+if_incmldmg03.png,,Increased Melee Damage III,Feat,,,Increased Melee Damage II,15,FALSE
+if_incstr01.png,,Inner Strength I,Feat,,,,5,FALSE
+if_incstr02.png,,Inner Strength II,Feat,,,Inner Strength I,10,FALSE
+if_incstr03.png,,Inner Strength III,Feat,,,Inner Strength II,15,FALSE
+if_ironwill.png,,Iron Will,Feat,,,,,FALSE
+if_jediac01.png,,Jedi Sense,Feat,,,,5,FALSE
+if_jediac02.png,,Prestige Sense,Feat,,,Jedi Sense,10,FALSE
+if_jediac03.png,,Greater Prestige Sense,Feat,,,Prestige Sense,15,FALSE
+if_jedidef01.png,,Jedi Defense,Feat,,,,5,FALSE
+if_jedidef02.png,,Advanced Jedi Defense,Feat,,,Jedi Defense,10,FALSE
+if_jedidef03.png,,Master Jedi Defense,Feat,,,Advanced Jedi Defense,15,FALSE
+if_jump01.png,,Force Jump,Feat,,,,5,FALSE
+if_jump02.png,,Improved Force Jump,Feat,,,Force Jump,10,FALSE
+if_jump03.png,,Master Force Jump,Feat,,,Improved Force Jump,15,FALSE
+if_kineticcomb.png,,?,Feat,,,,,FALSE
+if_lreflexes.png,,?,Feat,,,,,FALSE
+if_lsenlight.png,,Light Side I,Feat,,,,,FALSE
+if_lsenlight01.png,,Light Side II,Feat,,,Light Side I,,FALSE
+if_lsenlight02.png,,Light Side III,Feat,,,Light Side II,,FALSE
+if_lsenlight03.png,,Light Side IV,Feat,,,Light Side III,,FALSE
+if_mandcourg.png,,Mandalorian Courage,Feat,,,,,FALSE
+if_mcraftar01.png,,Armor Crafter I,Feat,,,,5,FALSE
+if_mcraftar02.png,,Armor Crafter II,Feat,,,Armor Crafter I,10,FALSE
+if_mcraftar03.png,,Armor Crafter III,Feat,,,Armor Crafter II,15,FALSE
+if_mcraftwp01.png,,Weapon Crafter I,Feat,,,,5,FALSE
+if_mcraftwp02.png,,Weapon Crafter II,Feat,,,Weapon Crafter I,10,FALSE
+if_mcraftwp03.png,,Weapon Crafter III,Feat,,,Weapon Crafter II,15,FALSE
+if_mentor.png,,Mentor,Feat,,,,,FALSE
+if_mineimmune.png,,?,Feat,,,,,FALSE
+if_mobility.png,,Mobility,Feat,,,,,FALSE
+if_pattack01.png,,Power Attack,Feat,,,,5,FALSE
+if_pattack02.png,,Improved Power Attack,Feat,,,Power Attack,10,FALSE
+if_pattack03.png,,Master Power Attack,Feat,,,Improved Power Attack,15,FALSE
+if_percept.png,,?,Feat,,,,,FALSE
+if_perscloak.png,,Personal Cloak,Feat,,,,,FALSE
+if_pointguard.png,,Point Guard,Feat,,,,,FALSE
+if_preshot01.png,,Precise Shot I,Feat,,,,5,FALSE
+if_preshot02.png,,Precise Shot II,Feat,,,Precise Shot I,10,FALSE
+if_preshot03.png,,Precise Shot III,Feat,,,Precise Shot II,15,FALSE
+if_preshot04.png,,Precise Shot IV,Feat,,,Precise Shot III,20,FALSE
+if_preshot05.png,,Precise Shot V,Feat,,,Precise Shot IV,25,FALSE
+if_pshot01.png,,Power Blast,Feat,,,,5,FALSE
+if_pshot02.png,,Improved Power Blast,Feat,,,Power Blast,10,FALSE
+if_pshot03.png,,Master Power Blast,Feat,,,Improved Power Blast,15,FALSE
+if_regenfp.png,,Regenerate Force Points,Feat,,,,,FALSE
+if_regenvp.png,,Regenerate Vitality Points,Feat,,,,,FALSE
+if_rshot01.png,,Rapid Shot,Feat,,,,5,FALSE
+if_rshot02.png,,Improved Rapid Shot,Feat,,,Rapid Shot,10,FALSE
+if_rshot03.png,,Master Rapid shot,Feat,,,Improved Rapid Shot,15,FALSE
+if_scdac01.png,,Scoundrel's Luck I,Feat,,,,5,FALSE
+if_scdac02.png,,Scoundrel's Luck II,Feat,,,Scoundrel's Luck I,10,FALSE
+if_scdac03.png,,Scoundrel's Luck III,Feat,,,Scoundrel's Luck II,15,FALSE
+if_sfoc2wep01.png,,Superior Two-Weapon Fighting I,Feat,,,?,5,FALSE
+if_sfoc2wep02.png,,Superior Two-Weapon Fighting II,Feat,,,Superior Two-Weapon Fighting I,10,FALSE
+if_sfoc2wep03.png,,Superior Two-Weapon Fighting III,Feat,,,Superior Two-Weapon Fighting II,15,FALSE
+if_sfoclsab01.png,,Superior Weapon Focus Lightsaber I,Feat,,,?,5,FALSE
+if_sfoclsab02.png,,Superior Weapon Focus Lightsaber II,Feat,,,Superior Weapon Focus Lightsaber I,10,FALSE
+if_sfoclsab03.png,,Superior Weapon Focus Lightsaber III,Feat,,,Superior Weapon Focus Lightsaber II,15,FALSE
+if_shieldbreak.png,,Shield Breaker,Feat,,,,,FALSE
+if_sneak01.png,,Sneak Attack I,Feat,,,,5,FALSE
+if_sneak02.png,,Sneak Attack II,Feat,,,Sneak Attack I,10,FALSE
+if_sneak03.png,,Sneak Attack III,Feat,,,Sneak Attack II,15,FALSE
+if_sneak04.png,,Sneak Attack IV,Feat,,,Sneak Attack III,20,FALSE
+if_sneak05.png,,Sneak Attack V,Feat,,,Sneak Attack IV,25,FALSE
+if_sneak06.png,,Sneak Attack VI,Feat,,,Sneak Attack V,30,FALSE
+if_sneak07.png,,Sneak Attack VII,Feat,,,Sneak Attack VI,35,FALSE
+if_sneak08.png,,Sneak Attack VIII,Feat,,,Sneak Attack VII,40,FALSE
+if_sneak09.png,,Sneak Attack IX,Feat,,,Sneak Attack VIII,45,FALSE
+if_sneak10.png,,Sneak Attack X,Feat,,,Sneak Attack IX,50,FALSE
+if_spirit.png,,Spirit,Feat,,"Whether it’s a survival instinct or sheer resolve, you won’t give up.",,5,FALSE
+if_spirit02.png,,Fighting Spirit,Feat,,,Spirit,10,FALSE
+if_spirit03.png,,Heroic Resolve,Feat,,,Fighting Spirit,15,FALSE
+if_sshot01.png,,Sniper Shot,Feat,,,,5,FALSE
+if_sshot02.png,,Improved Sniper Shot,Feat,,,Sniper Shot,10,FALSE
+if_sshot03.png,,Master Sniper Shot,Feat,,,Improved Sniper Shot,15,FALSE
+if_stlhrun.png,,Stealth Run,Feat,,,Stealth Walk,10,FALSE
+if_stlhwlk.png,,Stealth Walk,Feat,,,,5,FALSE
+if_strike01.png,,Repulsor Strike,Feat,,Release energy stored in capacitors in your arm.,?,5,FALSE
+if_strike02.png,,Electrical Strike,Feat,,,Repulsor Strike,10,FALSE
+if_strike03.png,,Gravitonic Strike,Feat,,,Electrical Strike,15,FALSE
+if_survival.png,,Survival,Feat,,"The tougher the situation, the more your survival instinct kicks in.",,,FALSE
+if_target01.png,,Targeting I,Feat,,,,5,FALSE
+if_target02.png,,Targeting II,Feat,,,,10,FALSE
+if_target03.png,,Targeting III,Feat,,,,15,FALSE
+if_target04.png,,Targeting IV,Feat,,,,20,FALSE
+if_target05.png,,Targeting V,Feat,,,,25,FALSE
+if_target06.png,,Targeting VI,Feat,,,,30,FALSE
+if_target07.png,,Targeting VII,Feat,,,,35,FALSE
+if_target08.png,,Targeting VIII,Feat,,,,40,FALSE
+if_target09.png,,Targeting IX,Feat,,,,45,FALSE
+if_target10.png,,Targeting X,Feat,,,,50,FALSE
+if_toughn01.png,,Toughness,Feat,,,,5,TRUE
+if_toughn02.png,,Improved Toughness,Feat,,,Toughness,10,TRUE
+if_toughn03.png,,Master Toughness,Feat,,,Improved Toughness,15,TRUE
+if_unarmspec01.png,,Unarmed Specialist I,Feat,,,,5,FALSE
+if_unarmspec02.png,,Unarmed Specialist II,Feat,,,Unarmed Specialist I,10,FALSE
+if_unarmspec03.png,,Unarmed Specialist III,Feat,,,Unarmed Specialist II,15,FALSE
+if_unarmspec04.png,,Unarmed Specialist IV,Feat,,,Unarmed Specialist III,20,FALSE
+if_unarmspec05.png,,Unarmed Specialist V,Feat,,,Unarmed Specialist IV,25,FALSE
+if_unarmspec06.png,,Unarmed Specialist VI,Feat,,,Unarmed Specialist V,30,FALSE
+if_unarmspec07.png,,Unarmed Specialist VII,Feat,,,Unarmed Specialist VI,35,FALSE
+if_unarmspec08.png,,Unarmed Specialist VIII,Feat,,,Unarmed Specialist VII,40,FALSE
+if_warvet.png,,War Veteran,Feat,,,,5,FALSE
+if_weapfoc01.png,,Weapon Focus Blaster Pistol,Feat,,,,5,FALSE
+if_weapfoc02.png,,Weapon Focus Blaster Rifle,Feat,,,,5,FALSE
+if_weapfoc03.png,,Weapon Focus Grenade,Feat,,,,5,FALSE
+if_weapfoc04.png,,Weapon Focus Heavy Blaster,Feat,,,,5,FALSE
+if_weapfoc05.png,,Weapon Focus Lightsaber,Feat,,,,5,FALSE
+if_weapfoc06.png,,Weapon Focus Melee Weapons,Feat,,,,5,FALSE
+if_weapfoc07.png,,,Feat,,,,5,FALSE
+if_weapfoc08.png,,Weapon Focus Rockets,Feat,,,,5,FALSE
+if_weapprof01.png,,Weapon Proficiency Blaster Pistol,Feat,,,Weapon Focus Blaster Pistol,10,FALSE
+if_weapprof02.png,,Weapon Proficiency Blaster Rifle,Feat,,,Weapon Focus Blaster Rifle,10,FALSE
+if_weapprof03.png,,Weapon Proficiency Grenade,Feat,,,Weapon Focus Grenade,10,FALSE
+if_weapprof04.png,,Weapon Proficiency Heavy Blaster,Feat,,,Weapon Focus Heavy Blaster,10,FALSE
+if_weapprof05.png,,Weapon Proficiency Lightsaber,Feat,,,Weapon Focus Lightsaber,10,FALSE
+if_weapprof06.png,,Weapon Proficiency Melee Weapons,Feat,,,Weapon Focus Melee Weapons,10,FALSE
+if_weapprof07.png,,,Feat,,,,10,FALSE
+if_weapprof08.png,,Weapon Proficiency Rockets,Feat,,,Weapon Focus Rockets,10,FALSE
+if_weapspec01.png,,Weapon Specialization Blaster Pistol,Feat,,,Weapon Proficiency Blaster Pistol,15,FALSE
+if_weapspec02.png,,Weapon Specialization Blaster Rifle,Feat,,,Weapon Proficiency Blaster Rifle,15,FALSE
+if_weapspec03.png,,Weapon Specialization Grenade,Feat,,,Weapon Proficiency Grenade,15,FALSE
+if_weapspec04.png,,Weapon Specialization Heavy Blaster,Feat,,,Weapon Proficiency Heavy Blaster,15,FALSE
+if_weapspec05.png,,Weapon Specialization Lightsaber,Feat,,,Weapon Proficiency Lightsaber,15,FALSE
+if_weapspec06.png,,Weapon Specialization Melee Weapons,Feat,,,Weapon Proficiency Melee Weapons,15,FALSE
+if_weapspec07.png,,,Feat,,,,15,FALSE
+if_weapspec08.png,,Weapon Specialization Rockets,Feat,,,Weapon Proficiency Rockets,15,FALSE
+if_wookieend.png,,Wookie Toughness I,Feat,,,,5,FALSE
+if_wookieend02.png,,Wookie Toughness II,Feat,,,Wookie Toughness I,10,FALSE
+if_wookieend03.png,,Wookie Toughness III,Feat,,,Wookie Toughness II,15,FALSE
+if_wookrage01.png,,Rage,Feat,,,,5,FALSE
+if_wookrage02.png,,Fury,Feat,,,Rage,10,FALSE
+if_wookrage03.png,,Frenzy,Feat,,,Fury,15,FALSE

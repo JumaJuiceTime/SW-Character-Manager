@@ -1,0 +1,249 @@
+File name,Icon,Name,Type,Subtype,Description,Prerequisite,Cost,Visible
+ii_upgrade_053.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_054.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_055.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_056.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_057.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_058.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_059.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_060.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_061.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_062.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_063.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_064.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_069.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_070.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_205.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_206.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_207.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_208.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_209.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_210.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_211.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_212.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_213.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_214.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_215.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_216.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_217.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_218.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_219.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_220.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_221.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_222.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_223.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_224.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_225.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_226.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_227.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_228.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_229.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_230.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_231.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_232.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_233.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_234.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_235.png,,,Armor Upgrade,Overlay,,,,FALSE
+ii_upgrade_236.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_237.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_238.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_239.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_240.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_241.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_242.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_243.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_244.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_245.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_246.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_247.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_248.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_249.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_250.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_251.png,,,Armor Upgrade,Underlay,,,,FALSE
+ii_upgrade_252.png,,,Armor Upgrade,Underlay,,,,FALSE
+ip_pltuseitm_064.png,,Firing Chamber,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_065.png,,Scope,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_066.png,,Power Cell,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_067.png,,Beam Splitter?,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_068.png,,Trigger,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_122.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_123.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_124.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_125.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_126.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_127.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_128.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_129.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_130.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_131.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_132.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_133.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_134.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_135.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_136.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_137.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_138.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_139.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_140.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_141.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_142.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_143.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_144.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_145.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_146.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_147.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_148.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_149.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_150.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_151.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_152.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_153.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_154.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_155.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_156.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_157.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_158.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_159.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_160.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_161.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_162.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_163.png,,,Blaster Upgrade,,,,,FALSE
+ip_pltuseitm_164.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_165.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_166.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_167.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_168.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_169.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_170.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_171.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_172.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_173.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_174.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_175.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_176.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_177.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_178.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_179.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_180.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_181.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_182.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_183.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_184.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_185.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_186.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_187.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_188.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_189.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_190.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_191.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_192.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_193.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_194.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_195.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_196.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_197.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_198.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_199.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_200.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_201.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_202.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_203.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_204.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_205.png,,Cell,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_206.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_207.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_208.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_209.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_210.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_211.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_212.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_213.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_214.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_215.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_216.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_217.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+ip_pltuseitm_218.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_219.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_220.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_221.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_222.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_223.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_224.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_225.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_226.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_227.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_228.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_229.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_230.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_231.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
+ip_pltuseitm_232.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_233.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_234.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_235.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_236.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_237.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_238.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_239.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_240.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_241.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_242.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_243.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_244.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_245.png,,,Lightsaber Upgrade,Lens,,,,FALSE
+ip_pltuseitm_246.png,,,Melee Upgrade,Hilt,,,,FALSE
+ip_pltuseitm_247.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_248.png,,,,,,,,FALSE
+ip_pltuseitm_249.png,,,,,,,,FALSE
+ip_pltuseitm_250.png,,,Lightsaber Upgrade,Cell,,,,FALSE
+iw_SbrCrstl_001.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_002.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_003.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_004.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_005.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_006.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_007.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_008.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_009.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_010.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_011.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_012.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_013.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_014.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_015.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_016.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_017.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_018.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_018a.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_020.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_021.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_022.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_023.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_024.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_025.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_026.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_027.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_028.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_029.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_030.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_031.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_031a.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_032.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_033.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_034.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_035.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_036.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_037.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_038.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_039.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_040.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_041.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_042.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_043.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_044.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_045.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_046.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_047.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_048.png,,,Crystal,,,,,FALSE
+iw_sbrcrstl_049.png,,,Crystal,,,,,FALSE
+ip_pltuseitm_003.png,,,Melee Upgrade,,,,,FALSE
+ip_pltuseitm_004.png,,,Melee Upgrade,,,,,FALSE
