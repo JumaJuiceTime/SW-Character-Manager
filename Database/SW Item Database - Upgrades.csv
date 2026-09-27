@@ -1,255 +1,255 @@
-File name,Icon,Name,Type,Subtype,Description,Prerequisite,Cost,Visible
-ii_upgrade_053.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_054.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_055.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_056.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_057.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_058.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_059.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_060.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_061.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_062.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_063.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_064.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_069.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_070.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_205.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_206.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_207.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_208.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_209.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_210.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_211.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_212.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_213.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_214.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_215.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_216.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_217.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_218.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_219.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_220.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_221.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_222.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_223.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_224.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_225.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_226.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_227.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_228.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_229.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_230.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_231.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_232.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_233.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_234.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_235.png,,,Armor Upgrade,Overlay,,,,FALSE
-ii_upgrade_236.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_237.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_238.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_239.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_240.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_241.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_242.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_243.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_244.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_245.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_246.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_247.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_248.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_249.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_250.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_251.png,,,Armor Upgrade,Underlay,,,,FALSE
-ii_upgrade_252.png,,,Armor Upgrade,Underlay,,,,FALSE
-ip_pltuseitm_064.png,,Firing Chamber,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_065.png,,Scope,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_066.png,,Power Cell,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_067.png,,Beam Splitter?,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_068.png,,Trigger,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_122.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_123.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_124.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_125.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_126.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_127.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_128.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_129.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_130.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_131.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_132.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_133.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_134.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_135.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_136.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_137.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_138.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_139.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_140.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_141.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_142.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_143.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_144.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_145.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_146.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_147.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_148.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_149.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_150.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_151.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_152.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_153.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_154.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_155.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_156.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_157.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_158.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_159.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_160.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_161.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_162.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_163.png,,,Blaster Upgrade,,,,,FALSE
-ip_pltuseitm_164.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_165.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_166.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_167.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_168.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_169.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_170.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_171.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_172.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_173.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_174.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_175.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_176.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_177.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_178.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_179.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_180.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_181.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_182.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_183.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_184.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_185.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_186.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_187.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_188.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_189.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_190.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_191.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_192.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_193.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_194.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_195.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_196.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_197.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_198.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_199.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_200.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_201.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_202.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_203.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_204.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_205.png,,Cell,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_206.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_207.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_208.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_209.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_210.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_211.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_212.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_213.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_214.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_215.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_216.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_217.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-ip_pltuseitm_218.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_219.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_220.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_221.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_222.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_223.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_224.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_225.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_226.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_227.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_228.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_229.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_230.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_231.png,,,Lightsaber Upgrade,Emitter,,,,FALSE
-ip_pltuseitm_232.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_233.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_234.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_235.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_236.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_237.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_238.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_239.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_240.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_241.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_242.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_243.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_244.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_245.png,,,Lightsaber Upgrade,Lens,,,,FALSE
-ip_pltuseitm_246.png,,,Melee Upgrade,Hilt,,,,FALSE
-ip_pltuseitm_247.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_248.png,,,,,,,,FALSE
-ip_pltuseitm_249.png,,,,,,,,FALSE
-ip_pltuseitm_250.png,,,Lightsaber Upgrade,Cell,,,,FALSE
-iw_SbrCrstl_001.png,,"Crystal, Opila",Lightsaber Upgrade,Power Crystal,"Found in the asteroid fields of the Fyrth system, this crystal can be used in lightsaber construction to produce an intense beam that seems extraordinarily quick to the cut.",,1,TRUE
-iw_sbrcrstl_002.png,,"Crystal, Bondar",Lightsaber Upgrade,Power Crystal,"This crystal was mined on a far-orbit asteroid circling the Alderaan system. It produces a volatile lightsaber beam that pulses on impact, potentially stunning an opponent.",,1,TRUE
-iw_sbrcrstl_002.png,,"Crystal, Phond",Lightsaber Upgrade,Power Crystal,"The strange byproduct of rare impurities bonding during the making of certain alloys and some random external condition, this crystal produces a fiercely burning lightsaber beam.",,1,TRUE
-iw_sbrcrstl_003.png,,"Crystal, Damind",Lightsaber Upgrade,Power Crystal,"Found on the desert world of Daminia, this crystal can be used in lightsaber construction to produce a clearly defined beam of subtly wider width and length.",,1,TRUE
-iw_sbrcrstl_004.png,,"Crystal, Rubat",Lightsaber Upgrade,Power Crystal,"Used in lightsaber construction, rubat crystal is mined on Phemis. It produces a clearly defined blade that a Jedi can easily track, making it easier to hit opponents.",,1,TRUE
-iw_sbrcrstl_004.png,,"Crystal, Eralam",Lightsaber Upgrade,Power Crystal,"Once mined on the third moon of Erai, ancient Sith bombardment shattered much that remained. If they can be found, these crystals produce a clear, superior lightsaber beam.",,1,TRUE
-iw_sbrcrstl_005.png,,"Crystal, Firkrann",Lightsaber Upgrade,Power Crystal,This heavy crystal is collected by the natives of Rafa V. If used in lightsaber construction it produces an electrically charged beam that is devastating to droids.,,1,TRUE
-iw_sbrcrstl_013.png,,"Crystal, Sapith",Lightsaber Upgrade,Power Crystal,"This crystallized material was excreted once every 11 years by the ancient Volice worm of Lwhekk, now extinct. It produces a more intense lightsaber beam, granting better control.",,1,TRUE
+File name,Icon,Name,Type,Subtype,Description,Prerequisite,Cost,CurvedsaberImage,DoublesaberImage,SaberImage,ShortsaberImage,Visible
+ii_upgrade_053.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_054.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_055.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_056.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_057.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_058.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_059.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_060.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_061.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_062.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_063.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_064.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_069.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_070.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_205.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_206.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_207.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_208.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_209.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_210.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_211.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_212.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_213.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_214.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_215.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_216.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_217.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_218.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_219.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_220.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_221.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_222.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_223.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_224.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_225.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_226.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_227.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_228.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_229.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_230.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_231.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_232.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_233.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_234.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_235.png,,,Armor Upgrade,Overlay,,,,,,,,FALSE
+ii_upgrade_236.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_237.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_238.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_239.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_240.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_241.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_242.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_243.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_244.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_245.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_246.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_247.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_248.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_249.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_250.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_251.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ii_upgrade_252.png,,,Armor Upgrade,Underlay,,,,,,,,FALSE
+ip_pltuseitm_064.png,,Firing Chamber,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_065.png,,Scope,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_066.png,,Power Cell,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_067.png,,Beam Splitter?,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_068.png,,Trigger,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_122.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_123.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_124.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_125.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_126.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_127.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_128.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_129.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_130.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_131.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_132.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_133.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_134.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_135.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_136.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_137.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_138.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_139.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_140.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_141.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_142.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_143.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_144.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_145.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_146.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_147.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_148.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_149.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_150.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_151.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_152.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_153.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_154.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_155.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_156.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_157.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_158.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_159.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_160.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_161.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_162.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_163.png,,,Blaster Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_164.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_165.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_166.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_167.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_168.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_169.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_170.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_171.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_172.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_173.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_174.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_175.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_176.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_177.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_178.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_179.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_180.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_181.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_182.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_183.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_184.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_185.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_186.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_187.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_188.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_189.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_190.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_191.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_192.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_193.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_194.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_195.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_196.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_197.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_198.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_199.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_200.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_201.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_202.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_203.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_204.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_205.png,,Cell,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_206.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_207.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_208.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_209.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_210.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_211.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_212.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_213.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_214.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_215.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_216.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_217.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+ip_pltuseitm_218.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_219.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_220.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_221.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_222.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_223.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_224.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_225.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_226.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_227.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_228.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_229.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_230.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_231.png,,,Lightsaber Upgrade,Emitter,,,,,,,,FALSE
+ip_pltuseitm_232.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_233.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_234.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_235.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_236.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_237.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_238.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_239.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_240.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_241.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_242.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_243.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_244.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_245.png,,,Lightsaber Upgrade,Lens,,,,,,,,FALSE
+ip_pltuseitm_246.png,,,Melee Upgrade,Hilt,,,,,,,,FALSE
+ip_pltuseitm_247.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_248.png,,,,,,,,,,,,FALSE
+ip_pltuseitm_249.png,,,,,,,,,,,,FALSE
+ip_pltuseitm_250.png,,,Lightsaber Upgrade,Cell,,,,,,,,FALSE
+iw_SbrCrstl_001.png,,"Crystal, Opila",Lightsaber Upgrade,Power Crystal,"Found in the asteroid fields of the Fyrth system, this crystal can be used in lightsaber construction to produce an intense beam that seems extraordinarily quick to the cut.",,1,,,,,TRUE
+iw_sbrcrstl_002.png,,"Crystal, Bondar",Lightsaber Upgrade,Power Crystal,"This crystal was mined on a far-orbit asteroid circling the Alderaan system. It produces a volatile lightsaber beam that pulses on impact, potentially stunning an opponent.",,1,,,,,TRUE
+iw_sbrcrstl_002.png,,"Crystal, Phond",Lightsaber Upgrade,Power Crystal,"The strange byproduct of rare impurities bonding during the making of certain alloys and some random external condition, this crystal produces a fiercely burning lightsaber beam.",,1,,,,,TRUE
+iw_sbrcrstl_003.png,,"Crystal, Damind",Lightsaber Upgrade,Power Crystal,"Found on the desert world of Daminia, this crystal can be used in lightsaber construction to produce a clearly defined beam of subtly wider width and length.",,1,,,,,TRUE
+iw_sbrcrstl_004.png,,"Crystal, Rubat",Lightsaber Upgrade,Power Crystal,"Used in lightsaber construction, rubat crystal is mined on Phemis. It produces a clearly defined blade that a Jedi can easily track, making it easier to hit opponents.",,1,,,,,TRUE
+iw_sbrcrstl_004.png,,"Crystal, Eralam",Lightsaber Upgrade,Power Crystal,"Once mined on the third moon of Erai, ancient Sith bombardment shattered much that remained. If they can be found, these crystals produce a clear, superior lightsaber beam.",,1,,,,,TRUE
+iw_sbrcrstl_005.png,,"Crystal, Firkrann",Lightsaber Upgrade,Power Crystal,This heavy crystal is collected by the natives of Rafa V. If used in lightsaber construction it produces an electrically charged beam that is devastating to droids.,,1,,,,,TRUE
+iw_sbrcrstl_013.png,,"Crystal, Sapith",Lightsaber Upgrade,Power Crystal,"This crystallized material was excreted once every 11 years by the ancient Volice worm of Lwhekk, now extinct. It produces a more intense lightsaber beam, granting better control.",,1,,,,,TRUE
 iw_sbrcrstl_031a.png,,"Crystal, Solari",Lightsaber Upgrade,Power Crystal,"There are many famous lightsaber crystals spoken of in the history of the Jedi Order. An artifact of true light side power, only those Jedi who are pure in spirit can wield a lightsaber equipped with this gleaming white gem.
  
-When the great Jedi Master Ood Bnar initiated his life-cycle change after a thousand years of serving the Order, he bequeathed the Solari crystal to his most promising student, a young female Jedi named Shaela Nuur. When Shaela disappeared shortly after the time of the Great Hunt, the Solari crystal vanished with her.",Light Side,1,TRUE
-iw_sbrcrstl_006.png,,"Crystal, Sigil",Lightsaber Upgrade,Power Crystal,"Mined in the Sigil System, this crystal is a costly but valued addition to a lightsaber. It produces a fiercely bright beam that sears on contact, inflicting great damage.",,1,TRUE
-iw_sbrcrstl_007.png,,"Crystal, Upari",Lightsaber Upgrade,Power Crystal,"Strangely, this crystal is usually encountered scattered in the orbit of primarily forest worlds. It is brittle but versatile, and a Master Jedi can get it to produce many effects.",,1,TRUE
-iw_sbrcrstl_008.png,,"Crystal, Jenruax",Lightsaber Upgrade,Power Crystal,"The refined form of Opila, this crystal has been cleansed of all impurities. When used in lightsaber construction it produces a blade of unerring quickness.",,1,TRUE
-iw_sbrcrstl_009.png,,"Crystal, Dragite",Lightsaber Upgrade,Power Crystal,"Dragite crystals are found on M'haeli, in the D'olop mountain range. The beam they create resonates loudly when it strikes, inflicting a minor amount of sonic damage.",,1,TRUE
-iw_sbrcrstl_010.png,,"Crystal, Silver",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with a silvery light.,,1,TRUE
-iw_sbrcrstl_012.png,,"Crystal, Nextor",Lightsaber Upgrade,Power Crystal,"This crystal is mined in the mountains of planet M'haeli, and when used in lightsaber construction it produces a volatile blade that can cause surprising amounts of damage.",,1,TRUE
-iw_sbrcrstl_011.png,,"Crystal, Ruusan",Lightsaber Upgrade,Power Crystal,"Ruusan crystals come from the Mid Rim planet of the same name. While not directly affecting a lightsaber's effectiveness, they aid a Jedi in focusing the Force.",,1,TRUE
-iw_sbrcrstl_014.png,,"Crystal, Blue",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner blue light.,,1,TRUE
-iw_sbrcrstl_015.png,,"Crystal, Yellow",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner yellow light.,,1,TRUE
-iw_sbrcrstl_016.png,,"Crystal, Green",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner green light.,,1,TRUE
-iw_sbrcrstl_017.png,,"Crystal, Pontite",Lightsaber Upgrade,Power Crystal,Pontite is one of the rarest forms of Adegan crystal. It radiates a powerful aura that cools both skin and tempers.,,1,TRUE
-iw_sbrcrstl_017.png,,"Crystal, Violet",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner violet light.,,1,TRUE
-iw_sbrcrstl_018.png,,"Crystal, Red",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner red light.,,1,TRUE
-iw_sbrcrstl_020.png,,"Crystal, Bronze",Lightsaber Upgrade,Color Crystal,"A facetted crystal used in the constructing of a lightsaber. Yellowish-brown in color, the same sort of crystal is sometimes used in high resolution displays.",,1,TRUE
-iw_sbrcrstl_021.png,,"Crystal, Cyan",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with an inner cyan light.,,1,TRUE
-iw_sbrcrstl_022.png,,"Crystal, Adegan",Lightsaber Upgrade,Power Crystal,"Adegan crystals, also called Ilum crystals, are one of the most common lightsaber focusing crystals.",,1,TRUE
-iw_sbrcrstl_023.png,,"Crystal, Orange",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner orange light.,,1,TRUE
-iw_sbrcrstl_024.png,,"Crystal, Viridian",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with a silvery green light.,,1,TRUE
-iw_sbrcrstl_025.png,,"Crystal, Velmorite",Lightsaber Upgrade,Power Crystal,"Found only on the planet Velmor, these crystals produce a very fine beam that is easy to wield skillfully.",,1,TRUE
-iw_sbrcrstl_026.png,,"Crystal, Kasha",Lightsaber Upgrade,Power Crystal,"This crystal is traditionally used by the Cereans as a meditation tool. When used as a lightsaber crystal, it helps clear the wielder's mind of distractions, even during tense combat.",,1,TRUE
-iw_sbrcrstl_027.png,,"Crystal, Stygium",Lightsaber Upgrade,Power Crystal,"The stygium mineral can be used to create cloaking effects that foil enemy sensors. In its pure crystal form, it is suitable for a lightsaber.",,1,TRUE
-iw_sbrcrstl_028.png,,"Crystal, Hurrikaine",Lightsaber Upgrade,Power Crystal,"The very rare Hurrikaine crystal is best known for its unparalleled beauty. When used in a lightsaber, the dark gemstone creates a devastating beam that can partially penetrate any defenses.",,1,TRUE
-iw_sbrcrstl_029.png,,Ultima-Pearl,Lightsaber Upgrade,Power Crystal,"An unusual choice for a lightsaber focusing crystal, this rare stone can be found on Calamari. Difficult to properly install in a lightsaber, this valuable stone has powerful effects.",,1,TRUE
-iw_sbrcrstl_030.png,,Lorrdian Gemstone,Lightsaber Upgrade,Power Crystal,"During their subjugation, the Lorrdians were banned from speaking to each other and thus learned to use subtle gestures and ticks to communicate. The few Force-Adepts found after the Jedi freed the population of slaves has imprinted these gemstones with the Force to enhance the ability to read an opponent.",,1,TRUE
+When the great Jedi Master Ood Bnar initiated his life-cycle change after a thousand years of serving the Order, he bequeathed the Solari crystal to his most promising student, a young female Jedi named Shaela Nuur. When Shaela disappeared shortly after the time of the Great Hunt, the Solari crystal vanished with her.",Light Side,1,,,,,TRUE
+iw_sbrcrstl_006.png,,"Crystal, Sigil",Lightsaber Upgrade,Power Crystal,"Mined in the Sigil System, this crystal is a costly but valued addition to a lightsaber. It produces a fiercely bright beam that sears on contact, inflicting great damage.",,1,,,,,TRUE
+iw_sbrcrstl_007.png,,"Crystal, Upari",Lightsaber Upgrade,Power Crystal,"Strangely, this crystal is usually encountered scattered in the orbit of primarily forest worlds. It is brittle but versatile, and a Master Jedi can get it to produce many effects.",,1,,,,,TRUE
+iw_sbrcrstl_008.png,,"Crystal, Jenruax",Lightsaber Upgrade,Power Crystal,"The refined form of Opila, this crystal has been cleansed of all impurities. When used in lightsaber construction it produces a blade of unerring quickness.",,1,,,,,TRUE
+iw_sbrcrstl_009.png,,"Crystal, Dragite",Lightsaber Upgrade,Power Crystal,"Dragite crystals are found on M'haeli, in the D'olop mountain range. The beam they create resonates loudly when it strikes, inflicting a minor amount of sonic damage.",,1,,,,,TRUE
+iw_sbrcrstl_010.png,,"Crystal, Silver",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with a silvery light.,,1,iw_lghtsbr_011silver.png,iw_dblsbr_009.png,iw_lghtsbr_010.png,iw_shortsbr_009.png,TRUE
+iw_sbrcrstl_012.png,,"Crystal, Nextor",Lightsaber Upgrade,Power Crystal,"This crystal is mined in the mountains of planet M'haeli, and when used in lightsaber construction it produces a volatile blade that can cause surprising amounts of damage.",,1,,,,,TRUE
+iw_sbrcrstl_011.png,,"Crystal, Ruusan",Lightsaber Upgrade,Power Crystal,"Ruusan crystals come from the Mid Rim planet of the same name. While not directly affecting a lightsaber's effectiveness, they aid a Jedi in focusing the Force.",,1,,,,,TRUE
+iw_sbrcrstl_014.png,,"Crystal, Blue",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner blue light.,,1,iw_lghtsbr_011blue.png,iw_dblsbr_001.png,iw_lghtsbr_001.png,iw_shortsbr_001.png,TRUE
+iw_sbrcrstl_015.png,,"Crystal, Yellow",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner yellow light.,,1,iw_lghtsbr_011yellow.png,iw_dblsbr_004.png,iw_lghtsbr_004.png,iw_shortsbr_004.png,TRUE
+iw_sbrcrstl_016.png,,"Crystal, Green",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner green light.,,1,iw_lghtsbr_011green.png,iw_dblsbr_003.png,iw_lghtsbr_003.png,iw_shortsbr_003.png,TRUE
+iw_sbrcrstl_017.png,,"Crystal, Pontite",Lightsaber Upgrade,Power Crystal,Pontite is one of the rarest forms of Adegan crystal. It radiates a powerful aura that cools both skin and tempers.,,1,,,,,TRUE
+iw_sbrcrstl_017.png,,"Crystal, Violet",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner violet light.,,1,iw_lghtsbr_011violet.png,iw_dblsbr_005.png,iw_lghtsbr_005.png,iw_shortsbr_005.png,TRUE
+iw_sbrcrstl_018.png,,"Crystal, Red",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner red light.,,1,iw_lghtsbr_011red.png,iw_dblsbr_002.png,iw_lghtsbr_002.png,iw_shortsbr_002.png,TRUE
+iw_sbrcrstl_020.png,,"Crystal, Bronze",Lightsaber Upgrade,Color Crystal,"A facetted crystal used in the constructing of a lightsaber. Yellowish-brown in color, the same sort of crystal is sometimes used in high resolution displays.",,1,iw_lghtsbr_011orange.png,iw_dblsbr_006.png,iw_lghtsbr_007.png,iw_shortsbr_006.png,TRUE
+iw_sbrcrstl_021.png,,"Crystal, Cyan",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with an inner cyan light.,,1,iw_lghtsbr_011cyan.png,iw_dblsbr_007.png,iw_lghtsbr_008.png,iw_shortsbr_007.png,TRUE
+iw_sbrcrstl_022.png,,"Crystal, Adegan",Lightsaber Upgrade,Power Crystal,"Adegan crystals, also called Ilum crystals, are one of the most common lightsaber focusing crystals.",,1,,,,,TRUE
+iw_sbrcrstl_023.png,,"Crystal, Orange",Lightsaber Upgrade,Color Crystal,A facetted crystal used in the constructing of a lightsaber. It glows faintly with an inner orange light.,,1,iw_lghtsbr_011orange.png,iw_dblsbr_006.png,iw_lghtsbr_007.png,iw_shortsbr_006.png,TRUE
+iw_sbrcrstl_024.png,,"Crystal, Viridian",Lightsaber Upgrade,Color Crystal,A faceted crystal used in the constructing of a lightsaber. It glows faintly with a silvery green light.,,1,iw_lghtsbr_011viridian.png,iw_dblsbr_008.png,iw_lghtsbr_009.png,iw_shortsbr_008.png,TRUE
+iw_sbrcrstl_025.png,,"Crystal, Velmorite",Lightsaber Upgrade,Power Crystal,"Found only on the planet Velmor, these crystals produce a very fine beam that is easy to wield skillfully.",,1,,,,,TRUE
+iw_sbrcrstl_026.png,,"Crystal, Kasha",Lightsaber Upgrade,Power Crystal,"This crystal is traditionally used by the Cereans as a meditation tool. When used as a lightsaber crystal, it helps clear the wielder's mind of distractions, even during tense combat.",,1,,,,,TRUE
+iw_sbrcrstl_027.png,,"Crystal, Stygium",Lightsaber Upgrade,Power Crystal,"The stygium mineral can be used to create cloaking effects that foil enemy sensors. In its pure crystal form, it is suitable for a lightsaber.",,1,,,,,TRUE
+iw_sbrcrstl_028.png,,"Crystal, Hurrikaine",Lightsaber Upgrade,Power Crystal,"The very rare Hurrikaine crystal is best known for its unparalleled beauty. When used in a lightsaber, the dark gemstone creates a devastating beam that can partially penetrate any defenses.",,1,,,,,TRUE
+iw_sbrcrstl_029.png,,Ultima-Pearl,Lightsaber Upgrade,Power Crystal,"An unusual choice for a lightsaber focusing crystal, this rare stone can be found on Calamari. Difficult to properly install in a lightsaber, this valuable stone has powerful effects.",,1,,,,,TRUE
+iw_sbrcrstl_030.png,,Lorrdian Gemstone,Lightsaber Upgrade,Power Crystal,"During their subjugation, the Lorrdians were banned from speaking to each other and thus learned to use subtle gestures and ticks to communicate. The few Force-Adepts found after the Jedi freed the population of slaves has imprinted these gemstones with the Force to enhance the ability to read an opponent.",,1,,,,,TRUE
 iw_sbrcrstl_031.png,,Barab Ore Ingot,Lightsaber Upgrade,Power Crystal,"The ore from Barab I actually lies on the planets surface, meaning it is exposed to high doses of radiation and torrential downpours daily. This ore can be found in concentrated ingots that actual store and magnify the radiation.
  
-When placed in a lightsaber, the ingots produce a blade that burns almost to the point of losing its cohesion.",,1,TRUE
-iw_sbrcrstl_032.png,,"Crystal, Kaiburr",Lightsaber Upgrade,Power Crystal,"Perhaps the most powerful crystal that can be used in a lightsaber, the Kaiburr gem bestows insight and fortitute upon its owner.",,1,TRUE
-iw_sbrcrstl_033.png,,Ankarres Sapphire,Lightsaber Upgrade,Power Crystal,This crystal possesses legendary healing powers and numerous other effects. It is one of the most potent crystals that can be used in lightsaber creation.,,1,TRUE
-iw_sbrcrstl_034.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_035.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_036.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_037.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_038.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_039.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_040.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_041.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_042.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_043.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_044.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_045.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_046.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_047.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_048.png,,,Lightsaber Upgrade,Power Crystal,,,,FALSE
-iw_sbrcrstl_049.png,,"Crystal, Qixoni",Lightsaber Upgrade,Power Crystal,Qixoni crystals were formed on a planet that was destroyed millenia ago when its star went supernova. They are exceedingly rare and also quite powerful.,,1,TRUE
-ip_pltuseitm_003.png,,,Melee Upgrade,,,,,FALSE
-ip_pltuseitm_004.png,,,Melee Upgrade,,,,,FALSE
+When placed in a lightsaber, the ingots produce a blade that burns almost to the point of losing its cohesion.",,1,,,,,TRUE
+iw_sbrcrstl_032.png,,"Crystal, Kaiburr",Lightsaber Upgrade,Power Crystal,"Perhaps the most powerful crystal that can be used in a lightsaber, the Kaiburr gem bestows insight and fortitute upon its owner.",,1,,,,,TRUE
+iw_sbrcrstl_033.png,,Ankarres Sapphire,Lightsaber Upgrade,Power Crystal,This crystal possesses legendary healing powers and numerous other effects. It is one of the most potent crystals that can be used in lightsaber creation.,,1,,,,,TRUE
+iw_sbrcrstl_034.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_035.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_036.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_037.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_038.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_039.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_040.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_041.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_042.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_043.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_044.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_045.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_046.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_047.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_048.png,,,Lightsaber Upgrade,Power Crystal,,,,,,,,FALSE
+iw_sbrcrstl_049.png,,"Crystal, Qixoni",Lightsaber Upgrade,Power Crystal,Qixoni crystals were formed on a planet that was destroyed millenia ago when its star went supernova. They are exceedingly rare and also quite powerful.,,1,,,,,TRUE
+ip_pltuseitm_003.png,,,Melee Upgrade,,,,,,,,,FALSE
+ip_pltuseitm_004.png,,,Melee Upgrade,,,,,,,,,FALSE

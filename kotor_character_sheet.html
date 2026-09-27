@@ -2110,6 +2110,48 @@
         return characters.find(character => character.id === activeCharId);
     }
 
+    function getInstalledSaberColorCrystal(item, current) {
+        if (item.type !== 'weapon' || item.rawType.toLowerCase() !== 'lightsaber') return null;
+        const colorSlot = modificationLayouts.lightsaber.flatMap((column, columnIndex) =>
+            column.map((slot, slotIndex) => ({ type: slot[1], key: `${columnIndex}_${slotIndex}` }))
+        ).find(slot => slot.type === 'colorCrystal');
+        const crystalId = current.modifications?.[item.id]?.[colorSlot?.key];
+        return modificationCatalog.find(upgrade => upgrade.id === crystalId) || null;
+    }
+
+    function getEquippedItemName(item, current) {
+        const crystal = getInstalledSaberColorCrystal(item, current);
+        const color = crystal?.name.match(/^Crystal,\s*(.+)$/i)?.[1];
+        if (!color) return item.name;
+
+        const subtype = (item.subtype || '').toLowerCase();
+        const hiltName = subtype.includes('shortsaber')
+            ? 'Shortsaber'
+            : subtype.includes('double-bladed')
+                ? 'Double-Bladed Lightsaber'
+                : item.name.toLowerCase().includes('curved-hilt')
+                    ? 'Curved-hilt Lightsaber'
+                    : 'Lightsaber';
+        return `${color} ${hiltName}`;
+    }
+
+    function getEquippedItemImage(item, current) {
+        const crystal = getInstalledSaberColorCrystal(item, current);
+        if (!crystal) return item.image;
+
+        const subtype = (item.subtype || '').toLowerCase();
+        const imageField = subtype.includes('shortsaber')
+            ? 'ShortsaberImage'
+            : subtype.includes('double-bladed')
+                ? 'DoublesaberImage'
+                : item.name.toLowerCase().includes('curved-hilt')
+                    ? 'CurvedsaberImage'
+                    : 'SaberImage';
+        const imageFile = crystal.fields?.[imageField];
+        if (!imageFile) return item.image;
+        return imageFile.startsWith('./') ? imageFile : `./PNG/${imageFile}`;
+    }
+
     function renderEquipment() {
         const current = getActiveCharacter();
         if (!current) return;
@@ -2123,7 +2165,7 @@
             button.dataset.slot = slot.id;
             button.title = `Choose ${slot.label}`;
             button.innerHTML = item
-                ? `<img src="${item.image}" alt=""><strong>${item.name}</strong><small>${slot.label}</small>`
+                ? `<img src="${getEquippedItemImage(item, current)}" alt=""><strong>${getEquippedItemName(item, current)}</strong><small>${slot.label}</small>`
                 : `<img src="${slot.image}" alt=""><strong>Empty</strong><small>${slot.label}</small>`;
             button.addEventListener('click', () => openItemPicker(slot.id));
             equipmentGrid.appendChild(button);
@@ -2268,10 +2310,10 @@
             entry.className = 'catalog-item';
             entry.title = item.description || '';
             const image = document.createElement('img');
-            image.src = item.image;
+            image.src = getEquippedItemImage(item, current);
             image.alt = '';
             const label = document.createElement('span');
-            label.textContent = item.name;
+            label.textContent = getEquippedItemName(item, current);
             const details = document.createElement('small');
             details.textContent = item.rawType || item.type;
             label.appendChild(details);
@@ -2352,7 +2394,7 @@
             button.type = 'button';
             button.className = 'catalog-item';
             button.classList.toggle('active', item.id === activeModificationItemId);
-            button.innerHTML = `<img src="${item.image}" alt=""><span>${item.name}<small>${getModificationLayout(item).flat().map(slot => slot[0]).join(' / ')}</small></span>`;
+            button.innerHTML = `<img src="${getEquippedItemImage(item, current)}" alt=""><span>${getEquippedItemName(item, current)}<small>${getModificationLayout(item).flat().map(slot => slot[0]).join(' / ')}</small></span>`;
             button.addEventListener('click', () => {
                 activeModificationItemId = item.id;
                 renderModifications();
