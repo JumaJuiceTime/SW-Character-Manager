@@ -1,0 +1,5 @@
+Name,Type,Visible,Description,Feats,Powers,Prerequisite
+Padawan,Background,TRUE,"Having passed the Initiate Trials and ascended in rank from an Initiate, Padawans were given more responsibilities within the Jedi Order and took part in various missions under the guidance and supervision of their Master.",Form I: Shii-Cho (Determination),Push,
+Acolyte,Background,TRUE,"A Sith acolyte was a Force-sensitive who existed outside of the Sith Master and Sith apprentice relationship of the Rule of Two. Instead, they were trained as a lesser agent who was not a true Sith but did adhere to its tradition.",Form I: Shii-Cho (Determination),Push,
+Echani,Background,FALSE,,Echani Strike,,Human
+Mandalorian,Background,FALSE,,Mandalorian Courage,,

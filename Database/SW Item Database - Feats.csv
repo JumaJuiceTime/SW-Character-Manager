@@ -1,8 +1,4 @@
 File name,Icon,Name,Type,Subtype,Description,Prerequisite,Cost,Visible
-ifrm_force01.png,,Force Channel,Feat,Form,,,5,FALSE
-ifrm_force02.png,,Force Affinity,Feat,Form,,Force Channel,10,FALSE
-ifrm_force03.png,,Force Potency,Feat,Form,,Force Affinity,15,FALSE
-ifrm_force04.png,,Force Mastery,Feat,Form,,Force Potency,20,FALSE
 ifrm_saber01.png,,Form I: Shii-Cho (Determination),Feat,Form,,,5,TRUE
 ifrm_saber01.png,,Affinity: Form I: Shii-Cho (Determination),Feat,Form,,Form I: Shii-Cho (Determination),10,TRUE
 ifrm_saber01.png,,Mastery: Form I: Shii-Cho (Determination),Feat,Form,,Affinity: Form I: Shii-Cho (Determination),15,TRUE
@@ -24,6 +20,10 @@ ifrm_saber06.png,,Mastery: Form VI: Niman (Moderation),Feat,Form,,Affinity: Form
 ifrm_saber07.png,,Form VII: Juyo (Ferocity),Feat,Form,,,5,TRUE
 ifrm_saber07.png,,Affinity: Form VII: Juyo (Ferocity),Feat,Form,,Form VII: Juyo (Ferocity),10,TRUE
 ifrm_saber07.png,,Mastery: Form VII: Juyo (Ferocity),Feat,Form,,Affinity: Form VII: Juyo (Ferocity),15,TRUE
+ifrm_force01.png,,Force Channel,Feat,Form,,Jedi Consular,5,TRUE
+ifrm_force02.png,,Force Affinity,Feat,Form,,Jedi Consular,10,TRUE
+ifrm_force03.png,,Force Potency,Feat,Form,,Force Affinity,15,TRUE
+ifrm_force04.png,,Force Mastery,Feat,Form,,Force Channel,15,TRUE
 if_2weap01.png,,Two-Weapon Fighting,Feat,,,,5,FALSE
 if_2weap02.png,,Improved Two-Weapon Fighting,Feat,,,Two-Weapon Fighting,10,FALSE
 if_2weap03.png,,Master Two-Weapon Fighting,Feat,,,Improved Two-Weapon Fighting,15,FALSE
@@ -52,7 +52,7 @@ if_crtstrk01.png,,Critical Strike,Feat,,,,5,FALSE
 if_crtstrk02.png,,Improved Critical Strike,Feat,,,Critical Strike,10,FALSE
 if_crtstrk03.png,,Master Critical Strike,Feat,,,Improved Critical Strike,15,FALSE
 if_deflect.png,,Deflect,Feat,,,?,5,FALSE
-if_dodge01.png,,Uncanny Dodge II,Feat,,,,5,FALSE
+if_dodge01.png,,Uncanny Dodge I,Feat,,,,5,FALSE
 if_dodge02.png,,Uncanny Dodge II,Feat,,,Uncanny Dodge II,10,FALSE
 if_drdinterf.png,,Droid Interface,Feat,,"This feat gives the Droid the ability to speak with other droids who don't speak a sentient language. Granted to Expert Droids.
 
@@ -101,9 +101,6 @@ if_focstlth.png,,,Feat,,,,,FALSE
 if_forcechain.png,,Force Chain,Feat,,,,,FALSE
 if_forcesn.png,,,Feat,,,,,FALSE
 if_fortitude.png,,,Feat,,,,,FALSE
-if_frccamo01.png,,,Feat,Power,Not needed?,,5,FALSE
-if_frccamo02.png,,,Feat,Power,Not needed?,,10,FALSE
-if_frccamo03.png,,,Feat,Power,Not needed?,,15,FALSE
 if_gearhead01.png,,Gear Head,Feat,,,,5,TRUE
 if_gearhead02.png,,Improved Gear Head,Feat,,,Gear Head,10,TRUE
 if_gearhead03.png,,Master Gear Head,Feat,,,Improved Gear Head,15,TRUE
@@ -257,3 +254,4 @@ if_wookieend03.png,,Wookie Toughness III,Feat,,,Wookie Toughness II,15,FALSE
 if_wookrage01.png,,Rage,Feat,,,,5,FALSE
 if_wookrage02.png,,Fury,Feat,,,Rage,10,FALSE
 if_wookrage03.png,,Frenzy,Feat,,,Fury,15,FALSE
+i_swtchwpn.png,,Quick Form Swapping,Feat,Class,Swap your lightsaber form as a quick action,Jedi Guardian,,FALSE

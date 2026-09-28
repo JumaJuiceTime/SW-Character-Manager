@@ -396,6 +396,11 @@
             padding-left: 24px !important;
         }
 
+        .skill-row.class-skill .skill-name {
+            color: var(--text-bright);
+            font-weight: bold;
+        }
+
         .skill-bonus {
             width: 42px;
             padding: 2px;
@@ -1160,6 +1165,147 @@
             background: #03100d;
         }
 
+        .creation-modal {
+            width: min(700px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            padding: 20px;
+            border: 2px solid var(--border-neon);
+            background: #03100d;
+        }
+
+        .creation-progress {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin: 14px 0 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .creation-progress li {
+            padding: 5px 8px;
+            border: 1px solid var(--border-dim);
+            color: var(--text-muted);
+            font-size: 0.68rem;
+        }
+
+        .creation-progress li[aria-current="step"] {
+            border-color: var(--border-neon);
+            color: var(--text-bright);
+        }
+
+        .creation-step-content {
+            min-height: 250px;
+        }
+
+        .creation-step-content h2 {
+            margin: 0 0 8px;
+            color: var(--text-bright);
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .creation-step-content p {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .creation-field,
+        .creation-field select,
+        .creation-field input[type="text"] {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .creation-field {
+            margin-top: 14px;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+        }
+
+        .creation-field select,
+        .creation-field input[type="text"],
+        .creation-attribute input {
+            margin-top: 5px;
+            padding: 9px;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            color: var(--text-bright);
+            font: inherit;
+        }
+
+        .creation-choice-description {
+            min-height: 42px;
+            margin-top: 12px;
+            color: var(--text-muted);
+            font-size: 0.76rem;
+            line-height: 1.5;
+        }
+
+        .creation-attributes {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 9px;
+        }
+
+        .creation-attribute {
+            display: grid;
+            grid-template-columns: 1fr 75px;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-bright);
+            font-size: 0.75rem;
+        }
+
+        .creation-attribute input {
+            width: 75px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .creation-skills {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 7px;
+            margin-top: 12px;
+        }
+
+        .creation-skill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+            padding: 8px;
+            border: 1px solid var(--border-dim);
+            color: var(--text-bright);
+            font-size: 0.74rem;
+        }
+
+        .creation-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-dim);
+        }
+
+        .creation-actions span {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .profile-edit-status {
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+        }
+
         .picker-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1257,6 +1403,11 @@
             .modification-row {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
+
+            .creation-attributes,
+            .creation-skills {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 
@@ -1317,6 +1468,8 @@
                 <label for="renameCharacterInput">Character name</label>
                 <input id="renameCharacterInput" class="char-selector" type="text" placeholder="Character name">
                 <button class="control-btn" id="renameCharacterBtn" type="button">Rename</button>
+                <button class="control-btn" id="toggleProfileEditingBtn" type="button" aria-pressed="false">Enable editing</button>
+                <div class="profile-edit-status" id="profileEditStatus" aria-live="polite"></div>
                 <button class="control-btn" id="loadPortraitBtn" type="button">Load profile</button>
                 <input type="file" id="portraitInput" accept="image/*" style="display: none;">
                 <div class="admin-actions">
@@ -1350,7 +1503,7 @@
             <div class="profile-details">
                 <div class="profile-detail">
                     <label for="char-class">Class Orientation</label>
-                    <input type="text" id="char-class" class="save-field" placeholder="Jedi Initiate">
+                    <select id="char-class" class="char-selector save-field"></select>
                 </div>
                 <div class="origin-grid">
                     <div class="profile-detail">
@@ -1369,8 +1522,6 @@
                             <option value="twi_lekk">Twi'lek (+1 Dexterity)</option>
                         </select>
                     </div>
-                </div>
-                <div class="profile-detail">
                 </div>
             </div>
         </div>
@@ -1501,16 +1652,12 @@
         </div>
     </section>
 
-    <section class="combat-panel" id="combatPanel" aria-labelledby="combatHeading">
-        <div class="panel-heading" id="combatHeading">
-            <span>Combat Configuration</span>
-            <span>Lightsaber telemetry</span>
-        </div>
+    <section class="combat-panel" id="combatPanel" aria-label="Combat">
         <div class="saber-form-container">
             <div class="saber-header">
                 <div class="saber-icon" id="saberIcon"></div>
                 <div style="display:flex; flex-direction:column; flex:1;">
-                    <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted);">Saber Technique</label>
+                    <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted);">Combat Technique</label>
                     <select id="saberForm" class="char-selector save-field" style="width:100%; margin-top:3px;">
                         <option value="">None Selected</option>
                         <option value="01">Form I: Shii-Cho</option>
@@ -1562,13 +1709,28 @@
         <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 5px;">Feats Console Log</label>
         <div class="console-box">
             <div id="featConsoleIcons" class="console-upgrade-icons" role="group" aria-label="Tagged purchased feats"></div>
-            <div class="console-chart" id="featChart"></div>
             <textarea id="featsLog" class="save-field" placeholder="[Console Active] Record acquired Feats here..."></textarea>
         </div>
     </div>
 
     <div class="action-row">
         <div id="save-indicator" class="autosave-msg">DATA_STREAM_SYNCHRONIZED</div>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="creationModal" hidden>
+    <div class="creation-modal" role="dialog" aria-modal="true" aria-labelledby="creationHeading">
+        <div class="modal-heading">
+            <span id="creationHeading">Create character</span>
+            <button class="control-btn" id="cancelCreationBtn" type="button">Cancel</button>
+        </div>
+        <ol class="creation-progress" id="creationProgress"></ol>
+        <div class="creation-step-content" id="creationStepContent"></div>
+        <div class="creation-actions">
+            <button class="control-btn" id="creationBackBtn" type="button">Back</button>
+            <span id="creationStepCount"></span>
+            <button class="control-btn" id="creationNextBtn" type="button">Continue</button>
+        </div>
     </div>
 </div>
 
@@ -1626,10 +1788,18 @@
     const forcePowerIcons = document.getElementById('forcePowerIcons');
     const featConsoleIcons = document.getElementById('featConsoleIcons');
     const forceChart = document.getElementById('forceChart');
-    const featChart = document.getElementById('featChart');
     const purchaseDevelopmentBtn = document.getElementById('purchaseDevelopmentBtn');
     const topXp = document.getElementById('topXp');
     const renameCharacterInput = document.getElementById('renameCharacterInput');
+    const creationModal = document.getElementById('creationModal');
+    const creationProgress = document.getElementById('creationProgress');
+    const creationStepContent = document.getElementById('creationStepContent');
+    const creationStepCount = document.getElementById('creationStepCount');
+    const creationBackBtn = document.getElementById('creationBackBtn');
+    const creationNextBtn = document.getElementById('creationNextBtn');
+    const cancelCreationBtn = document.getElementById('cancelCreationBtn');
+    const toggleProfileEditingBtn = document.getElementById('toggleProfileEditingBtn');
+    const profileEditStatus = document.getElementById('profileEditStatus');
 
     const equipmentSlots = [
         { id: 'implant', label: 'Implant', types: ['implant'], image: './PNG/KotOR2 Equip Slots/implant_slot.PNG' },
@@ -1646,14 +1816,19 @@
     const skillGroups = {
         str: ['Athletics'],
         dex: ['Security', 'Demolitions', 'Stealth', 'Coordination', 'Piloting (Space)', 'Piloting (Planetary)'],
-        con: ['Resilience'],
-        int: ['Computer use', 'Medicine', 'Repair', 'Astronav'],
+        con: ['Resilience', 'Grit'],
+        int: ['Computer use', 'Medicine', 'Repair', 'Astronav', 'History', 'Investigation'],
         wis: ['Awareness', 'Streetwise', 'Survival', 'Discipline'],
-        cha: ['Persuade', 'Intimidate', 'Deception', 'Cool']
+        cha: ['Persuade', 'Intimidation', 'Deception', 'Cool']
     };
 
     const legacyItemIds = new Set(['lghtsbr', 'dblsbr', 'shortsbr', 'blaster', 'vibroblade', 'jedirobe', 'mstrrobe', 'belt', 'implant']);
     let itemCatalog = [];
+    let classCatalog = [];
+    let speciesCatalog = [];
+    let backgroundCatalog = [];
+    let creationDraft = null;
+    let creationStep = 0;
 
     let modificationCatalog = [];
 
@@ -1723,11 +1898,14 @@
             ['Weapons', ['weapons']],
             ['Feats', ['feats']],
             ['Powers', ['powers']],
+            ['Class', ['classes']],
+            ['Species', ['species']],
+            ['Background', ['backgrounds']],
             ['Droid Parts', ['droidParts', 'droidparts']],
             ['Consumables', ['consumables']],
             ['Implants', ['implants']]
         ];
-        const requiredSources = new Set(['Armor', 'Misc', 'Upgrades', 'Weapons', 'Feats', 'Powers']);
+        const requiredSources = new Set(['Armor', 'Misc', 'Upgrades', 'Weapons', 'Feats', 'Powers', 'Class', 'Species', 'Background']);
         const missingSources = sources.filter(([source, keys]) => requiredSources.has(source)
             && !keys.some(key => Array.isArray(datasets[key])));
         if (missingSources.length) {
@@ -1792,6 +1970,21 @@
         itemCatalog = catalogItems;
         modificationCatalog = catalogItems.filter(item => item.source === 'Upgrades');
         developmentCatalog = [...legacyDevelopmentCatalog.map(upgrade => ({ ...upgrade, legacy: true, visible: false })), ...catalogUpgrades];
+        classCatalog = rowsBySource.Class;
+        speciesCatalog = rowsBySource.Species;
+        backgroundCatalog = rowsBySource.Background;
+        populateDevelopmentTagFilter();
+    }
+
+    function populateDevelopmentTagFilter() {
+        const tagFilter = document.getElementById('developmentTagFilter');
+        const selectedTag = tagFilter.value;
+        const subtypes = [...new Set(developmentCatalog
+            .filter(upgrade => !upgrade.legacy && upgrade.visible && ['Feats', 'Powers'].includes(upgrade.source))
+            .map(upgrade => String(upgrade.fields?.Subtype || '').trim())
+            .filter(Boolean))].sort((left, right) => left.localeCompare(right));
+        tagFilter.replaceChildren(new Option('All tags', 'all'), ...subtypes.map(subtype => new Option(subtype, subtype)));
+        tagFilter.value = subtypes.includes(selectedTag) ? selectedTag : 'all';
     }
 
     let activeEquipmentSlot = '';
@@ -1910,10 +2103,11 @@
             const attributeRow = document.querySelector(`.attribute-row[data-attribute="${attribute}"]`);
             let previousRow = attributeRow;
             skills.forEach(skill => {
-                const skillId = skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                const skillId = getSkillStorageId(skill);
                 const row = document.createElement('tr');
                 row.className = 'skill-row';
                 row.dataset.attribute = attribute;
+                row.classList.toggle('class-skill', current.classSkills.some(classSkill => classSkill.toLowerCase() === skill.toLowerCase()));
 
                 const nameCell = document.createElement('td');
                 nameCell.className = 'skill-name';
@@ -1927,6 +2121,7 @@
                 bonusInput.className = 'skill-bonus';
                 bonusInput.id = `skill-other-${skillId}`;
                 bonusInput.value = current.skillBonuses[skillId] || '0';
+                bonusInput.readOnly = !current.profileEditingEnabled;
                 bonusInput.setAttribute('aria-label', `${skill} other modifier`);
                 bonusInput.addEventListener('input', () => {
                     current.skillBonuses[skillId] = bonusInput.value;
@@ -1967,12 +2162,17 @@
         Object.entries(skillGroups).forEach(([attribute, skills]) => {
             const attributeModifier = parseInt(calculateModifier(document.getElementById(attribute).value), 10) || 0;
             skills.forEach(skill => {
-                const skillId = skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                const skillId = getSkillStorageId(skill);
                 const otherModifier = parseInt(document.getElementById(`skill-other-${skillId}`)?.value, 10) || 0;
                 const modifierCell = document.getElementById(`skill-mod-${skillId}`);
                 if (modifierCell) modifierCell.textContent = formatModifier(attributeModifier + otherModifier);
             });
         });
+    }
+
+    function getSkillStorageId(skill) {
+        if (skill === 'Intimidation') return 'intimidate';
+        return skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     }
 
     function updateAllModifiers() {
@@ -2002,20 +2202,17 @@
 
     function updateSaberFormTelemetry() {
         const current = getActiveCharacter();
+        populateCombatTechniques(current);
         const selectedForm = saberFormDropdown.value;
         const formFeat = getFormFeat(selectedForm);
         const unlocked = Boolean(current && formFeat && hasDevelopmentUpgrade(current, formFeat));
-        [...saberFormDropdown.options].forEach(option => {
-            if (option.value) {
-                const feat = getFormFeat(option.value);
-                option.disabled = !current || !feat || !hasDevelopmentUpgrade(current, feat);
-            }
-        });
         if (selectedForm && !unlocked) saberFormDropdown.value = '';
-        saberBonusBox.textContent = unlocked ? formDescriptions[selectedForm] : 'No unlocked lightsaber form selected.';
+        saberBonusBox.textContent = unlocked
+            ? formDescriptions[selectedForm] || formFeat.description || `${formFeat.name} selected.`
+            : 'No unlocked combat technique selected.';
 
         if (selectedForm && unlocked) {
-            saberIconDiv.style.backgroundImage = `url('./PNG/ifrm_saber${selectedForm}.png')`;
+            saberIconDiv.style.backgroundImage = `url('${formFeat.image}')`;
             saberIconDiv.style.display = 'block';
         } else {
             saberIconDiv.style.backgroundImage = 'none';
@@ -2024,9 +2221,49 @@
     }
 
     function getFormFeat(formValue) {
+        const byId = developmentCatalog.find(upgrade => upgrade.id === formValue && upgrade.type === 'feat'
+            && upgrade.visible && String(upgrade.fields?.Subtype || upgrade.group).toLowerCase() === 'form');
+        if (byId) return byId;
         const romanNumerals = { '01': 'I', '02': 'II', '03': 'III', '04': 'IV', '05': 'V', '06': 'VI', '07': 'VII' };
         const roman = romanNumerals[formValue];
-        return roman ? developmentCatalog.find(upgrade => upgrade.type === 'feat' && upgrade.visible && upgrade.name.startsWith(`Form ${roman}:`)) : null;
+        return roman ? developmentCatalog.find(upgrade => upgrade.type === 'feat' && upgrade.visible
+            && upgrade.name.startsWith(`Form ${roman}:`)) : null;
+    }
+
+    function getSaberFormTier(upgrade) {
+        const match = upgrade.name.match(/^(?:(Affinity|Mastery):\s*)?Form (I|II|III|IV|V|VI|VII):/i);
+        if (!match) return null;
+        return {
+            key: match[2].toUpperCase(),
+            tier: match[1]?.toLowerCase() === 'mastery' ? 3 : match[1]?.toLowerCase() === 'affinity' ? 2 : 1
+        };
+    }
+
+    function populateCombatTechniques(current) {
+        const previousValue = saberFormDropdown.value;
+        const previousFeat = getFormFeat(previousValue);
+        const previousForm = previousFeat && getSaberFormTier(previousFeat);
+        const formFeats = developmentCatalog.filter(upgrade => !upgrade.legacy && upgrade.type === 'feat'
+            && upgrade.visible && String(upgrade.fields?.Subtype || upgrade.group).toLowerCase() === 'form'
+            && current && hasDevelopmentUpgrade(current, upgrade));
+        const highestSaberTiers = new Map();
+        formFeats.forEach(upgrade => {
+            const form = getSaberFormTier(upgrade);
+            if (!form) return;
+            const existing = highestSaberTiers.get(form.key);
+            if (!existing || form.tier > existing.tier) highestSaberTiers.set(form.key, { ...form, upgrade });
+        });
+        const available = formFeats.filter(upgrade => !getSaberFormTier(upgrade))
+            .concat([...highestSaberTiers.values()].map(form => form.upgrade));
+        const selectedUpgrade = previousForm
+            ? highestSaberTiers.get(previousForm.key)?.upgrade
+            : available.find(upgrade => upgrade.id === previousFeat?.id);
+
+        saberFormDropdown.replaceChildren(new Option('None Selected', ''));
+        available.forEach(upgrade => {
+            saberFormDropdown.add(new Option(upgrade.name, upgrade.id));
+        });
+        saberFormDropdown.value = selectedUpgrade?.id || '';
     }
 
     function ensureCharacterShape(character) {
@@ -2039,6 +2276,8 @@
         character.modifications = character.modifications || {};
         character.skillBonuses = character.skillBonuses || {};
         character.unlocks = Array.isArray(character.unlocks) ? character.unlocks : [];
+        character.classSkills = Array.isArray(character.classSkills) ? character.classSkills : [];
+        if (character.profileEditingEnabled === undefined) character.profileEditingEnabled = true;
         character.data = character.data || {};
         if (character.data['char-background'] === undefined) character.data['char-background'] = 'outcast';
         if (character.data['char-species'] === undefined) character.data['char-species'] = 'human';
@@ -2061,6 +2300,32 @@
                 character.equipment[slot.id] = null;
             }
         });
+    }
+
+    function populateProfileSelect(select, records, currentValue) {
+        const visibleRecords = records.filter(record => String(record.Visible || '').toUpperCase() === 'TRUE');
+        select.replaceChildren(new Option('Select...', ''));
+        visibleRecords.forEach(record => select.add(new Option(record.Name, record.Name)));
+        if (currentValue && !visibleRecords.some(record => record.Name === currentValue)) {
+            select.add(new Option(currentValue, currentValue));
+        }
+        select.value = currentValue || '';
+    }
+
+    function updateProfileEditingControls(current) {
+        const editingEnabled = Boolean(current?.profileEditingEnabled);
+        document.getElementById('char-class').disabled = !editingEnabled;
+        document.getElementById('char-background').disabled = !editingEnabled;
+        document.getElementById('char-species').disabled = !editingEnabled;
+        document.querySelectorAll('.core-stat, .skill-bonus').forEach(field => {
+            field.readOnly = !editingEnabled;
+        });
+        toggleProfileEditingBtn.disabled = !current;
+        toggleProfileEditingBtn.setAttribute('aria-pressed', String(editingEnabled));
+        toggleProfileEditingBtn.textContent = editingEnabled ? 'Lock editing' : 'Enable editing';
+        profileEditStatus.textContent = editingEnabled
+            ? 'Attributes, skills, class, background, and species are editable.'
+            : 'Character creation fields are locked.';
     }
 
     function prerequisiteMet(character, prerequisite) {
@@ -2498,7 +2763,6 @@
         renderConsoleSelection(forcePowerIcons, powers, current, 'force');
         renderConsoleSelection(featConsoleIcons, taggedFeats, current, 'feat');
         renderD100Chart(forceChart, findSelectedConsoleUpgrade(powers, current, 'force'));
-        renderD100Chart(featChart, findSelectedConsoleUpgrade(taggedFeats, current, 'feat'));
     }
 
     function getUpgradeTree(upgrade) {
@@ -2657,10 +2921,14 @@
         developmentList.innerHTML = '';
         const query = document.getElementById('developmentSearch').value.trim().toLowerCase();
         const type = document.getElementById('developmentTypeFilter').value;
+        const tag = document.getElementById('developmentTagFilter').value;
         const availableUpgrades = developmentCatalog.filter(upgrade => !upgrade.legacy && upgrade.visible);
         const groups = [...new Set(availableUpgrades.map(upgrade => upgrade.group))];
         groups.forEach(group => {
-            const upgrades = availableUpgrades.filter(upgrade => upgrade.group === group && (!query || upgrade.name.toLowerCase().includes(query)) && (type === 'all' || upgrade.type === type));
+            const upgrades = availableUpgrades.filter(upgrade => upgrade.group === group
+                && (!query || upgrade.name.toLowerCase().includes(query))
+                && (type === 'all' || upgrade.type === type)
+                && (tag === 'all' || String(upgrade.fields?.Subtype || '').trim() === tag));
             if (!upgrades.length) return;
             const section = document.createElement('div');
             const heading = document.createElement('div');
@@ -2785,6 +3053,219 @@
         URL.revokeObjectURL(url);
     }
 
+    function splitRecordList(value) {
+        return String(value || '').split(/[;\n]/).map(entry => entry.trim()).filter(Boolean);
+    }
+
+    function visibleRecords(records) {
+        return records.filter(record => String(record.Visible || '').toUpperCase() === 'TRUE');
+    }
+
+    function findRecord(records, name) {
+        return records.find(record => record.Name?.toLowerCase() === String(name || '').toLowerCase());
+    }
+
+    function renderCreationStep() {
+        const stepNames = ['Species', 'Background', 'Class', 'Attributes', 'Skills', 'Name'];
+        creationProgress.replaceChildren(...stepNames.map((name, index) => {
+            const item = document.createElement('li');
+            item.textContent = name;
+            if (index === creationStep) item.setAttribute('aria-current', 'step');
+            return item;
+        }));
+        creationStepCount.textContent = `${creationStep + 1} / ${stepNames.length}`;
+        creationBackBtn.disabled = creationStep === 0;
+        creationNextBtn.textContent = creationStep === stepNames.length - 1 ? 'Create character' : 'Continue';
+        creationStepContent.replaceChildren();
+
+        const heading = document.createElement('h2');
+        heading.textContent = stepNames[creationStep];
+        creationStepContent.appendChild(heading);
+
+        const description = document.createElement('p');
+        const stepDescriptions = [
+            'Choose a species for this character.',
+            'Choose a background.',
+            'Choose a class. Class features and starting skills come from this record.',
+            'Set the starting scores for each attribute.',
+            'Choose the starting class skills for this character.',
+            'Give this character a name.'
+        ];
+        description.textContent = stepDescriptions[creationStep];
+        creationStepContent.appendChild(description);
+
+        if (creationStep <= 2) {
+            const fields = [
+                { key: 'species', label: 'Species', records: speciesCatalog },
+                { key: 'background', label: 'Background', records: backgroundCatalog },
+                { key: 'className', label: 'Class', records: classCatalog }
+            ];
+            const field = fields[creationStep];
+            const label = document.createElement('label');
+            label.className = 'creation-field';
+            label.textContent = field.label;
+            const select = document.createElement('select');
+            select.id = `creation-${field.key}`;
+            select.required = true;
+            select.add(new Option('Select...', ''));
+            visibleRecords(field.records).forEach(record => select.add(new Option(record.Name, record.Name)));
+            select.value = creationDraft[field.key];
+            select.addEventListener('change', () => {
+                creationDraft[field.key] = select.value;
+                if (field.key === 'className') {
+                    const selectedClass = findRecord(classCatalog, select.value);
+                    creationDraft.skills = splitRecordList(selectedClass?.ClassSkills);
+                }
+                renderCreationStep();
+            });
+            label.appendChild(select);
+            creationStepContent.appendChild(label);
+            const selected = findRecord(field.records, creationDraft[field.key]);
+            if (selected?.Description) {
+                const detail = document.createElement('div');
+                detail.className = 'creation-choice-description';
+                detail.textContent = selected.Description;
+                creationStepContent.appendChild(detail);
+            }
+            return;
+        }
+
+        if (creationStep === 3) {
+            const attributes = [
+                ['str', 'Strength'], ['dex', 'Dexterity'], ['con', 'Constitution'],
+                ['int', 'Intelligence'], ['wis', 'Wisdom'], ['cha', 'Charisma']
+            ];
+            const grid = document.createElement('div');
+            grid.className = 'creation-attributes';
+            attributes.forEach(([key, labelText]) => {
+                const label = document.createElement('label');
+                label.className = 'creation-attribute';
+                label.appendChild(document.createTextNode(labelText));
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.step = '1';
+                input.value = creationDraft.attributes[key];
+                input.setAttribute('aria-label', labelText);
+                input.addEventListener('input', () => { creationDraft.attributes[key] = input.value; });
+                label.appendChild(input);
+                grid.appendChild(label);
+            });
+            creationStepContent.appendChild(grid);
+            return;
+        }
+
+        if (creationStep === 4) {
+            const selectedClass = findRecord(classCatalog, creationDraft.className);
+            const skills = splitRecordList(selectedClass?.ClassSkills);
+            if (!skills.length) {
+                const empty = document.createElement('p');
+                empty.textContent = 'No class skills are listed for this class.';
+                creationStepContent.appendChild(empty);
+                return;
+            }
+            const grid = document.createElement('div');
+            grid.className = 'creation-skills';
+            skills.forEach(skill => {
+                const label = document.createElement('label');
+                label.className = 'creation-skill';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = creationDraft.skills.includes(skill);
+                checkbox.addEventListener('change', () => {
+                    creationDraft.skills = checkbox.checked
+                        ? [...new Set([...creationDraft.skills, skill])]
+                        : creationDraft.skills.filter(entry => entry !== skill);
+                });
+                label.append(checkbox, document.createTextNode(skill));
+                grid.appendChild(label);
+            });
+            creationStepContent.appendChild(grid);
+            return;
+        }
+
+        const nameLabel = document.createElement('label');
+        nameLabel.className = 'creation-field';
+        nameLabel.textContent = 'Character name';
+        const nameInput = document.createElement('input');
+        nameInput.type = 'text';
+        nameInput.id = 'creation-character-name';
+        nameInput.value = creationDraft.name;
+        nameInput.required = true;
+        nameInput.autocomplete = 'off';
+        nameInput.addEventListener('input', () => { creationDraft.name = nameInput.value; });
+        nameLabel.appendChild(nameInput);
+        creationStepContent.appendChild(nameLabel);
+        nameInput.focus();
+    }
+
+    function startCharacterCreation() {
+        const firstSpecies = visibleRecords(speciesCatalog)[0];
+        const firstBackground = visibleRecords(backgroundCatalog)[0];
+        const firstClass = visibleRecords(classCatalog)[0];
+        creationDraft = {
+            species: firstSpecies?.Name || '',
+            background: firstBackground?.Name || '',
+            className: firstClass?.Name || '',
+            attributes: { str: '10', dex: '10', con: '10', int: '10', wis: '10', cha: '10' },
+            skills: splitRecordList(firstClass?.ClassSkills),
+            name: ''
+        };
+        creationStep = 0;
+        cancelCreationBtn.hidden = characters.length === 0;
+        renderCreationStep();
+        creationModal.hidden = false;
+        (creationStepContent.querySelector('select') || creationStepContent.querySelector('input'))?.focus();
+    }
+
+    function getStartingUnlocks(draft) {
+        const species = findRecord(speciesCatalog, draft.species);
+        const background = findRecord(backgroundCatalog, draft.background);
+        const characterClass = findRecord(classCatalog, draft.className);
+        const names = [
+            ...splitRecordList(species?.Feats),
+            ...splitRecordList(background?.Feats),
+            ...splitRecordList(background?.Powers),
+            ...splitRecordList(characterClass?.ClassFeats),
+            ...splitRecordList(characterClass?.ClassPowers)
+        ];
+        return [...new Set(names.map(name => developmentCatalog.find(upgrade => upgrade.name.toLowerCase() === name.toLowerCase())?.id).filter(Boolean))];
+    }
+
+    function finishCharacterCreation() {
+        const newId = `char_${Date.now()}`;
+        const characterClass = findRecord(classCatalog, creationDraft.className);
+        const character = {
+            id: newId,
+            avatar: '',
+            equipment: {},
+            inventory: [],
+            credits: 0,
+            notes: [],
+            unlocks: getStartingUnlocks(creationDraft),
+            classSkills: creationDraft.skills,
+            profileEditingEnabled: false,
+            data: {
+                'char-name': creationDraft.name.trim(),
+                'char-class': creationDraft.className,
+                'char-background': creationDraft.background,
+                'char-species': creationDraft.species,
+                'signature-ability': characterClass?.SignatureAbility || '',
+                alignment: '50',
+                saberForm: '',
+                ...creationDraft.attributes,
+                'vit-cur': '20', 'vit-max': '20', 'force-cur': '0', 'force-max': '0', defense: '10',
+                'exp-cur': '0', 'exp-need': '1000', forceLog: '', featsLog: '', attackRating: '0', defenseRating: '10'
+            }
+        };
+        characters.push(character);
+        ensureCharacterShape(character);
+        activeCharId = newId;
+        saveRegistryToStorage();
+        buildDropdown();
+        creationModal.hidden = true;
+        loadActiveCharacter();
+    }
+
     function initRegistry() {
         const storedList = localStorage.getItem(LIST_STORAGE_KEY);
         const storedActiveId = localStorage.getItem(ACTIVE_ID_KEY);
@@ -2794,7 +3275,7 @@
         }
         
         if (characters.length === 0) {
-            createNewCharacter("Hala Diskil");
+            startCharacterCreation();
         } else {
             activeCharId = storedActiveId || characters[0].id;
             // Fallback if ID doesn't exist anymore
@@ -2808,34 +3289,8 @@
         }
     }
 
-    function createNewCharacter(defaultName = "New Retainer") {
-        const newId = 'char_' + Date.now();
-        const newChar = {
-            id: newId,
-            avatar: "",
-            equipment: {},
-            inventory: [],
-            credits: 0,
-            notes: [],
-            data: {
-                "char-name": defaultName,
-                "char-class": "Jedi Initiate",
-                "char-background": "outcast",
-                "char-species": "human",
-                "alignment": "50",
-                "saberForm": "",
-                "str": "10", "dex": "10", "con": "10", "int": "10", "wis": "10", "cha": "10",
-                "vit-cur": "20", "vit-max": "20", "force-cur": "0", "force-max": "0", "defense": "10",
-                "exp-cur": "0", "exp-need": "1000", "forceLog": "", "featsLog": "", "attackRating": "0", "defenseRating": "10"
-            }
-        };
-        
-        characters.push(newChar);
-        ensureCharacterShape(newChar);
-        activeCharId = newId;
-        saveRegistryToStorage();
-        buildDropdown();
-        loadActiveCharacter();
+    function createNewCharacter() {
+        startCharacterCreation();
     }
 
     function buildDropdown() {
@@ -2853,6 +3308,9 @@
         const current = characters.find(c => c.id === activeCharId);
         if (!current) return;
         ensureCharacterShape(current);
+        populateProfileSelect(document.getElementById('char-class'), classCatalog, current.data['char-class']);
+        populateProfileSelect(document.getElementById('char-background'), backgroundCatalog, current.data['char-background']);
+        populateProfileSelect(document.getElementById('char-species'), speciesCatalog, current.data['char-species']);
         
         fields.forEach(field => {
             if (current.data[field.id] !== undefined) {
@@ -2863,6 +3321,7 @@
         renameCharacterInput.value = current.data['char-name'] || '';
         topXp.value = current.data['exp-cur'] || '0';
         renderSkillRows(current);
+        updateProfileEditingControls(current);
         
         if (current.avatar) {
             avatarDisplay.style.backgroundImage = `url('${current.avatar}')`;
@@ -2936,9 +3395,9 @@
 
     function getOriginBonusMap(character) {
         const backgroundBonuses = { outcast: 'con', scholar: 'int', soldier: 'str' };
-        const speciesBonuses = { human: 'cha', mirialan: 'wis', twi_lekk: 'dex' };
+        const speciesBonuses = { human: 'cha', mirialan: 'wis', twi_lekk: 'dex', 'twi-lek': 'dex' };
         const bonuses = {};
-        [backgroundBonuses[character.data?.['char-background']], speciesBonuses[character.data?.['char-species']]].forEach(stat => {
+        [backgroundBonuses[character.data?.['char-background']?.toLowerCase()], speciesBonuses[character.data?.['char-species']?.toLowerCase()]].forEach(stat => {
             if (stat) bonuses[stat] = (bonuses[stat] || 0) + 1;
         });
         return bonuses;
@@ -2967,8 +3426,18 @@
         updateSaberFormTelemetry();
         saveActiveCharacterData();
     });
-    document.getElementById('char-background').addEventListener('change', applyOriginStatBonuses);
-    document.getElementById('char-species').addEventListener('change', applyOriginStatBonuses);
+    document.getElementById('char-background').addEventListener('change', () => {
+        saveActiveCharacterData();
+        applyOriginStatBonuses();
+    });
+    document.getElementById('char-species').addEventListener('change', () => {
+        saveActiveCharacterData();
+        applyOriginStatBonuses();
+    });
+    document.getElementById('char-class').addEventListener('change', () => {
+        saveActiveCharacterData();
+        renderDevelopment();
+    });
     document.getElementById('developmentSearch').addEventListener('input', renderDevelopment);
     document.getElementById('developmentTypeFilter').addEventListener('change', renderDevelopment);
     document.getElementById('developmentTagFilter').addEventListener('change', renderDevelopment);
@@ -3067,10 +3536,48 @@
             itemModal.hidden = true;
             adminTrigger.setAttribute('aria-expanded', 'false');
             adminMenu.hidden = true;
+            if (characters.length) creationModal.hidden = true;
         }
     });
 
-    document.getElementById('newCharBtn').addEventListener('click', () => createNewCharacter());
+    creationBackBtn.addEventListener('click', () => {
+        if (creationStep === 0) return;
+        creationStep -= 1;
+        renderCreationStep();
+    });
+    creationNextBtn.addEventListener('click', () => {
+        const requiredChoice = creationStep === 0 ? creationDraft.species
+            : creationStep === 1 ? creationDraft.background
+                : creationStep === 2 ? creationDraft.className
+                    : creationStep === 5 ? creationDraft.name.trim() : true;
+        const validAttributes = creationStep !== 3 || Object.values(creationDraft.attributes)
+            .every(value => value !== '' && Number.isFinite(Number(value)));
+        if (!requiredChoice || !validAttributes) {
+            const error = document.createElement('p');
+            error.setAttribute('role', 'alert');
+            error.textContent = creationStep === 3 ? 'Enter a value for each attribute.' : 'Complete this step to continue.';
+            creationStepContent.appendChild(error);
+            return;
+        }
+        if (creationStep === 5) {
+            finishCharacterCreation();
+            return;
+        }
+        creationStep += 1;
+        renderCreationStep();
+    });
+    cancelCreationBtn.addEventListener('click', () => {
+        if (characters.length) creationModal.hidden = true;
+    });
+    toggleProfileEditingBtn.addEventListener('click', () => {
+        const current = getActiveCharacter();
+        if (!current) return;
+        current.profileEditingEnabled = !current.profileEditingEnabled;
+        saveRegistryToStorage();
+        updateProfileEditingControls(current);
+    });
+
+    document.getElementById('newCharBtn').addEventListener('click', createNewCharacter);
     document.getElementById('exportCharBtn').addEventListener('click', exportActiveCharacter);
     document.getElementById('loadPortraitBtn').addEventListener('click', () => portraitInput.click());
     document.getElementById('addInventoryBtn').addEventListener('click', () => openInventoryPicker('add'));

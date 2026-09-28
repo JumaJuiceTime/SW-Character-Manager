@@ -1,0 +1,15 @@
+Name,Visible,Description,Feats
+Human,TRUE,"Due to their widespread nature and lacking a known homeworld, it is hard to pin down a human culture.",
+Zabrak,TRUE,Fiercely independent and identifiable by their horns and facial tattoos,
+Twi-lek,TRUE,"Instantly identifiable by their colorful skin and long head tails (called ""lekku""), the Twi'lek people have long been oppressed, with only the rare group escaping slavery.",
+Wookie,FALSE,"Wookiees are a highly intelligent species that over time mastered many professions, but while they can easily learn many different languages, they lack of the vocal structure to speak anything other than their own language.",Wookie Toughness I
+Cathar,FALSE,"Cathar are known to be an honorable and proud people; they are fiercely loyal to their allies, while at the same time are capable of harboring intense hatred of their enemies.",
+Rattataki,FALSE,"Born and bred in a culture of war, Rattataki tattoo harsh, deep black symbols across their white skin and never walk away from a fight.",
+Duros,FALSE,"Humanoids with a rather smooth blue, green, or purple skin, lipless and noseless faces and red eyes, and they preserve the sense of smell thanks to particular glands under their eyes. Also, both the female and male Duros are completely bald.",
+Rodian,FALSE,"Rodians are a reptilian species from the planet Rodia. They have really long fingers, antennas, snouts,and mohawk like hair.",
+Nikto,FALSE,"The humanoid species known as the Nikto have tan, leathery skin and flat faces with multiple breathing holes on their cheeks and jawbones. Four small horns protrude from the Nikto's forehead.",
+Weequay,FALSE,"The Weequay are a humanoid race native of the planet Sriluur, in the Outer Rim. Weequays have thick, leathery skin, usually very rough, wrinkled and tanned due to the harsh environment of their native desert planet.",
+Gran,FALSE,"The Gran are a humanoids species native to the planet Kinyen. Their most distinctive traits are their three eyes and their goat-like snouts. Their exceptional sight allows them to see more colors than more species, and even to see into the infrared.",
+Trandoshan,FALSE,"Due to the legacy of their homeworld, however, many Trandoshans have become slavers and mercenaries as they have spread out individually across the galaxy. They are extremely effective warriors, due to their keen eyesight, their scaled hides, and a remarkable ability to regenerate.
+
+Trandoshans across the galaxy who observe the traditions of their homeworld are often profoundly spiritual, adhering to a very specific set of religious beliefs. These Trandoshans worship a female deity named the ""Scorekeeper"", who bestows blessings on her followers based on their victories in combat and in the ""hunt"". Though some Trandoshans have been observed to maintain some sense of honor, their naturally prideful inclinations are almost always more pronounced, and thus they have earned a reputation for ferocity and brutality across the galaxy.",
