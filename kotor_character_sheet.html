@@ -1252,6 +1252,15 @@
             font: inherit;
         }
 
+        .creation-point-counter {
+            margin-left: auto;
+            margin-right: 10px;
+            color: var(--text-bright);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         .creation-choice-description {
             min-height: 42px;
             margin-top: 12px;
@@ -1267,18 +1276,63 @@
         }
 
         .creation-attribute {
-            display: grid;
-            grid-template-columns: 1fr 75px;
+            display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 8px;
+            padding: 8px 10px;
+            border: 1px solid var(--border-dim);
             color: var(--text-bright);
             font-size: 0.75rem;
         }
 
-        .creation-attribute input {
-            width: 75px;
-            box-sizing: border-box;
+        .creation-attribute-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .creation-attribute-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            padding: 0;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            cursor: pointer;
+        }
+
+        .creation-attribute-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .creation-attribute-button img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+
+        .creation-attribute-value {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 36px;
+            padding: 4px 6px;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            color: var(--text-bright);
+            font-weight: 700;
             text-align: center;
+        }
+
+        .creation-attribute-modifier {
+            min-width: 34px;
+            color: var(--text-bright);
+            text-align: right;
+            font-weight: 700;
         }
 
         .creation-skills {
@@ -1291,12 +1345,62 @@
         .creation-skill {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 8px;
             min-width: 0;
-            padding: 8px;
+            padding: 8px 10px;
             border: 1px solid var(--border-dim);
             color: var(--text-bright);
             font-size: 0.74rem;
+        }
+
+        .creation-skill-name {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .creation-skill-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .creation-skill-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            padding: 0;
+            border: 1px solid var(--border-dim);
+            background: #000;
+            cursor: pointer;
+        }
+
+        .creation-skill-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .creation-skill-button img {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+        }
+
+        .creation-skill-value {
+            display: inline-flex;
+            min-width: 24px;
+            justify-content: center;
+            color: var(--text-bright);
+            font-weight: 700;
+        }
+
+        .creation-skill-modifier {
+            min-width: 32px;
+            color: var(--text-bright);
+            text-align: right;
+            font-weight: 700;
         }
 
         .creation-actions {
@@ -1741,6 +1845,7 @@
     <div class="creation-modal" role="dialog" aria-modal="true" aria-labelledby="creationHeading">
         <div class="modal-heading">
             <span id="creationHeading">Create character</span>
+            <span class="creation-point-counter" id="creationPointCounter">Points left: 0</span>
             <button class="control-btn" id="cancelCreationBtn" type="button">Cancel</button>
         </div>
         <ol class="creation-progress" id="creationProgress"></ol>
@@ -1814,6 +1919,7 @@
     const topXp = document.getElementById('topXp');
     const renameCharacterInput = document.getElementById('renameCharacterInput');
     const creationModal = document.getElementById('creationModal');
+    const creationPointCounter = document.getElementById('creationPointCounter');
     const creationProgress = document.getElementById('creationProgress');
     const creationStepContent = document.getElementById('creationStepContent');
     const creationStepCount = document.getElementById('creationStepCount');
@@ -2181,13 +2287,15 @@
     }
 
     function updateSkillModifiers() {
+        const current = getActiveCharacter();
         Object.entries(skillGroups).forEach(([attribute, skills]) => {
             const attributeModifier = parseInt(calculateModifier(document.getElementById(attribute).value), 10) || 0;
             skills.forEach(skill => {
                 const skillId = getSkillStorageId(skill);
+                const skillValue = Number(current?.skillValues?.[skillId] || current?.skillValues?.[skill] || 0);
                 const otherModifier = parseInt(document.getElementById(`skill-other-${skillId}`)?.value, 10) || 0;
                 const modifierCell = document.getElementById(`skill-mod-${skillId}`);
-                if (modifierCell) modifierCell.textContent = formatModifier(attributeModifier + otherModifier);
+                if (modifierCell) modifierCell.textContent = formatModifier(attributeModifier + skillValue + otherModifier);
             });
         });
     }
@@ -3112,7 +3220,46 @@
         return records.find(record => record.Name?.toLowerCase() === String(name || '').toLowerCase());
     }
 
+    function getAttributeModifier(score) {
+        return Math.floor((Number(score) - 10) / 2);
+    }
+
+    function getAttributeCostForNext(score) {
+        if (score >= 18) return 0;
+        if (score < 14) return 1;
+        if (score < 16) return 2;
+        return 3;
+    }
+
+    function getAttributeSpend(attributes) {
+        return Object.entries(attributes || {}).reduce((total, [key, value]) => {
+            const score = Math.max(8, Math.min(18, Number(value) || 8));
+            let spent = 0;
+            for (let current = 8; current < score; current += 1) {
+                spent += getAttributeCostForNext(current);
+            }
+            return total + spent;
+        }, 0);
+    }
+
+    function getSkillSpend(skillValues) {
+        return Object.values(skillValues || {}).reduce((total, value) => total + Math.max(0, Number(value) || 0), 0);
+    }
+
+    function updateCreationPointCounter() {
+        if (!creationPointCounter) return;
+        const isPointBuyStep = creationStep === 3 || creationStep === 4;
+        creationPointCounter.hidden = !isPointBuyStep;
+        if (!isPointBuyStep) return;
+        const pointsForCurrentStep = creationStep === 3
+            ? 30 - getAttributeSpend(creationDraft?.attributes || {})
+            : 8 - getSkillSpend(creationDraft?.skillValues || {});
+        const label = creationStep === 3 ? 'Points left:' : 'Skill points left:';
+        creationPointCounter.textContent = `${label} ${Math.max(0, pointsForCurrentStep)}`;
+    }
+
     function renderCreationStep() {
+        updateCreationPointCounter();
         const stepNames = ['Species', 'Background', 'Class', 'Attributes', 'Skills', 'Name'];
         creationProgress.replaceChildren(...stepNames.map((name, index) => {
             const item = document.createElement('li');
@@ -3134,8 +3281,8 @@
             'Choose a species for this character.',
             'Choose a background.',
             'Choose a class. Class features and starting skills come from this record.',
-            'Set the starting scores for each attribute.',
-            'Choose the starting class skills for this character.',
+            'Spend 30 points to set each attribute from 8 to 18.',
+            'Spend 8 points on skill ranks. Class skills are granted automatically.',
             'Give this character a name.'
         ];
         description.textContent = stepDescriptions[creationStep];
@@ -3184,47 +3331,126 @@
             ];
             const grid = document.createElement('div');
             grid.className = 'creation-attributes';
+            updateCreationPointCounter();
             attributes.forEach(([key, labelText]) => {
-                const label = document.createElement('label');
-                label.className = 'creation-attribute';
-                label.appendChild(document.createTextNode(labelText));
-                const input = document.createElement('input');
-                input.type = 'number';
-                input.step = '1';
-                input.value = creationDraft.attributes[key];
-                input.setAttribute('aria-label', labelText);
-                input.addEventListener('input', () => { creationDraft.attributes[key] = input.value; });
-                label.appendChild(input);
-                grid.appendChild(label);
+                const row = document.createElement('div');
+                row.className = 'creation-attribute';
+
+                const label = document.createElement('span');
+                label.textContent = labelText;
+
+                const controls = document.createElement('div');
+                controls.className = 'creation-attribute-controls';
+
+                const decreaseBtn = document.createElement('button');
+                decreaseBtn.type = 'button';
+                decreaseBtn.className = 'creation-attribute-button';
+                const currentValue = Number(creationDraft.attributes[key] || 8);
+                const decreaseCost = -getAttributeCostForNext(Math.max(8, currentValue - 1));
+                decreaseBtn.title = `Decrease ${labelText}. Cost: (${decreaseCost >= 0 ? '+' : ''}${decreaseCost})`;
+                decreaseBtn.innerHTML = '<img src="./PNG/arrow_left.png" alt="Decrease">';
+                decreaseBtn.disabled = Number(creationDraft.attributes[key] || 8) <= 8;
+                decreaseBtn.addEventListener('click', () => {
+                    const currentValue = Math.max(8, (Number(creationDraft.attributes[key]) || 8) - 1);
+                    creationDraft.attributes[key] = String(currentValue);
+                    renderCreationStep();
+                });
+
+                const value = document.createElement('span');
+                value.className = 'creation-attribute-value';
+                value.textContent = creationDraft.attributes[key];
+
+                const increaseBtn = document.createElement('button');
+                increaseBtn.type = 'button';
+                increaseBtn.className = 'creation-attribute-button';
+                const increaseCost = getAttributeCostForNext(currentValue);
+                increaseBtn.title = `Increase ${labelText}. Cost: (+${increaseCost})`;
+                increaseBtn.innerHTML = '<img src="./PNG/arrow.png" alt="Increase">';
+                const remainingPoints = 30 - getAttributeSpend(creationDraft.attributes);
+                increaseBtn.disabled = currentValue >= 18 || increaseCost > remainingPoints;
+                increaseBtn.addEventListener('click', () => {
+                    const nextValue = Math.min(18, currentValue + 1);
+                    if (nextValue !== currentValue && increaseCost <= (30 - getAttributeSpend(creationDraft.attributes))) {
+                        creationDraft.attributes[key] = String(nextValue);
+                        renderCreationStep();
+                    }
+                });
+
+                const modifier = document.createElement('span');
+                modifier.className = 'creation-attribute-modifier';
+                modifier.textContent = `${getAttributeModifier(currentValue) >= 0 ? '+' : ''}${getAttributeModifier(currentValue)}`;
+
+                controls.append(decreaseBtn, value, increaseBtn, modifier);
+                row.append(label, controls);
+                grid.appendChild(row);
             });
             creationStepContent.appendChild(grid);
             return;
         }
 
         if (creationStep === 4) {
-            const selectedClass = findRecord(classCatalog, creationDraft.className);
-            const skills = splitRecordList(selectedClass?.ClassSkills);
-            if (!skills.length) {
+            const skillData = Object.entries(skillGroups).flatMap(([attribute, skills]) =>
+                skills.map(skill => ({ skill, attribute }))
+            );
+            if (!skillData.length) {
                 const empty = document.createElement('p');
-                empty.textContent = 'No class skills are listed for this class.';
+                empty.textContent = 'No skills are available for this class.';
                 creationStepContent.appendChild(empty);
                 return;
             }
+            updateCreationPointCounter();
             const grid = document.createElement('div');
             grid.className = 'creation-skills';
-            skills.forEach(skill => {
-                const label = document.createElement('label');
-                label.className = 'creation-skill';
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.checked = creationDraft.skills.includes(skill);
-                checkbox.addEventListener('change', () => {
-                    creationDraft.skills = checkbox.checked
-                        ? [...new Set([...creationDraft.skills, skill])]
-                        : creationDraft.skills.filter(entry => entry !== skill);
+            const availablePoints = 8 - getSkillSpend(creationDraft.skillValues || {});
+            skillData.forEach(({ skill, attribute }) => {
+                const skillValue = Number(creationDraft.skillValues?.[skill] || 0);
+                const row = document.createElement('div');
+                row.className = 'creation-skill';
+
+                const name = document.createElement('span');
+                name.className = 'creation-skill-name';
+                name.textContent = skill;
+
+                const controls = document.createElement('div');
+                controls.className = 'creation-skill-controls';
+
+                const decreaseBtn = document.createElement('button');
+                decreaseBtn.type = 'button';
+                decreaseBtn.className = 'creation-skill-button';
+                decreaseBtn.title = `Decrease ${skill}. Cost: (-1)`;
+                decreaseBtn.innerHTML = '<img src="./PNG/arrow_left.png" alt="Decrease">';
+                decreaseBtn.disabled = skillValue <= 0;
+                decreaseBtn.addEventListener('click', () => {
+                    creationDraft.skillValues[skill] = Math.max(0, skillValue - 1);
+                    renderCreationStep();
                 });
-                label.append(checkbox, document.createTextNode(skill));
-                grid.appendChild(label);
+
+                const value = document.createElement('span');
+                value.className = 'creation-skill-value';
+                value.textContent = String(skillValue);
+
+                const increaseBtn = document.createElement('button');
+                increaseBtn.type = 'button';
+                increaseBtn.className = 'creation-skill-button';
+                increaseBtn.title = `Increase ${skill}. Cost: (+1)`;
+                increaseBtn.innerHTML = '<img src="./PNG/arrow.png" alt="Increase">';
+                increaseBtn.disabled = skillValue >= 4 || availablePoints <= 0;
+                increaseBtn.addEventListener('click', () => {
+                    if (skillValue < 4 && (8 - getSkillSpend(creationDraft.skillValues || {})) > 0) {
+                        creationDraft.skillValues[skill] = Math.min(4, skillValue + 1);
+                        renderCreationStep();
+                    }
+                });
+
+                const modifier = document.createElement('span');
+                modifier.className = 'creation-skill-modifier';
+                const attributeModifier = getAttributeModifier(Number(creationDraft.attributes[attribute] || 8));
+                const totalModifier = attributeModifier + skillValue;
+                modifier.textContent = `${totalModifier >= 0 ? '+' : ''}${totalModifier}`;
+
+                controls.append(decreaseBtn, value, increaseBtn);
+                row.append(name, controls, modifier);
+                grid.appendChild(row);
             });
             creationStepContent.appendChild(grid);
             return;
@@ -3253,8 +3479,13 @@
             species: firstSpecies?.Name || '',
             background: firstBackground?.Name || '',
             className: firstClass?.Name || '',
-            attributes: { str: '10', dex: '10', con: '10', int: '10', wis: '10', cha: '10' },
+            attributes: { str: '8', dex: '8', con: '8', int: '8', wis: '8', cha: '8' },
             skills: splitRecordList(firstClass?.ClassSkills),
+            skillValues: Object.fromEntries(
+                Object.entries(skillGroups).flatMap(([attribute, skills]) =>
+                    skills.map(skill => [skill, 0])
+                )
+            ),
             name: ''
         };
         creationStep = 0;
@@ -3302,7 +3533,8 @@
                 ...creationDraft.attributes,
                 'vit-cur': '20', 'vit-max': '20', 'force-cur': '0', 'force-max': '0', defense: '10',
                 'exp-cur': '30', 'exp-spent': '0', 'exp-need': '1000', forceLog: '', featsLog: '', attackRating: '0', defenseRating: '10'
-            }
+            },
+            skillValues: creationDraft.skillValues || {}
         };
         characters.push(character);
         ensureCharacterShape(character);
@@ -3601,12 +3833,23 @@
             : creationStep === 1 ? creationDraft.background
                 : creationStep === 2 ? creationDraft.className
                     : creationStep === 5 ? creationDraft.name.trim() : true;
-        const validAttributes = creationStep !== 3 || Object.values(creationDraft.attributes)
-            .every(value => value !== '' && Number.isFinite(Number(value)));
-        if (!requiredChoice || !validAttributes) {
+        const validAttributes = creationStep !== 3 || (
+            Object.values(creationDraft.attributes)
+                .every(value => value !== '' && Number.isFinite(Number(value)))
+            && getAttributeSpend(creationDraft.attributes) === 30
+        );
+        const validSkills = creationStep !== 4 || (
+            getSkillSpend(creationDraft.skillValues || {}) === 8
+            && Object.values(creationDraft.skillValues || {}).every(value => Number(value) >= 0 && Number(value) <= 4)
+        );
+        if (!requiredChoice || !validAttributes || !validSkills) {
             const error = document.createElement('p');
             error.setAttribute('role', 'alert');
-            error.textContent = creationStep === 3 ? 'Enter a value for each attribute.' : 'Complete this step to continue.';
+            error.textContent = creationStep === 3
+                ? 'Spend all 30 attribute points before continuing.'
+                : creationStep === 4
+                    ? 'Spend all 8 skill points before continuing.'
+                    : 'Complete this step to continue.';
             creationStepContent.appendChild(error);
             return;
         }
