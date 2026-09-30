@@ -951,6 +951,20 @@
             gap: 8px;
         }
 
+        .development-xp-summary {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-right: auto;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .development-panel > .panel-heading {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
         .development-purchase-group button:disabled {
             opacity: 0.45;
             cursor: not-allowed;
@@ -1627,7 +1641,12 @@
     <section class="panel-section development-panel" id="developmentPanel" hidden aria-labelledby="developmentHeading">
         <div class="panel-heading" id="developmentHeading">
             <span>Development</span>
+            <div class="development-xp-summary">
+                <span id="developmentXpEarned">XP Earned: 0</span>
+                <span id="developmentXpSpent">XP Spent: 0</span>
+            </div>
             <div class="development-purchase-group">
+                <button class="control-btn" id="crossTrainDevelopmentBtn" type="button" disabled>Cross Train</button>
                 <button class="control-btn" id="purchaseDevelopmentBtn" type="button" disabled>Purchase</button>
                 <span id="developmentXp">0 XP available</span>
             </div>
@@ -1783,12 +1802,15 @@
     const developmentList = document.getElementById('developmentList');
     const developmentDetails = document.getElementById('developmentDetails');
     const developmentXp = document.getElementById('developmentXp');
+    const developmentXpEarned = document.getElementById('developmentXpEarned');
+    const developmentXpSpent = document.getElementById('developmentXpSpent');
     const forcePanel = document.getElementById('forcePanel');
     const featsPanel = document.getElementById('featsPanel');
     const forcePowerIcons = document.getElementById('forcePowerIcons');
     const featConsoleIcons = document.getElementById('featConsoleIcons');
     const forceChart = document.getElementById('forceChart');
     const purchaseDevelopmentBtn = document.getElementById('purchaseDevelopmentBtn');
+    const crossTrainDevelopmentBtn = document.getElementById('crossTrainDevelopmentBtn');
     const topXp = document.getElementById('topXp');
     const renameCharacterInput = document.getElementById('renameCharacterInput');
     const creationModal = document.getElementById('creationModal');
@@ -2284,6 +2306,18 @@
         if (character.data.forceLog === undefined) character.data.forceLog = character.data.featsLog || '';
         if (character.data['attackRating'] === undefined) character.data['attackRating'] = '0';
         if (character.data['defenseRating'] === undefined) character.data['defenseRating'] = '10';
+        if (character.data['exp-spent'] === undefined) {
+            const startingUnlocks = new Set(getStartingUnlocks({
+                className: character.data['char-class'],
+                background: character.data['char-background'],
+                species: character.data['char-species']
+            }));
+            const spent = developmentCatalog
+                .filter(upgrade => !upgrade.legacy && upgrade.visible && hasDevelopmentUpgrade(character, upgrade)
+                    && !startingUnlocks.has(upgrade.id))
+                .reduce((total, upgrade) => total + upgrade.cost, 0);
+            character.data['exp-spent'] = String(spent);
+        }
         const originBonus = getOriginBonusMap(character);
         character.baseStats = character.baseStats || {};
         ['str', 'dex', 'con', 'int', 'wis', 'cha'].forEach(stat => {
@@ -2344,7 +2378,10 @@
         }
         const className = (character.data['char-class'] || '').toLowerCase();
         const training = normalized.match(/^(.+?)\s+training$/);
-        return className.includes(normalized) || Boolean(training && className.includes(training[1]));
+        const profileMatches = ['char-species', 'char-background'].some(field =>
+            (character.data[field] || '').toLowerCase() === normalized
+        );
+        return className.includes(normalized) || profileMatches || Boolean(training && className.includes(training[1]));
     }
 
     function legacyUpgradeId(name) {
@@ -2917,7 +2954,10 @@
         const current = getActiveCharacter();
         if (!current || !developmentList) return;
         const xp = parseInt(current.data['exp-cur'], 10) || 0;
+        const xpSpent = Math.max(0, parseInt(current.data['exp-spent'], 10) || 0);
         developmentXp.textContent = `${xp} XP available`;
+        developmentXpEarned.textContent = `XP Earned: ${xp + xpSpent}`;
+        developmentXpSpent.textContent = `XP Spent: ${xpSpent}`;
         developmentList.innerHTML = '';
         const query = document.getElementById('developmentSearch').value.trim().toLowerCase();
         const type = document.getElementById('developmentTypeFilter').value;
@@ -2963,15 +3003,22 @@
         const current = getActiveCharacter();
         const upgrade = developmentCatalog.find(candidate => candidate.id === activeDevelopmentId);
         const xp = parseInt(current?.data['exp-cur'], 10) || 0;
-        purchaseDevelopmentBtn.disabled = !current || !upgrade || hasDevelopmentUpgrade(current, upgrade)
-            || xp < upgrade?.cost || !prerequisiteMet(current, upgrade?.requires);
+        const alreadyPurchased = !current || !upgrade || hasDevelopmentUpgrade(current, upgrade);
+        const meetsPrerequisite = current && upgrade && prerequisiteMet(current, upgrade.requires);
+        const canAfford = current && upgrade && xp >= upgrade.cost;
+        purchaseDevelopmentBtn.disabled = alreadyPurchased || !canAfford || !meetsPrerequisite;
+        crossTrainDevelopmentBtn.disabled = alreadyPurchased || !canAfford || meetsPrerequisite
+            || !['feat', 'force'].includes(upgrade?.type);
     }
 
-    function purchaseDevelopment(upgrade) {
+    function purchaseDevelopment(upgrade, crossTrain = false) {
         const current = getActiveCharacter();
         const xp = parseInt(current?.data['exp-cur'], 10) || 0;
-        if (!current || hasDevelopmentUpgrade(current, upgrade) || xp < upgrade.cost || !prerequisiteMet(current, upgrade.requires)) return;
+        const meetsPrerequisite = current && prerequisiteMet(current, upgrade.requires);
+        if (!current || hasDevelopmentUpgrade(current, upgrade) || xp < upgrade.cost
+            || (!meetsPrerequisite && (!crossTrain || !['feat', 'force'].includes(upgrade.type)))) return;
         current.data['exp-cur'] = String(xp - upgrade.cost);
+        current.data['exp-spent'] = String((parseInt(current.data['exp-spent'], 10) || 0) + upgrade.cost);
         current.unlocks.push(upgrade.id);
         saveRegistryToStorage();
         loadActiveCharacter();
@@ -3254,7 +3301,7 @@
                 saberForm: '',
                 ...creationDraft.attributes,
                 'vit-cur': '20', 'vit-max': '20', 'force-cur': '0', 'force-max': '0', defense: '10',
-                'exp-cur': '0', 'exp-need': '1000', forceLog: '', featsLog: '', attackRating: '0', defenseRating: '10'
+                'exp-cur': '0', 'exp-spent': '0', 'exp-need': '1000', forceLog: '', featsLog: '', attackRating: '0', defenseRating: '10'
             }
         };
         characters.push(character);
@@ -3445,6 +3492,10 @@
     purchaseDevelopmentBtn.addEventListener('click', () => {
         const upgrade = developmentCatalog.find(candidate => candidate.id === activeDevelopmentId);
         if (upgrade) purchaseDevelopment(upgrade);
+    });
+    crossTrainDevelopmentBtn.addEventListener('click', () => {
+        const upgrade = developmentCatalog.find(candidate => candidate.id === activeDevelopmentId);
+        if (upgrade) purchaseDevelopment(upgrade, true);
     });
 
     document.querySelectorAll('[data-inventory-type]').forEach(tab => {
