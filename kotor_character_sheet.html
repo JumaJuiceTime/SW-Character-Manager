@@ -1359,6 +1359,12 @@
             min-width: 0;
         }
 
+        .creation-skill-name.class-skill {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
         .creation-skill-controls {
             display: flex;
             align-items: center;
@@ -3242,8 +3248,16 @@
         }, 0);
     }
 
-    function getSkillSpend(skillValues) {
-        return Object.values(skillValues || {}).reduce((total, value) => total + Math.max(0, Number(value) || 0), 0);
+    function isClassSkill(skill, classSkills = creationDraft?.skills || []) {
+        const normalizedSkill = String(skill).trim().toLowerCase();
+        return classSkills.some(classSkill => String(classSkill).trim().toLowerCase() === normalizedSkill);
+    }
+
+    function getSkillSpend(skillValues, classSkills = creationDraft?.skills || []) {
+        return Object.entries(skillValues || {}).reduce((total, [skill, value]) => {
+            const rankCost = isClassSkill(skill, classSkills) ? 1 : 2;
+            return total + Math.max(0, Number(value) || 0) * rankCost;
+        }, 0);
     }
 
     function updateCreationPointCounter() {
@@ -3253,7 +3267,7 @@
         if (!isPointBuyStep) return;
         const pointsForCurrentStep = creationStep === 3
             ? 30 - getAttributeSpend(creationDraft?.attributes || {})
-            : 8 - getSkillSpend(creationDraft?.skillValues || {});
+            : 8 - getSkillSpend(creationDraft?.skillValues || {}, creationDraft?.skills || []);
         const label = creationStep === 3 ? 'Points left:' : 'Skill points left:';
         creationPointCounter.textContent = `${label} ${Math.max(0, pointsForCurrentStep)}`;
     }
@@ -3282,7 +3296,7 @@
             'Choose a background.',
             'Choose a class. Class features and starting skills come from this record.',
             'Spend 30 points to set each attribute from 8 to 18.',
-            'Spend 8 points on skill ranks. Class skills are granted automatically.',
+            'Spend 8 points on skill ranks. Class skills are underlined.',
             'Give this character a name.'
         ];
         description.textContent = stepDescriptions[creationStep];
@@ -3408,7 +3422,9 @@
                 row.className = 'creation-skill';
 
                 const name = document.createElement('span');
-                name.className = 'creation-skill-name';
+                const classSkill = isClassSkill(skill, creationDraft.skills || []);
+                row.classList.toggle('class-skill', classSkill);
+                name.className = `creation-skill-name${classSkill ? ' class-skill' : ''}`;
                 name.textContent = skill;
 
                 const controls = document.createElement('div');
@@ -3417,7 +3433,8 @@
                 const decreaseBtn = document.createElement('button');
                 decreaseBtn.type = 'button';
                 decreaseBtn.className = 'creation-skill-button';
-                decreaseBtn.title = `Decrease ${skill}. Cost: (-1)`;
+                const skillRankCost = classSkill ? 1 : 2;
+                decreaseBtn.title = `Decrease ${skill}. Cost: (-${skillRankCost})`;
                 decreaseBtn.innerHTML = '<img src="./PNG/arrow_left.png" alt="Decrease">';
                 decreaseBtn.disabled = skillValue <= 0;
                 decreaseBtn.addEventListener('click', () => {
@@ -3432,11 +3449,11 @@
                 const increaseBtn = document.createElement('button');
                 increaseBtn.type = 'button';
                 increaseBtn.className = 'creation-skill-button';
-                increaseBtn.title = `Increase ${skill}. Cost: (+1)`;
+                increaseBtn.title = `Increase ${skill}. Cost: (+${skillRankCost})`;
                 increaseBtn.innerHTML = '<img src="./PNG/arrow.png" alt="Increase">';
-                increaseBtn.disabled = skillValue >= 4 || availablePoints <= 0;
+                increaseBtn.disabled = skillValue >= 4 || skillRankCost > availablePoints;
                 increaseBtn.addEventListener('click', () => {
-                    if (skillValue < 4 && (8 - getSkillSpend(creationDraft.skillValues || {})) > 0) {
+                    if (skillValue < 4 && skillRankCost <= (8 - getSkillSpend(creationDraft.skillValues || {}, creationDraft.skills || []))) {
                         creationDraft.skillValues[skill] = Math.min(4, skillValue + 1);
                         renderCreationStep();
                     }
@@ -3839,7 +3856,7 @@
             && getAttributeSpend(creationDraft.attributes) === 30
         );
         const validSkills = creationStep !== 4 || (
-            getSkillSpend(creationDraft.skillValues || {}) === 8
+            getSkillSpend(creationDraft.skillValues || {}, creationDraft.skills || []) === 8
             && Object.values(creationDraft.skillValues || {}).every(value => Number(value) >= 0 && Number(value) <= 4)
         );
         if (!requiredChoice || !validAttributes || !validSkills) {
