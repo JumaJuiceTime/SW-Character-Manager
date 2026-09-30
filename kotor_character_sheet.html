@@ -1612,7 +1612,7 @@
                 <div class="alignment-vertical">
                     <span class="alignment-label" style="color: #55ccff;">LIGHT</span>
                     <div class="alignment-slider-track">
-                        <input type="range" id="alignment" min="0" max="100" value="50" class="alignment-slider save-field" aria-label="Dark to light alignment">
+                        <input type="range" id="morality" min="-100" max="100" value="0" class="alignment-slider save-field" aria-label="Morality, Dark at minus 100 to Light at 100">
                     </div>
                     <span class="alignment-label" style="color: #ff5555;">DARK</span>
                 </div>
@@ -1882,7 +1882,7 @@
     const fields = document.querySelectorAll('.save-field');
     const saveIndicator = document.getElementById('save-indicator');
     const profilePanel = document.getElementById('profilePanel');
-    const alignmentSlider = document.getElementById('alignment');
+    const moralitySlider = document.getElementById('morality');
     const saberFormDropdown = document.getElementById('saberForm');
     const saberBonusBox = document.getElementById('saberBonus');
     const saberIconDiv = document.getElementById('saberIcon');
@@ -2323,13 +2323,13 @@
         updateCombatRatings();
     }
 
-    function updateAlignmentGlow() {
-        const value = parseInt(alignmentSlider.value, 10);
-        if (value > 55) {
-            const intensity = (value - 50) / 50; 
+    function updateMoralityGlow() {
+        const morality = Number.parseInt(moralitySlider.value, 10);
+        if (morality > 10) {
+            const intensity = morality / 100;
             profilePanel.style.setProperty('--alignment-glow', `rgba(0, 150, 255, ${0.1 + intensity * 0.25})`);
-        } else if (value < 45) {
-            const intensity = (50 - value) / 50;
+        } else if (morality < -10) {
+            const intensity = Math.abs(morality) / 100;
             profilePanel.style.setProperty('--alignment-glow', `rgba(255, 50, 50, ${0.1 + intensity * 0.25})`);
         } else {
             profilePanel.style.setProperty('--alignment-glow', 'rgba(0, 255, 204, 0.1)');
@@ -2415,6 +2415,14 @@
         character.classSkills = Array.isArray(character.classSkills) ? character.classSkills : [];
         if (character.profileEditingEnabled === undefined) character.profileEditingEnabled = true;
         character.data = character.data || {};
+        if (character.data.morality === undefined) {
+            const legacyAlignment = Number.parseInt(character.data.alignment, 10);
+            character.data.morality = Number.isFinite(legacyAlignment)
+                ? String(Math.max(-100, Math.min(100, legacyAlignment * 2 - 100)))
+                : '0';
+        }
+        character.data.morality = String(Math.max(-100, Math.min(100, Number.parseInt(character.data.morality, 10) || 0)));
+        delete character.data.alignment;
         if (character.data['char-background'] === undefined) character.data['char-background'] = 'outcast';
         if (character.data['char-species'] === undefined) character.data['char-species'] = 'human';
         if (character.data.forceLog === undefined) character.data.forceLog = character.data.featsLog || '';
@@ -3545,7 +3553,7 @@
                 'char-background': creationDraft.background,
                 'char-species': creationDraft.species,
                 'signature-ability': characterClass?.SignatureAbility || '',
-                alignment: '50',
+                morality: '0',
                 saberForm: '',
                 ...creationDraft.attributes,
                 'vit-cur': '20', 'vit-max': '20', 'force-cur': '0', 'force-max': '0', defense: '10',
@@ -3629,7 +3637,7 @@
         
         updateAllModifiers();
         applyOriginStatBonuses();
-        updateAlignmentGlow();
+        updateMoralityGlow();
         updateSaberFormTelemetry();
         renderEquipment();
         renderJournal();
@@ -3663,7 +3671,7 @@
         saveRegistryToStorage();
         
         updateAllModifiers();
-        updateAlignmentGlow();
+        updateMoralityGlow();
         
         saveIndicator.classList.add('visible');
         clearTimeout(saveTimeout);
